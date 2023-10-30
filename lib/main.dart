@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'util/global_function.dart';
 import 'views/home.dart';
 
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Biyer Juti',
       themeMode: ThemeMode.system,
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
