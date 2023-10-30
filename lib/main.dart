@@ -1,3 +1,4 @@
+import 'package:biyer_juti/views/profile.dart';
 import 'package:flutter/material.dart';
 import 'util/global_function.dart';
 import 'views/home.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
-      home: const Home(),
+      home: const Profile(),
     );
   }
 }
