@@ -1,4 +1,9 @@
+import 'package:biyer_juti/component/pagination.dart';
 import 'package:biyer_juti/component/profile_card.dart';
+import 'package:biyer_juti/theme/border_radius.dart';
+import 'package:biyer_juti/theme/colors.dart';
+import 'package:biyer_juti/theme/padding.dart';
+import 'package:biyer_juti/theme/shadow.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -12,33 +17,32 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffF5F6F7),
-      appBar: AppBar(),
-      body: ListView(
-        padding: EdgeInsets.all(16).copyWith(top: 32),
-        children: [Search(), ...List.generate(10, (index) => ProfileCard(index: index))],
-      ),
-    );
+        appBar: AppBar(),
+        body: ListView(padding: ThemePadding.p4.copyWith(top: ThemePadding.value * 8), children: [
+          search(),
+          ...List.generate(40, (index) => ProfileCard(index: index, online: index % 3 == 0, premium: index % 4 == 0, hearted: index % 2 == 0, match: index % 5 == 0)),
+          const Pagination(),
+        ]));
   }
 }
 
-Container Search() {
+Container search() {
   return Container(
-    padding: EdgeInsets.all(16),
-    margin: const EdgeInsets.only(bottom: 20),
-    decoration: BoxDecoration(color: Color(0xfff05455), borderRadius: BorderRadius.circular(24), boxShadow: [BoxShadow(color: Colors.black.withOpacity(.08), blurRadius: 20, offset: const Offset(0, 4))]),
+    padding: ThemePadding.p4,
+    margin: ThemePadding.pb5,
+    decoration: BoxDecoration(gradient: ThemeGradient.primary, borderRadius: ThemeBorderRadius.r6, boxShadow: ThemeShadow.primary),
     width: double.maxFinite,
     child: Column(
       children: [
-        Text("Find Your Life Partner", style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
-        Padding(padding: const EdgeInsets.all(16), child: Text("Select Preferred Age", style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold))),
+        const Text("Find Your Life Partner", style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+        Padding(padding: ThemePadding.p4, child: const Text("Select Preferred Age", style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold))),
         Slider(value: 0, onChanged: (value) {}, activeColor: Colors.white),
         ElevatedButton(
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.white, shape: StadiumBorder(), elevation: 0),
+            style: ElevatedButton.styleFrom(backgroundColor: Colors.white, shape: const StadiumBorder(), elevation: 0),
             onPressed: () {},
             child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              Text("Select Religion", style: TextStyle(color: Color(0xffA81B1B), fontSize: 14)),
-              Icon(Icons.arrow_drop_down_rounded, size: 20, color: Color(0xffA81B1B)),
+              Text("Select Religion", style: TextStyle(color: ThemeColor.secondary, fontSize: 14)),
+              Icon(Icons.arrow_drop_down_rounded, size: 20, color: ThemeColor.secondary),
             ])),
       ],
     ),

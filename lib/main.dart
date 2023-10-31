@@ -1,7 +1,6 @@
-import 'package:biyer_juti/views/profile.dart';
+import 'package:biyer_juti/views/heart_received.dart';
 import 'package:flutter/material.dart';
 import 'util/global_function.dart';
-import 'views/home.dart';
 
 void main() {
   initialConfiguration();
@@ -19,7 +18,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
-      home: const Profile(),
+      home: const HeartReceived(),
     );
   }
 }

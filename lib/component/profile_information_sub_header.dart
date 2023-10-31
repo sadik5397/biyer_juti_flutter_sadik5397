@@ -1,5 +1,7 @@
+import 'package:biyer_juti/theme/border_radius.dart';
+import 'package:biyer_juti/theme/colors.dart';
+import 'package:biyer_juti/theme/padding.dart';
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 
 class ProfileInformationSubHeader extends StatelessWidget {
   const ProfileInformationSubHeader({super.key, required this.label});
@@ -9,9 +11,9 @@ class ProfileInformationSubHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.symmetric(vertical: 12),
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 3),
-        decoration: BoxDecoration(color: HexColor("#DBA2A2"), borderRadius: BorderRadius.circular(16)),
-        child: Text(label, style: TextStyle(color: HexColor("#661010"), height: 0, fontSize: 12, fontWeight: FontWeight.bold)));
+        margin: ThemePadding.py3,
+        padding: ThemePadding.px6.copyWith(left: ThemePadding.value, right: ThemePadding.value),
+        decoration: BoxDecoration(color: ThemeColor.lightRed, borderRadius:ThemeBorderRadius.r4),
+        child: Text(label, style: TextStyle(color: ThemeColor.secondary, height: 0, fontSize: 12, fontWeight: FontWeight.bold)));
   }
 }

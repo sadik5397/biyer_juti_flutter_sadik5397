@@ -1,6 +1,7 @@
 import 'package:biyer_juti/component/give_heart_button.dart';
 import 'package:biyer_juti/component/profile_carosel_image.dart';
 import 'package:biyer_juti/component/profile_chip.dart';
+import 'package:biyer_juti/theme/padding.dart';
 import 'package:flutter/material.dart';
 import '../component/information_tile.dart';
 import '../component/information_tile_detail.dart';
@@ -20,11 +21,11 @@ class _ProfileState extends State<Profile> {
     return Scaffold(
         appBar: AppBar(),
         body: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32).copyWith(bottom: 96),
+            padding: EdgeInsets.fromLTRB(ThemePadding.value * 6, ThemePadding.value * 8, ThemePadding.value * 6, ThemePadding.value * 24),
             child: Column(children: [
               ProfileCarouselImage(images: List.generate(6, (index) => "https://picsum.photos/1024/1024?random=$index")),
               const ProfileChip(labels: ["27  Years old", "Dhaka, Bangladesh", "Private Service Holder"]),
-              GiveHeartButton(hearted: false, matched: true, onTap: () {}),
+              GiveHeartButton(hearted: false, matched: false, onTap: () {}),
               Column(children: [
                 ...personalInformation,
                 ...educationInformation,

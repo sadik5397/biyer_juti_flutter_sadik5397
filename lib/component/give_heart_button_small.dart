@@ -4,18 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../theme/colors.dart';
 
-class GiveHeartButton extends StatefulWidget {
-  const GiveHeartButton({super.key, required this.onTap, required this.hearted, required this.matched});
+class GiveHeartButtonSmall extends StatefulWidget {
+  const GiveHeartButtonSmall({super.key, required this.onTap, required this.hearted, required this.matched});
 
   final VoidCallback onTap;
   final bool hearted;
   final bool matched;
 
   @override
-  State<GiveHeartButton> createState() => _GiveHeartButtonState();
+  State<GiveHeartButtonSmall> createState() => _GiveHeartButtonSmallState();
 }
 
-class _GiveHeartButtonState extends State<GiveHeartButton> {
+class _GiveHeartButtonSmallState extends State<GiveHeartButtonSmall> {
   late bool hearted = widget.hearted;
   late bool matched = widget.matched;
 
@@ -23,33 +23,36 @@ class _GiveHeartButtonState extends State<GiveHeartButton> {
   Widget build(BuildContext context) {
     return matched
         ? Container(
+            margin: ThemePadding.py1 / 2,
+            width: 135,
             decoration: BoxDecoration(borderRadius: ThemeBorderRadius.r6, gradient: ThemeGradient.pink),
             child: Padding(
-                padding: ThemePadding.p3,
+                padding: ThemePadding.p2,
                 child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  Padding(padding: ThemePadding.pr2, child: const Icon(Icons.compare_arrows_rounded, size: 21, color: Colors.white)),
-                  const Text("Matched", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.white))
+                  Padding(padding: ThemePadding.pr2, child: const Icon(Icons.compare_arrows_rounded, size: 16, color: Colors.white)),
+                  const Text("Matched", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: Colors.white))
                 ])))
         : Container(
+            margin: ThemePadding.py1 / 2,
+            width: 135,
             decoration: BoxDecoration(
-                borderRadius: ThemeBorderRadius.r6,
+                borderRadius: ThemeBorderRadius.r5,
                 gradient: hearted ? null : ThemeGradient.red,
                 border: hearted ? Border.all(color: ThemeColor.lightPink, strokeAlign: BorderSide.strokeAlignOutside) : null),
             child: Material(
                 color: Colors.transparent,
                 child: InkWell(
-                    borderRadius: ThemeBorderRadius.r6,
+                    borderRadius: ThemeBorderRadius.r5,
                     onTap: () {
                       setState(() => hearted = !hearted);
                       widget.onTap.call();
                     },
                     child: Padding(
-                        padding: ThemePadding.p3,
+                        padding: ThemePadding.p2,
                         child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                           Padding(
-                              padding: ThemePadding.pr2,
-                              child: FaIcon(hearted ? FontAwesomeIcons.heart : FontAwesomeIcons.solidHeart, size: 21, color: hearted ? ThemeColor.lightPink : Colors.white)),
-                          Text(hearted ? "Heart Given" : "Give Heart", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: hearted ? ThemeColor.lightPink : Colors.white))
+                              padding: ThemePadding.pr2, child: FaIcon(hearted ? FontAwesomeIcons.heart : FontAwesomeIcons.solidHeart, size: 16, color: hearted ? ThemeColor.lightPink : Colors.white)),
+                          Text(hearted ? "Heart Given" : "Give Heart", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: hearted ? ThemeColor.lightPink : Colors.white))
                         ])))));
   }
 }

@@ -1,0 +1,25 @@
+import 'package:biyer_juti/component/heart_stat.dart';
+import 'package:biyer_juti/component/pagination.dart';
+import 'package:biyer_juti/component/profile_card.dart';
+import 'package:biyer_juti/theme/padding.dart';
+import 'package:flutter/material.dart';
+
+class HeartReceived extends StatefulWidget {
+  const HeartReceived({Key? key}) : super(key: key);
+
+  @override
+  State<HeartReceived> createState() => _HeartReceivedState();
+}
+
+class _HeartReceivedState extends State<HeartReceived> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(),
+        body: ListView(padding: ThemePadding.p4.copyWith(top: ThemePadding.value * 8), children: [
+          const HeartStat(heartReceived: 999, heartGiven: 99),
+          ...List.generate(40, (index) => ProfileCard(index: index, online: index % 3 == 0, premium: index % 4 == 0, hearted: index % 2 == 0, match: index % 5 == 0)),
+          const Pagination(),
+        ]));
+  }
+}

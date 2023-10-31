@@ -1,5 +1,6 @@
+import 'package:biyer_juti/theme/colors.dart';
+import 'package:biyer_juti/theme/padding.dart';
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 
 class SectionHeader extends StatelessWidget {
   const SectionHeader({super.key, required this.label});
@@ -8,6 +9,6 @@ class SectionHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(padding: const EdgeInsets.all(16).copyWith(top: 48), child: Text(label, style: TextStyle(color: HexColor("#661010"), fontWeight: FontWeight.bold, fontSize: 24)));
+    return Padding(padding: ThemePadding.p4.copyWith(top: ThemePadding.value * 12), child: Text(label, style: TextStyle(color: ThemeColor.secondary, fontWeight: FontWeight.bold, fontSize: 24)));
   }
 }

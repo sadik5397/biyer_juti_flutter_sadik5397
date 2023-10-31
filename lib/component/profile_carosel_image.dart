@@ -1,3 +1,4 @@
+import 'package:biyer_juti/theme/border_radius.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ class ProfileCarouselImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(24),
+      borderRadius: ThemeBorderRadius.r6,
       child: CarouselSlider.builder(
           options: CarouselOptions(
               height: 300,

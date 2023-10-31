@@ -1,84 +1,61 @@
+import 'package:biyer_juti/theme/border_radius.dart';
+import 'package:biyer_juti/theme/colors.dart';
+import 'package:biyer_juti/theme/gap.dart';
+import 'package:biyer_juti/theme/padding.dart';
+import 'package:biyer_juti/theme/shadow.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:hexcolor/hexcolor.dart';
 
-Container ProfileCard({required int index}) {
-  return Container(
-    padding: EdgeInsets.all(16),
-    margin: const EdgeInsets.only(bottom: 20),
-    decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(24), boxShadow: [BoxShadow(color: Colors.black.withOpacity(.08), blurRadius: 20, offset: const Offset(0, 4))]),
-    width: double.maxFinite,
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        ClipRRect(borderRadius: BorderRadius.circular(12), child: CachedNetworkImage(imageUrl: "https://picsum.photos/400/410?random=$index", width: 144, height: 160, fit: BoxFit.cover)),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            Text("BJT 205011203", style: TextStyle(color: Color(0xff661010), fontWeight: FontWeight.bold, fontSize: 18)),
-            SizedBox(height: 6),
-            ElevatedButton(
-                style: ElevatedButton.styleFrom(backgroundColor: Color(0xffB74242), shape: StadiumBorder(), elevation: 0),
-                onPressed: () {},
-                child: Row(children: [
-                  Padding(padding: const EdgeInsets.only(right: 8), child: Icon(Icons.favorite_border_rounded, size: 18)),
-                  Text("Give Heart", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15))
-                ])),
-            SizedBox(height: 9),
-            Text("Service Holder", style: TextStyle(color: Color(0xffB74242), fontWeight: FontWeight.normal, fontSize: 15)),
-            SizedBox(height: 6),
-            Text("Religion: Islam; Sunni", style: TextStyle(color: Color(0xffB74242), fontWeight: FontWeight.normal, fontSize: 15)),
-            SizedBox(height: 6),
-            Text("View Full Profile", style: TextStyle(color: Color(0xffB74242), fontWeight: FontWeight.bold, fontSize: 15, decoration: TextDecoration.underline)),
-          ],
-        )
-      ],
-    ),
-  );
+import 'give_heart_button_small.dart';
+
+class ProfileCard extends StatelessWidget {
+  const ProfileCard({super.key, required this.index, required this.online, required this.premium, required this.hearted, required this.match});
+
+  final int index;
+  final bool online;
+  final bool premium;
+  final bool hearted;
+  final bool match;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        margin: ThemePadding.pb5,
+        decoration: BoxDecoration(gradient: online ? ThemeGradient.lite : null, color: online ? null : Colors.white, borderRadius: ThemeBorderRadius.r6 * 1.15, boxShadow: ThemeShadow.primary),
+        child: Container(
+            margin: ThemePadding.p1,
+            padding: ThemePadding.p4,
+            decoration: BoxDecoration(color: Colors.white, borderRadius: ThemeBorderRadius.r6),
+            width: double.maxFinite,
+            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+              ClipRRect(
+                  borderRadius: ThemeBorderRadius.r3,
+                  child: Stack(children: [
+                    CachedNetworkImage(imageUrl: "https://picsum.photos/400/410?random=$index", width: 144, height: 160, fit: BoxFit.cover),
+                    Positioned.fill(child: Container(decoration: BoxDecoration(gradient: ThemeGradient.semiTransparent))),
+                    if(premium) SvgPicture.asset("assets/svg/gold_crown.svg", width: 48, height: 48),
+                    Positioned.fill(
+                        child: Padding(
+                            padding: ThemePadding.pb4,
+                            child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
+                              Text("87% Match", style: TextStyle(fontSize: 12, fontWeight: FontWeight.normal, color: HexColor("#FC6161"))),
+                              Gap.gy1,
+                              const Text("25 Years | Dhaka", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white))
+                            ])))
+                  ])),
+              Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
+                Text("BJT 205011203", style: TextStyle(color: ThemeColor.secondary, fontWeight: FontWeight.bold, fontSize: 18)),
+                Gap.gy2,
+                GiveHeartButtonSmall(onTap: () {}, hearted: hearted, matched: match),
+                Gap.gy3,
+                Text("Service Holder", style: TextStyle(color: ThemeColor.primary, fontWeight: FontWeight.normal, fontSize: 15)),
+                Gap.gy2,
+                Text("Religion: Islam; Sunni", style: TextStyle(color: ThemeColor.primary, fontWeight: FontWeight.normal, fontSize: 15)),
+                Gap.gy2,
+                Text("View Full Profile", style: TextStyle(color: ThemeColor.primary, fontWeight: FontWeight.normal, fontSize: 15, decoration: TextDecoration.underline))
+              ])
+            ])));
+  }
 }
-//
-//
-// import 'package:cached_network_image/cached_network_image.dart';
-// import 'package:flutter/material.dart';
-//
-// ElevatedButton ProfileCard({required int index}) {
-//   return ElevatedButton(
-//     onPressed: () {},
-//     style: ElevatedButton.styleFrom(
-//         padding: EdgeInsets.all(16),
-//         backgroundColor: Colors.white,
-//         elevation: 0,
-//         shadowColor: Colors.redAccent,
-//         splashFactory: InkRipple.splashFactory,
-//         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24))),
-//     // padding:
-//     // margin: const EdgeInsets.only(bottom: 20),
-//     // decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(24), boxShadow: [BoxShadow(color: Colors.black.withOpacity(.08), blurRadius: 20, offset: const Offset(0, 4))]),
-//     // width: double.maxFinite,
-//     child: Row(
-//       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//       children: [
-//         ClipRRect(borderRadius: BorderRadius.circular(12), child: CachedNetworkImage(imageUrl: "https://picsum.photos/400/400?random=$index", width: 144, height: 160, fit: BoxFit.cover)),
-//         Column(
-//           crossAxisAlignment: CrossAxisAlignment.end,
-//           children: [
-//             Text("BJT 205011203", style: TextStyle(color: Color(0xff661010), fontWeight: FontWeight.bold, fontSize: 18)),
-//             SizedBox(height: 6),
-//             ElevatedButton(
-//                 style: ElevatedButton.styleFrom(backgroundColor: Color(0xffB74242), shape: StadiumBorder(), elevation: 0),
-//                 onPressed: () {},
-//                 child: Row(children: [
-//                   Padding(padding: const EdgeInsets.only(right: 8), child: Icon(Icons.favorite_border_rounded, size: 18)),
-//                   Text("Give Heart", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15))
-//                 ])),
-//             SizedBox(height: 9),
-//             Text("Service Holder", style: TextStyle(color: Color(0xffB74242), fontWeight: FontWeight.normal, fontSize: 15)),
-//             SizedBox(height: 6),
-//             Text("Religion: Islam; Sunni", style: TextStyle(color: Color(0xffB74242), fontWeight: FontWeight.normal, fontSize: 15)),
-//             SizedBox(height: 6),
-//             Text("View Full Profile", style: TextStyle(color: Color(0xffB74242), fontWeight: FontWeight.bold, fontSize: 15, decoration: TextDecoration.underline)),
-//           ],
-//         )
-//       ],
-//     ),
-//   );
-// }
