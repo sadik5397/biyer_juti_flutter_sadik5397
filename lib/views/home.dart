@@ -3,9 +3,11 @@ import 'package:biyer_juti/component/profile_card.dart';
 import 'package:biyer_juti/theme/colors.dart';
 import 'package:biyer_juti/theme/gap.dart';
 import 'package:biyer_juti/theme/padding.dart';
+import 'package:biyer_juti/util/dummy_daya.dart';
 import 'package:flutter/material.dart';
 
 import '../component/profile_search.dart';
+import '../util/global_function.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -24,7 +26,16 @@ class _HomeState extends State<Home> {
           Text("Search Results", textAlign: TextAlign.center, style: TextStyle(color: ThemeColor.secondary, fontSize: 16, fontWeight: FontWeight.bold)),
           Gap.gy4,
           const Pagination(),
-          ...List.generate(40, (index) => ProfileCard(index: index, online: index % 3 == 0, premium: index % 4 == 0, hearted: index % 2 == 0, match: index % 5 == 0)),
+          ...List.generate(
+              40,
+              (index) => ProfileCard(
+                    index: index,
+                    online: index % 3 == 0,
+                    premium: index % 4 == 0,
+                    hearted: index % 2 == 0,
+                    match: index % 5 == 0,
+                    requestState: DummyData.currentRequestState[randomNumber(DummyData.currentRequestState.length)],
+                  )),
           const Pagination(),
         ]));
   }
