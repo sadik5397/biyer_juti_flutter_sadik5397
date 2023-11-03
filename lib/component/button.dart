@@ -16,11 +16,10 @@ class ThemeButton {
                     borderRadius: ThemeBorderRadius.r6,
                     onTap: () => onTap.call(),
                     child: Padding(
-                        padding: ThemePadding.p3,
-                        child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                          if (icon != null) Padding(padding: ThemePadding.pr2, child: FaIcon(icon, size: 12, color: dark ? Colors.white : ThemeColor.primary)),
-                          Text(title, style: TextStyle(fontSize: 14, color: dark ? Colors.white : ThemeColor.primary))
-                        ]))))));
+                        padding: ThemePadding.p1 * 2.5,
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [if (icon != null) Padding(padding: ThemePadding.pr2, child: FaIcon(icon, size: 12, color: dark ? Colors.white : ThemeColor.primary)), Text(title, style: TextStyle(fontSize: 14, color: dark ? Colors.white : ThemeColor.primary))]))))));
   }
 
   static Expanded expandedPill({EdgeInsets? padding, required String title, IconData? icon, required VoidCallback onTap, bool dark = false}) {

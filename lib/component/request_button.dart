@@ -51,8 +51,8 @@ class RequestButton extends StatelessWidget {
                                               ? "Pay Now for Mobile Number"
                                               : mobileNumber ?? "",
                               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: state == RequestState.requestPending || state == RequestState.contactInfo ? ThemeColor.primary : Colors.white))))))),
-      if (state == RequestState.contactInfo) FloatingActionButton(onPressed: () {}, mini: true, elevation: 0, backgroundColor: ThemeColor.primary, child: const FaIcon(FontAwesomeIcons.phone, size: 16)),
-      if (state == RequestState.contactInfo) FloatingActionButton(onPressed: () {}, mini: true, elevation: 0, backgroundColor: ThemeColor.primary, child: const FaIcon(FontAwesomeIcons.copy, size: 18)),
+      if (state == RequestState.contactInfo) FloatingActionButton(shape: const CircleBorder(), onPressed: () {}, mini: true, elevation: 0, backgroundColor: ThemeColor.primary, child: const FaIcon(FontAwesomeIcons.phone, size: 16, color: Colors.white)),
+      if (state == RequestState.contactInfo) FloatingActionButton(shape: const CircleBorder(), onPressed: () {}, mini: true, elevation: 0, backgroundColor: ThemeColor.primary, child: const FaIcon(FontAwesomeIcons.copy, size: 18, color: Colors.white)),
     ]);
   }
 }

@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-import 'RequestButton.dart';
+import 'request_button.dart';
 import 'give_heart_button_small.dart';
 
 class ProfileCard extends StatelessWidget {

@@ -30,7 +30,7 @@ class _ProfileSearchState extends State<ProfileSearch> {
       child: Stack(
           children: [
         Container(
-            padding: ThemePadding.p6,
+            padding: ThemePadding.p6.copyWith(left: ThemePadding.value * 4, right: ThemePadding.value * 4),
             margin: ThemePadding.pb5,
             decoration: BoxDecoration(gradient: ThemeGradient.primary, borderRadius: ThemeBorderRadius.r6, boxShadow: ThemeShadow.primary, border: Border.all(width: 2, color: Colors.black.withOpacity(.1))),
             width: double.maxFinite,
@@ -67,7 +67,7 @@ class _ProfileSearchState extends State<ProfileSearch> {
                   dark: showAdvanced)
             ])),
         Container(
-            padding: ThemePadding.p6,
+            padding: ThemePadding.p6.copyWith(left: ThemePadding.value * 4, right: ThemePadding.value * 4),
             margin: ThemePadding.pb5,
             decoration:
                 BoxDecoration(gradient: ThemeGradient.advancedSearch, borderRadius: ThemeBorderRadius.r6, boxShadow: ThemeShadow.primary, border: Border.all(width: 2, color: Colors.black.withOpacity(.1))),

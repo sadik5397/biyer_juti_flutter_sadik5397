@@ -1,4 +1,4 @@
-import 'package:biyer_juti/component/RequestButton.dart';
+import 'package:biyer_juti/component/request_button.dart';
 
 class DummyData {
   static List<RequestState> currentRequestState = [

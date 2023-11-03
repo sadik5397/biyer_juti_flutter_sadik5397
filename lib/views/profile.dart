@@ -3,6 +3,7 @@ import 'package:biyer_juti/component/profile_carosel_image.dart';
 import 'package:biyer_juti/component/profile_chip.dart';
 import 'package:biyer_juti/theme/padding.dart';
 import 'package:flutter/material.dart';
+import '../component/app_bar.dart';
 import '../component/information_tile.dart';
 import '../component/information_tile_detail.dart';
 import '../component/profile_information_sub_header.dart';
@@ -19,7 +20,7 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(),
+        appBar: ThemeAppBar.primary,
         body: SingleChildScrollView(
             padding: EdgeInsets.fromLTRB(ThemePadding.value * 6, ThemePadding.value * 8, ThemePadding.value * 6, ThemePadding.value * 24),
             child: Column(children: [

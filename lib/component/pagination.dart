@@ -18,6 +18,7 @@ class Pagination extends StatelessWidget {
           pageNoButton(label: "<", onTap: () {}, active: true),
           pageNoButton(label: "1", onTap: () {}),
           pageNoButton(label: "2", onTap: () {}, active: true),
+          pageNoButton(label: "3", onTap: () {}),
           jumpToButton(onTap: () {}),
           totalPage(totalPage: 124),
           pageNoButton(label: ">", onTap: () {}, active: true),
@@ -30,6 +31,7 @@ class Pagination extends StatelessWidget {
       child: ElevatedButton(
           onPressed: onTap,
           style: ElevatedButton.styleFrom(
+            padding: EdgeInsets.zero,
               shape: RoundedRectangleBorder(borderRadius: ThemeBorderRadius.r1, side: BorderSide(color: active ? Colors.transparent : ThemeColor.secondary.withOpacity(.5), width: 1.5)),
               minimumSize: const Size(40, 40),
               backgroundColor: active ? ThemeColor.secondary : Colors.white,
@@ -45,6 +47,7 @@ class Pagination extends StatelessWidget {
         child: ElevatedButton(
             onPressed: onTap,
             style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.zero,
                 shape: RoundedRectangleBorder(borderRadius: ThemeBorderRadius.r1, side: BorderSide(color: active ? Colors.transparent : ThemeColor.secondary.withOpacity(.5), width: 1.5)),
                 minimumSize: const Size(40, 40),
                 backgroundColor: active ? ThemeColor.secondary : Colors.white,
