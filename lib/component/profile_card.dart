@@ -10,8 +10,12 @@ import 'package:hexcolor/hexcolor.dart';
 
 import 'give_heart_button_small.dart';
 
+enum RequestState { sadik, adib, ujma }
+
 class ProfileCard extends StatelessWidget {
   const ProfileCard({super.key, required this.index, required this.online, required this.premium, required this.hearted, required this.match});
+
+  static const requestState = {RequestState.sadik: 'Sadik', RequestState.adib: 'Adib', RequestState.ujma: 'Ujma'};
 
   final int index;
   final bool online;
@@ -35,7 +39,7 @@ class ProfileCard extends StatelessWidget {
                   child: Stack(children: [
                     CachedNetworkImage(imageUrl: "https://picsum.photos/400/410?random=$index", width: 144, height: 160, fit: BoxFit.cover),
                     Positioned.fill(child: Container(decoration: BoxDecoration(gradient: ThemeGradient.semiTransparent))),
-                    if(premium) SvgPicture.asset("assets/svg/gold_crown.svg", width: 48, height: 48),
+                    if (premium) SvgPicture.asset("assets/svg/gold_crown.svg", width: 48, height: 48),
                     Positioned.fill(
                         child: Padding(
                             padding: ThemePadding.pb4,
@@ -46,6 +50,7 @@ class ProfileCard extends StatelessWidget {
                             ])))
                   ])),
               Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
+                // Text("Lekha: ${requestState[state]}"),
                 Text("BJT 205011203", style: TextStyle(color: ThemeColor.secondary, fontWeight: FontWeight.bold, fontSize: 18)),
                 Gap.gy2,
                 GiveHeartButtonSmall(onTap: () {}, hearted: hearted, matched: match),
