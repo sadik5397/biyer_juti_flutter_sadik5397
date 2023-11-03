@@ -26,5 +26,8 @@ class Gap {
   //region misc
   static SizedBox none = const SizedBox();
   static Expanded infinity = const Expanded(child: SizedBox());
+
+  static SizedBox infinityX = const SizedBox(width: double.maxFinite);
+  static SizedBox infinityY = const SizedBox(height: double.maxFinite);
   //endregion
 }

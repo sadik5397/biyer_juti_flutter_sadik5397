@@ -10,6 +10,7 @@ class ThemeColor {
   static Color backgroundLight = HexColor("#DBA2A2");
   static Color backgroundDark = HexColor("#303030");
   static Color lightRedBackground = HexColor("#fff2f2");
+  static Color yellow = HexColor("#FFDB21");
 }
 
 class ThemeGradient {
@@ -17,6 +18,7 @@ class ThemeGradient {
   static LinearGradient red = LinearGradient(colors: [HexColor("#D96565"), HexColor("#B91A1A")], begin: Alignment.centerLeft, end: Alignment.centerRight);
   static LinearGradient pink = LinearGradient(colors: [HexColor("#D4488B"), HexColor("#FF2876")], begin: Alignment.centerLeft, end: Alignment.centerRight);
   static LinearGradient lite = LinearGradient(colors: [HexColor("#D8D3D3"), HexColor("#EE6C6C")], begin: Alignment.centerLeft, end: Alignment.centerRight);
+  static LinearGradient advancedSearch = LinearGradient(colors: [HexColor("#dd6161"), HexColor("#ea8686")], begin: Alignment.topLeft, end: Alignment.bottomRight);
   static LinearGradient gold = LinearGradient(colors: [HexColor("#FFFFFF"), HexColor("#e0dbc0"), HexColor("#C7BE8E")], begin: Alignment.topCenter, end: Alignment.bottomCenter);
   static LinearGradient semiTransparent = LinearGradient(colors: [Colors.transparent, HexColor("#181717").withOpacity(.7)], begin: Alignment.topCenter, end: Alignment.bottomCenter);
 }

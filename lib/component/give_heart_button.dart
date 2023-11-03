@@ -2,6 +2,7 @@ import 'package:biyer_juti/theme/border_radius.dart';
 import 'package:biyer_juti/theme/padding.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import '../theme/colors.dart';
 
 class GiveHeartButton extends StatefulWidget {
@@ -27,14 +28,12 @@ class _GiveHeartButtonState extends State<GiveHeartButton> {
             child: Padding(
                 padding: ThemePadding.p3,
                 child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  Padding(padding: ThemePadding.pr2, child: const Icon(Icons.compare_arrows_rounded, size: 21, color: Colors.white)),
+                  Padding(padding: ThemePadding.pr2, child: const FaIcon(FontAwesomeIcons.codeCompare, size: 21, color: Colors.white)),
                   const Text("Matched", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.white))
                 ])))
         : Container(
             decoration: BoxDecoration(
-                borderRadius: ThemeBorderRadius.r6,
-                gradient: hearted ? null : ThemeGradient.red,
-                border: hearted ? Border.all(color: ThemeColor.lightPink, strokeAlign: BorderSide.strokeAlignOutside) : null),
+                borderRadius: ThemeBorderRadius.r6, gradient: hearted ? null : ThemeGradient.red, border: hearted ? Border.all(color: ThemeColor.lightPink, strokeAlign: BorderSide.strokeAlignOutside) : null),
             child: Material(
                 color: Colors.transparent,
                 child: InkWell(
@@ -46,9 +45,7 @@ class _GiveHeartButtonState extends State<GiveHeartButton> {
                     child: Padding(
                         padding: ThemePadding.p3,
                         child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                          Padding(
-                              padding: ThemePadding.pr2,
-                              child: FaIcon(hearted ? FontAwesomeIcons.heart : FontAwesomeIcons.solidHeart, size: 21, color: hearted ? ThemeColor.lightPink : Colors.white)),
+                          Padding(padding: ThemePadding.pr2, child: FaIcon(hearted ? FontAwesomeIcons.heart : FontAwesomeIcons.solidHeart, size: 21, color: hearted ? ThemeColor.lightPink : Colors.white)),
                           Text(hearted ? "Heart Given" : "Give Heart", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: hearted ? ThemeColor.lightPink : Colors.white))
                         ])))));
   }
