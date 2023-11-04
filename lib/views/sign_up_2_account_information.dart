@@ -6,6 +6,8 @@ import 'package:biyer_juti/component/text_field.dart';
 import 'package:biyer_juti/theme/colors.dart';
 import 'package:biyer_juti/theme/gap.dart';
 import 'package:biyer_juti/theme/padding.dart';
+import 'package:biyer_juti/util/page_navigation.dart';
+import 'package:biyer_juti/views/home.dart';
 import 'package:flutter/material.dart';
 
 class SignUp2UserInformation extends StatefulWidget {
@@ -55,7 +57,7 @@ class _SignUp2UserInformationState extends State<SignUp2UserInformation> {
                           autofillHints: AutofillHints.password,
                           showPasswordPressed: () => setState(() => shoConfirmPassword = !shoConfirmPassword)),
                       Gap.infinity,
-                      Padding(padding: ThemePadding.px6 * 4, child: ThemeButton.primary(title: "NEXT", onTap: () {}, color: ThemeColor.primary)),
+                      Padding(padding: ThemePadding.px6 * 4, child: ThemeButton.primary(title: "NEXT", onTap: () => route(context, const Home()), color: ThemeColor.primary)),
                       const Progress(progress: 3, outOf: 6),
                       Gap.gy6
                     ])))));
