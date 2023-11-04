@@ -38,7 +38,7 @@ class ProfileCard extends StatelessWidget {
                     borderRadius: ThemeBorderRadius.r3,
                     child: Stack(children: [
                       CachedNetworkImage(imageUrl: "https://picsum.photos/400/410?random=$index", width: 144, height: 160, fit: BoxFit.cover),
-                      Positioned.fill(child: Container(decoration: BoxDecoration(gradient: ThemeGradient.semiTransparent))),
+                      Positioned.fill(child: Container(decoration: BoxDecoration(gradient: ThemeGradient.semiTransparentBlack))),
                       if (premium) SvgPicture.asset("assets/svg/gold_crown.svg", width: 48, height: 48),
                       Positioned.fill(
                           child: Padding(

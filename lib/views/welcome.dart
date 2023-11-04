@@ -1,0 +1,28 @@
+import 'package:biyer_juti/component/button.dart';
+import 'package:biyer_juti/theme/colors.dart';
+import 'package:biyer_juti/theme/padding.dart';
+import 'package:flutter/material.dart';
+
+class Welcome extends StatefulWidget {
+  const Welcome({super.key});
+
+  @override
+  State<Welcome> createState() => _WelcomeState();
+}
+
+class _WelcomeState extends State<Welcome> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Container(
+            decoration: const BoxDecoration(image: DecorationImage(image: AssetImage("assets/biyer_juti_backdrop.jpg"), fit: BoxFit.cover)),
+            child: Container(
+                padding: ThemePadding.p4,
+                decoration: BoxDecoration(gradient: ThemeGradient.semiTransparentWhite),
+                child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
+                  ThemeButton.primary(title: "Sign In", onTap: () {}, color: Colors.white, darkText: true),
+                  ThemeButton.primary(title: "Create Account", onTap: () {}, gradient: ThemeGradient.primary),
+                  Padding(padding: ThemePadding.p4, child: Image.asset("assets/logo-wide.png", height: 75))
+                ]))));
+  }
+}
