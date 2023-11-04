@@ -1,8 +1,10 @@
 import 'package:biyer_juti/theme/border_radius.dart';
 import 'package:biyer_juti/theme/padding.dart';
+import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
+
 import '../theme/colors.dart';
 
 enum RequestState { none, requestContact, requestPending, acceptContact, payNowForMobileNumber, contactInfo }
@@ -50,9 +52,13 @@ class RequestButton extends StatelessWidget {
                                           : state == RequestState.payNowForMobileNumber
                                               ? "Pay Now for Mobile Number"
                                               : mobileNumber ?? "",
-                              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: state == RequestState.requestPending || state == RequestState.contactInfo ? ThemeColor.primary : Colors.white))))))),
-      if (state == RequestState.contactInfo) FloatingActionButton(shape: const CircleBorder(), onPressed: () {}, mini: true, elevation: 0, backgroundColor: ThemeColor.primary, child: const FaIcon(FontAwesomeIcons.phone, size: 16, color: Colors.white)),
-      if (state == RequestState.contactInfo) FloatingActionButton(shape: const CircleBorder(), onPressed: () {}, mini: true, elevation: 0, backgroundColor: ThemeColor.primary, child: const FaIcon(FontAwesomeIcons.copy, size: 18, color: Colors.white)),
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 14, color: state == RequestState.requestPending || state == RequestState.contactInfo ? ThemeColor.primary : Colors.white))))))),
+      if (state == RequestState.contactInfo)
+        FloatingActionButton(
+            shape: const CircleBorder(), onPressed: () {}, mini: true, elevation: 0, backgroundColor: ThemeColor.primary, child: const FaIcon(FeatherIcons.phone, size: 16, color: Colors.white)),
+      if (state == RequestState.contactInfo)
+        FloatingActionButton(shape: const CircleBorder(), onPressed: () {}, mini: true, elevation: 0, backgroundColor: ThemeColor.primary, child: const FaIcon(FeatherIcons.copy, size: 18, color: Colors.white)),
     ]);
   }
 }

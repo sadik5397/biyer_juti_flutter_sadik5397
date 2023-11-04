@@ -1,3 +1,4 @@
+import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -55,9 +56,9 @@ class _ProfileSearchState extends State<ProfileSearch> {
                 ThemeDropDownButton.expandedSearch(title: "Marital Status", options: ["a", "b", "c"], value: "a", onChanged: (value) {})
               ]),
               Row(children: [
-                ThemeButton.expandedPill(title: "Reset Search", onTap: () {}, icon: FontAwesomeIcons.rotateLeft),
+                ThemeButton.expandedPill(title: "Reset Search", onTap: () {}, icon: FeatherIcons.refreshCw),
                 Gap.gx2,
-                ThemeButton.expandedPill(title: "Search", onTap: () {}, icon: FontAwesomeIcons.magnifyingGlass, dark: true),
+                ThemeButton.expandedPill(title: "Search", onTap: () {}, icon: FeatherIcons.search, dark: true),
               ]),
               ThemeButton.pill(
                   title: "Advanced Search Filters",
@@ -115,9 +116,9 @@ class _ProfileSearchState extends State<ProfileSearch> {
                       ThemeDropDownButton.expandedSearch(title: "District", options: ["a", "b", "c"], value: "a", onChanged: (value) {}),
                     ]),
                     Row(children: [
-                      ThemeButton.expandedPill(title: "Reset Search", onTap: () {}, icon: FontAwesomeIcons.rotateLeft),
+                      ThemeButton.expandedPill(title: "Reset Search", onTap: () {}, icon: FeatherIcons.refreshCw),
                       Gap.gx2,
-                      ThemeButton.expandedPill(title: "Adv. Search", onTap: () {}, icon: FontAwesomeIcons.magnifyingGlass, dark: true),
+                      ThemeButton.expandedPill(title: "Adv. Search", onTap: () {}, icon: FeatherIcons.search, dark: true),
                     ]),
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                       const Text("Lock Search Filter", style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold)),

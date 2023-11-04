@@ -27,7 +27,7 @@ class _HeartReceivedState extends State<HeartReceived> {
           ...List.generate(
               40,
               (index) => ProfileCard(
-                  index: index,
+                  id: index,
                   online: index % 3 == 0,
                   premium: index % 4 == 0,
                   hearted: index % 2 == 0,

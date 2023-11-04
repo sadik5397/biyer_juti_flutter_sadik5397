@@ -17,9 +17,9 @@ class Hyperlink extends StatelessWidget {
               color: Colors.transparent,
               child: InkWell(
                   borderRadius: borderRadius ?? ThemeBorderRadius.r4,
-                  hoverColor: Colors.black.withOpacity(inkIntensity ?? .15),
-                  highlightColor: Colors.black.withOpacity(inkIntensity ?? .15),
-                  splashColor: Colors.black.withOpacity(inkIntensity ?? .15),
+                  hoverColor: Colors.black.withOpacity(inkIntensity ?? .075),
+                  highlightColor: Colors.black.withOpacity(inkIntensity ?? .075),
+                  splashColor: Colors.black.withOpacity(inkIntensity ?? .075),
                   onTap: onTap)))
     ]);
   }

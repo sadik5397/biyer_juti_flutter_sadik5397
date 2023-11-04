@@ -10,7 +10,7 @@ class ProfileChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
+        scrollDirection: Axis.horizontal,
         child: Padding(
             padding: ThemePadding.py4,
             child: Row(
@@ -18,7 +18,11 @@ class ProfileChip extends StatelessWidget {
                     labels.length,
                     (index) => Padding(
                           padding: ThemePadding.px1,
-                          child: Chip(label: Text(labels[index], style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold)), backgroundColor: ThemeColor.secondary),
+                          child: Chip(
+                              elevation: 0,
+                              shape: const StadiumBorder(side: BorderSide(color: Colors.transparent, width: 0)),
+                              label: Text(labels[index], style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold)),
+                              backgroundColor: ThemeColor.secondary),
                         )))));
   }
 }

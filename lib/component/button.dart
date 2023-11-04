@@ -20,7 +20,7 @@ class ThemeButton {
                     child: Padding(
                         padding: ThemePadding.p1 * 2.5,
                         child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                          if (icon != null) Padding(padding: ThemePadding.pr2, child: FaIcon(icon, size: 12, color: dark ? Colors.white : ThemeColor.primary)),
+                          if (icon != null) Padding(padding: ThemePadding.pr2, child: FaIcon(icon, size: 14, color: dark ? Colors.white : ThemeColor.primary)),
                           Text(title, style: TextStyle(fontSize: 14, color: dark ? Colors.white : ThemeColor.primary))
                         ]))))));
   }
