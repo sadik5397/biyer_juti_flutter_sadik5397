@@ -16,7 +16,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Biyer Juti',
-      themeMode: ThemeMode.system,
+      // themeMode: ThemeMode.system,
+      themeMode: ThemeMode.light,
       theme: ThemeData.light(useMaterial3: true),
       darkTheme: ThemeData.dark(useMaterial3: true),
       home: const Welcome(),
