@@ -1,4 +1,3 @@
-import 'package:biyer_juti/component/give_heart_button.dart';
 import 'package:biyer_juti/theme/border_radius.dart';
 import 'package:biyer_juti/theme/colors.dart';
 import 'package:biyer_juti/theme/gap.dart';
@@ -9,8 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-import 'request_button.dart';
 import 'give_heart_button_small.dart';
+import 'request_button.dart';
 
 class ProfileCard extends StatelessWidget {
   const ProfileCard({super.key, required this.index, required this.online, required this.premium, required this.hearted, required this.match, this.requestState = RequestState.none});
@@ -43,9 +42,11 @@ class ProfileCard extends StatelessWidget {
                       Positioned.fill(
                           child: Padding(
                               padding: ThemePadding.pb4,
-                              child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [Text("87% Match", style: TextStyle(fontSize: 12, fontWeight: FontWeight.normal, color: HexColor("#FC6161"))), Gap.gy1, const Text("25 Years | Dhaka", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white))])))
+                              child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
+                                Text("87% Match", style: TextStyle(fontSize: 12, fontWeight: FontWeight.normal, color: HexColor("#FC6161"))),
+                                Gap.gy1,
+                                const Text("25 Years | Dhaka", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white))
+                              ])))
                     ])),
                 Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
                   Text("BJT 205011203", style: TextStyle(color: ThemeColor.secondary, fontWeight: FontWeight.bold, fontSize: 18)),
@@ -59,7 +60,14 @@ class ProfileCard extends StatelessWidget {
                   Text("View Full Profile", style: TextStyle(color: ThemeColor.primary, fontWeight: FontWeight.normal, fontSize: 15, decoration: TextDecoration.underline))
                 ])
               ]),
-              if (requestState != RequestState.none) Padding(padding: ThemePadding.pt4, child: RequestButton(onTap: () {}, state: requestState, mobileNumber: "01515644470",))
+              if (requestState != RequestState.none)
+                Padding(
+                    padding: ThemePadding.pt4,
+                    child: RequestButton(
+                      onTap: () {},
+                      state: requestState,
+                      mobileNumber: "01515644470",
+                    ))
             ])));
   }
 }
