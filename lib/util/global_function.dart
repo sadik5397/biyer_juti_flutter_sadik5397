@@ -1,4 +1,8 @@
+import 'dart:convert';
 import 'dart:math';
+import 'dart:ui' as ui;
+
+import 'package:flutter/services.dart';
 
 initialConfiguration() {
   // ignore: avoid_print
@@ -11,6 +15,65 @@ initialConfiguration() {
 randomNumber(int max) {
   Random random = Random();
   return random.nextInt(max);
+}
+
+String capitalizeAllWord(var value) {
+  value = value.toString();
+  if (value == "") {
+    return value;
+  } else {
+    var result = value[0].toUpperCase();
+    for (int i = 1; i < value.length; i++) {
+      (value[i - 1] == " ") ? result = result + value[i].toUpperCase() : result = result + value[i];
+    }
+    return result;
+  }
+}
+
+String capitalizeFirstCharacterOfSentence(var value) {
+  value = value.toString();
+  if (value == "") {
+    return value;
+  } else {
+    var result = value[0].toUpperCase();
+    for (int i = 1; i < value.length; i++) {
+      result = result + value[i];
+    }
+    return result;
+  }
+}
+
+String cleanedString(var input) => capitalizeAllWord(input.toString().replaceAll("_", " ").replaceAll("{", "").replaceAll("}", "").replaceAll("[", "").replaceAll("]", "").replaceAll(", ", "\n"));
+
+String prettyJson(dynamic map) {
+  var encoder = const JsonEncoder.withIndent("     ");
+  return encoder.convert(map);
+}
+
+String extractBase64FromDataUri(String? dataUri) {
+  if (dataUri == null) {
+    return "";
+  } else {
+    List<String> parts = dataUri.split(',');
+    if (parts.length >= 2) {
+      return parts[1];
+    } else {
+      return parts[0];
+    }
+  }
+}
+
+Future<Size> getImageDimensions(Uint8List uint8ListImage) async {
+  // Decode the Uint8List into an Image
+  final ui.Codec codec = await ui.instantiateImageCodec(uint8ListImage);
+  final ui.FrameInfo frameInfo = await codec.getNextFrame();
+  final ui.Image image = frameInfo.image;
+
+  // Get the width and height of the image
+  final double width = image.width.toDouble();
+  final double height = image.height.toDouble();
+
+  return Size(width, height);
 }
 
 class DefaultImage {

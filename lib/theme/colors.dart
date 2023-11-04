@@ -22,5 +22,6 @@ class ThemeGradient {
   static LinearGradient advancedSearch = LinearGradient(colors: [HexColor("#dd6161"), HexColor("#ea8686")], begin: Alignment.topLeft, end: Alignment.bottomRight);
   static LinearGradient gold = LinearGradient(colors: [HexColor("#FFFFFF"), HexColor("#e0dbc0"), HexColor("#C7BE8E")], begin: Alignment.topCenter, end: Alignment.bottomCenter);
   static LinearGradient semiTransparentBlack = LinearGradient(colors: [Colors.transparent, HexColor("#181717").withOpacity(.7)], begin: Alignment.topCenter, end: Alignment.bottomCenter);
-  static LinearGradient semiTransparentWhite = LinearGradient(colors: [Colors.transparent, HexColor("#ffffff").withOpacity(1)], begin: Alignment.topCenter, end: Alignment.bottomCenter, stops: const [0.3, .9]);
+  static LinearGradient semiTransparentWhite =
+      LinearGradient(colors: [HexColor("#ffffff").withOpacity(0), HexColor("#ffffff").withOpacity(1)], begin: Alignment.topCenter, end: Alignment.bottomCenter, stops: const [0.3, .9]);
 }

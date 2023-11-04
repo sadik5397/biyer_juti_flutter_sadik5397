@@ -4,6 +4,8 @@ import 'package:biyer_juti/theme/padding.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'hyperlink.dart';
+
 class ThemeButton {
   static Padding pill({EdgeInsets? padding, required String title, IconData? icon, required VoidCallback onTap, bool dark = false}) {
     return Padding(
@@ -17,9 +19,10 @@ class ThemeButton {
                     onTap: () => onTap.call(),
                     child: Padding(
                         padding: ThemePadding.p1 * 2.5,
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [if (icon != null) Padding(padding: ThemePadding.pr2, child: FaIcon(icon, size: 12, color: dark ? Colors.white : ThemeColor.primary)), Text(title, style: TextStyle(fontSize: 14, color: dark ? Colors.white : ThemeColor.primary))]))))));
+                        child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                          if (icon != null) Padding(padding: ThemePadding.pr2, child: FaIcon(icon, size: 12, color: dark ? Colors.white : ThemeColor.primary)),
+                          Text(title, style: TextStyle(fontSize: 14, color: dark ? Colors.white : ThemeColor.primary))
+                        ]))))));
   }
 
   static Expanded expandedPill({EdgeInsets? padding, required String title, IconData? icon, required VoidCallback onTap, bool dark = false}) {
@@ -38,8 +41,19 @@ class ThemeButton {
                     onTap: () => onTap.call(),
                     child: Padding(
                         padding: ThemePadding.p4,
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [if (icon != null) Padding(padding: ThemePadding.pr2, child: FaIcon(icon, size: 12, color: darkText ? ThemeColor.primary : Colors.white)), Text(title, style: TextStyle(fontSize: 14, color: darkText ? ThemeColor.primary : Colors.white, fontWeight: FontWeight.bold))]))))));
+                        child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                          if (icon != null) Padding(padding: ThemePadding.pr2, child: FaIcon(icon, size: 12, color: darkText ? ThemeColor.primary : Colors.white)),
+                          Text(title, style: TextStyle(fontSize: 14, color: darkText ? ThemeColor.primary : Colors.white, fontWeight: FontWeight.bold))
+                        ]))))));
+  }
+
+  static Padding text({required void Function() onTap, String? label, Color? color, FontWeight? weight, double? size}) {
+    return Padding(
+        padding: const EdgeInsets.only(bottom: 2),
+        child: Hyperlink(
+            borderRadius: 3,
+            inkIntensity: .075,
+            onTap: onTap,
+            child: Padding(padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 12), child: Text(label ?? "", style: TextStyle(fontSize: size ?? 14, color: color, fontWeight: weight)))));
   }
 }

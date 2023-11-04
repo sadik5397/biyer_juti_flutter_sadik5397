@@ -1,7 +1,6 @@
 import 'package:biyer_juti/theme/border_radius.dart';
 import 'package:biyer_juti/theme/colors.dart';
 import 'package:biyer_juti/theme/padding.dart';
-import 'package:biyer_juti/theme/text_style.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -36,10 +35,10 @@ class ThemeDropDownButton {
               buttonDecoration: BoxDecoration(borderRadius: ThemeBorderRadius.r1, color: isDisable ? Colors.black12 : const Color(0xfff8fafc), border: Border.all(color: const Color(0xffced4da))),
               dropdownPadding: EdgeInsets.zero,
               dropdownDecoration: BoxDecoration(borderRadius: ThemeBorderRadius.r1, color: Colors.white),
-              hint: Text(title, style: ThemeTextStyle.textFieldLabel),
-              items: options.map((item) => DropdownMenuItem<String>(value: item, child: Text(item, style: ThemeTextStyle.textFieldLabel))).toList(),
-              selectedItemBuilder: (context) =>
-                  List.generate(options.length, (index) => Align(alignment: const Alignment(-1, 0), child: Text("$title: ${options[index]}", style: ThemeTextStyle.textFieldLabel))),
+              hint: Text(title, style: TextStyle(color: ThemeColor.jetBlack, fontSize: 14, fontWeight: FontWeight.w500)),
+              items: options.map((item) => DropdownMenuItem<String>(value: item, child: Text(item, style: TextStyle(color: ThemeColor.jetBlack, fontSize: 14, fontWeight: FontWeight.w500)))).toList(),
+              selectedItemBuilder: (context) => List.generate(options.length,
+                  (index) => Align(alignment: const Alignment(-1, 0), child: Text("$title: ${options[index]}", style: TextStyle(color: ThemeColor.jetBlack, fontSize: 14, fontWeight: FontWeight.w500)))),
               buttonHeight: 40,
               value: value,
               onChanged: onChanged,
