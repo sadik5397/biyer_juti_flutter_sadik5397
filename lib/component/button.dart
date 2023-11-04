@@ -49,11 +49,11 @@ class ThemeButton {
 
   static Padding text({required void Function() onTap, String? label, Color? color, FontWeight? weight, double? size}) {
     return Padding(
-        padding: const EdgeInsets.only(bottom: 2),
+        padding: ThemePadding.pb1,
         child: Hyperlink(
-            borderRadius: 3,
             inkIntensity: .075,
             onTap: onTap,
-            child: Padding(padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 12), child: Text(label ?? "", style: TextStyle(fontSize: size ?? 14, color: color, fontWeight: weight)))));
+            child: Padding(
+                padding: ThemePadding.px4.copyWith(top: ThemePadding.value, bottom: ThemePadding.value), child: Text(label ?? "", style: TextStyle(fontSize: size ?? 14, color: color, fontWeight: weight)))));
   }
 }

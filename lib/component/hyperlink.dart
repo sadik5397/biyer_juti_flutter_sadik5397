@@ -1,10 +1,11 @@
+import 'package:biyer_juti/theme/border_radius.dart';
 import 'package:flutter/material.dart';
 
 class Hyperlink extends StatelessWidget {
   const Hyperlink({Key? key, required this.child, required this.onTap, this.borderRadius, this.inkIntensity}) : super(key: key);
   final Widget child;
   final void Function() onTap;
-  final double? borderRadius;
+  final BorderRadius? borderRadius;
   final double? inkIntensity;
 
   @override
@@ -15,7 +16,7 @@ class Hyperlink extends StatelessWidget {
           child: Material(
               color: Colors.transparent,
               child: InkWell(
-                  borderRadius: BorderRadius.circular(borderRadius ?? 16),
+                  borderRadius: borderRadius ?? ThemeBorderRadius.r4,
                   hoverColor: Colors.black.withOpacity(inkIntensity ?? .15),
                   highlightColor: Colors.black.withOpacity(inkIntensity ?? .15),
                   splashColor: Colors.black.withOpacity(inkIntensity ?? .15),

@@ -1,3 +1,4 @@
+import 'package:biyer_juti/component/bottom_navigation.dart';
 import 'package:biyer_juti/component/heart_stat.dart';
 import 'package:biyer_juti/component/pagination.dart';
 import 'package:biyer_juti/component/profile_card.dart';
@@ -19,10 +20,19 @@ class _HeartReceivedState extends State<HeartReceived> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        bottomNavigationBar: const ThemeNavigation(currentIndex: 1),
         appBar: ThemeAppBar.primary,
         body: ListView(padding: ThemePadding.p4.copyWith(top: ThemePadding.value * 8), children: [
           const HeartStat(heartReceived: 999, heartGiven: 99),
-          ...List.generate(40, (index) => ProfileCard(index: index, online: index % 3 == 0, premium: index % 4 == 0, hearted: index % 2 == 0, match: index % 5 == 0, requestState: DummyData.currentRequestState[randomNumber(DummyData.currentRequestState.length)])),
+          ...List.generate(
+              40,
+              (index) => ProfileCard(
+                  index: index,
+                  online: index % 3 == 0,
+                  premium: index % 4 == 0,
+                  hearted: index % 2 == 0,
+                  match: index % 5 == 0,
+                  requestState: DummyData.currentRequestState[randomNumber(DummyData.currentRequestState.length)])),
           const Pagination(),
         ]));
   }

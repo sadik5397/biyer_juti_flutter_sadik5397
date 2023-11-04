@@ -10,6 +10,7 @@ class ThemeColor {
   static Color backgroundLight = HexColor("#DBA2A2");
   static Color backgroundDark = HexColor("#303030");
   static Color lightRedBackground = HexColor("#fff2f2");
+  static Color lightPinkBackground = HexColor("#F6E8E8");
   static Color yellow = HexColor("#FFDB21");
 }
 

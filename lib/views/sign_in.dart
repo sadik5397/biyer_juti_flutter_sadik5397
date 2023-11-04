@@ -26,13 +26,20 @@ class _SignInState extends State<SignIn> {
                 child: Padding(
                   padding: ThemePadding.px6,
                   child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-                    ThemeTextField.primary(labelText: "Your Phone Number", controller: TextEditingController(), required: true, keyboardType: TextInputType.phone),
+                    ThemeTextField.primary(
+                        labelText: "Your Phone Number",
+                        controller: TextEditingController(text: "+880"),
+                        required: true,
+                        keyboardType: TextInputType.phone,
+                        autoFocus: true,
+                        autofillHints: AutofillHints.telephoneNumber),
                     ThemeTextField.primary(
                         labelText: "Your Password",
                         controller: TextEditingController(),
                         required: true,
                         isPassword: true,
                         showPassword: showPassword,
+                        autofillHints: AutofillHints.password,
                         showPasswordPressed: () => setState(() => showPassword = !showPassword)),
                     Gap.gy2,
                     ThemeButton.primary(title: "SIGN IN", onTap: () {}, gradient: ThemeGradient.secondary),

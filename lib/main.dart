@@ -1,4 +1,4 @@
-import 'package:biyer_juti/views/sign_in.dart';
+import 'package:biyer_juti/views/heart_received.dart';
 import 'package:flutter/material.dart';
 
 import 'util/global_function.dart';
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: ThemeData.light(useMaterial3: true),
       darkTheme: ThemeData.dark(useMaterial3: true),
-      home: SignIn(),
+      home: HeartReceived(),
     );
   }
 }

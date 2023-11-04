@@ -7,6 +7,7 @@ import 'package:biyer_juti/theme/padding.dart';
 import 'package:biyer_juti/util/dummy_daya.dart';
 import 'package:flutter/material.dart';
 
+import '../component/bottom_navigation.dart';
 import '../component/profile_search.dart';
 import '../util/global_function.dart';
 
@@ -21,6 +22,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        bottomNavigationBar: const ThemeNavigation(currentIndex: 0),
         appBar: ThemeAppBar.primary,
         body: ListView(padding: ThemePadding.p4.copyWith(top: ThemePadding.value * 8), children: [
           const ProfileSearch(needToBePremium: true),
