@@ -24,31 +24,30 @@ class _SignInState extends State<SignIn> {
                 padding: ThemePadding.p4,
                 decoration: BoxDecoration(gradient: ThemeGradient.semiTransparentWhite),
                 child: Padding(
-                  padding: ThemePadding.px6,
-                  child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-                    ThemeTextField.primary(
-                        labelText: "Your Phone Number",
-                        controller: TextEditingController(text: "+880"),
-                        required: true,
-                        keyboardType: TextInputType.phone,
-                        autoFocus: true,
-                        autofillHints: AutofillHints.telephoneNumber),
-                    ThemeTextField.primary(
-                        labelText: "Your Password",
-                        controller: TextEditingController(),
-                        required: true,
-                        isPassword: true,
-                        showPassword: showPassword,
-                        autofillHints: AutofillHints.password,
-                        showPasswordPressed: () => setState(() => showPassword = !showPassword)),
-                    Gap.gy2,
-                    ThemeButton.primary(title: "SIGN IN", onTap: () {}, gradient: ThemeGradient.secondary),
-                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                      ThemeButton.text(label: "Frgot Password", color: ThemeColor.primary, weight: FontWeight.bold, onTap: () {}),
-                      ThemeButton.text(label: "Create Profile", color: ThemeColor.secondary, weight: FontWeight.bold, onTap: () {})
-                    ]),
-                    Gap.gy6
-                  ]),
-                ))));
+                    padding: ThemePadding.px6,
+                    child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
+                      ThemeTextField.primary(
+                          labelText: "Your Phone Number",
+                          controller: TextEditingController(text: "+880"),
+                          required: true,
+                          keyboardType: TextInputType.phone,
+                          autoFocus: true,
+                          autofillHints: AutofillHints.telephoneNumber),
+                      ThemeTextField.primary(
+                          labelText: "Your Password",
+                          controller: TextEditingController(),
+                          required: true,
+                          isPassword: true,
+                          showPassword: showPassword,
+                          autofillHints: AutofillHints.password,
+                          showPasswordPressed: () => setState(() => showPassword = !showPassword)),
+                      Gap.gy2,
+                      ThemeButton.primary(title: "SIGN IN", onTap: () {}, gradient: ThemeGradient.secondary),
+                      Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                        ThemeButton.text(label: "Frgot Password", color: ThemeColor.primary, weight: FontWeight.bold, onTap: () {}),
+                        ThemeButton.text(label: "Create Profile", color: ThemeColor.secondary, weight: FontWeight.bold, onTap: () {})
+                      ]),
+                      Gap.gy6
+                    ])))));
   }
 }
