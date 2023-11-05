@@ -1,3 +1,5 @@
+import 'package:biyer_juti/theme/border_radius.dart';
+import 'package:biyer_juti/theme/padding.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -7,6 +9,16 @@ class FullScreenImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Hero(tag: "image", child: CachedNetworkImage(imageUrl: imageUrl, width: MediaQuery.of(context).size.width, height: MediaQuery.of(context).size.height, fit: BoxFit.contain));
+    return Stack(children: [
+      Opacity(opacity: .15, child: CachedNetworkImage(imageUrl: imageUrl, width: MediaQuery.of(context).size.width, height: MediaQuery.of(context).size.height, fit: BoxFit.cover)),
+      Padding(
+        padding: ThemePadding.p4,
+        child: Hero(
+            tag: "image",
+            child: ClipRRect(
+                borderRadius: ThemeBorderRadius.r4,
+                child: CachedNetworkImage(imageUrl: imageUrl, width: MediaQuery.of(context).size.width, height: MediaQuery.of(context).size.height, fit: BoxFit.contain))),
+      )
+    ]);
   }
 }

@@ -7,11 +7,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'hyperlink.dart';
 
 class ThemeButton {
-  static Padding pill({EdgeInsets? padding, required String title, IconData? icon, required VoidCallback onTap, bool dark = false}) {
+  static Padding pill({EdgeInsets? padding, required String title, IconData? icon, required VoidCallback onTap, bool dark = false, bool border = false}) {
     return Padding(
         padding: padding ?? ThemePadding.pb4,
         child: Container(
-            decoration: BoxDecoration(borderRadius: ThemeBorderRadius.r6, color: dark ? ThemeColor.secondary : Colors.white),
+            decoration:
+                BoxDecoration(borderRadius: ThemeBorderRadius.r6, color: dark ? ThemeColor.secondary : Colors.white, border: Border.all(color: border ? ThemeColor.primary : Colors.transparent)),
             child: Material(
                 color: Colors.transparent,
                 child: InkWell(
@@ -25,8 +26,8 @@ class ThemeButton {
                         ]))))));
   }
 
-  static Expanded expandedPill({EdgeInsets? padding, required String title, IconData? icon, required VoidCallback onTap, bool dark = false}) {
-    return Expanded(child: pill(title: title, padding: padding, onTap: onTap, icon: icon, dark: dark));
+  static Expanded expandedPill({EdgeInsets? padding, required String title, IconData? icon, required VoidCallback onTap, bool dark = false, bool border = false}) {
+    return Expanded(child: pill(title: title, padding: padding, onTap: onTap, icon: icon, dark: dark, border: border));
   }
 
   static Padding primary({EdgeInsets? padding, required String title, IconData? icon, required VoidCallback onTap, Color? color, LinearGradient? gradient, bool darkText = false}) {
