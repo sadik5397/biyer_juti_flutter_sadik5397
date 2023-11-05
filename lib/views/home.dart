@@ -18,9 +18,12 @@ class Home extends StatefulWidget {
   State<Home> createState() => _HomeState();
 }
 
+enum SampleItem { itemOne, itemTwo, itemThree }
+
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
+    SampleItem? selectedMenu;
     return Scaffold(
         bottomNavigationBar: const ThemeNavigation(currentIndex: 0),
         appBar: ThemeAppBar.primary(hideBack: true, premium: true),

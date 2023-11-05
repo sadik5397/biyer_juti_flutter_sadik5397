@@ -12,6 +12,7 @@ class ThemeColor {
   static Color lightRedBackground = HexColor("#fff2f2");
   static Color lightPinkBackground = HexColor("#F6E8E8");
   static Color yellow = HexColor("#FFDB21");
+  static Color navyBlue = HexColor("#243757");
 }
 
 class ThemeGradient {
