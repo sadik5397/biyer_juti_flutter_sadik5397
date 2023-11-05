@@ -54,6 +54,28 @@ class ThemeButton {
             inkIntensity: .075,
             onTap: onTap,
             child: Padding(
-                padding: ThemePadding.px4.copyWith(top: ThemePadding.value, bottom: ThemePadding.value), child: Text(label ?? "", style: TextStyle(fontSize: size ?? 14, color: color, fontWeight: weight)))));
+                padding: ThemePadding.px4.copyWith(top: ThemePadding.value, bottom: ThemePadding.value),
+                child: Text(label ?? "", style: TextStyle(fontSize: size ?? 14, color: color, fontWeight: weight)))));
+  }
+
+  static Padding edit({EdgeInsets? padding, required String title, IconData? icon, required VoidCallback onTap, bool dark = false}) {
+    return Padding(
+        padding: padding ?? ThemePadding.pb4,
+        child: Container(
+            decoration: BoxDecoration(
+                borderRadius: ThemeBorderRadius.r6,
+                color: dark ? ThemeColor.secondary : Colors.white,
+                border: Border.all(color: ThemeColor.primary, style: BorderStyle.solid, strokeAlign: BorderSide.strokeAlignInside)),
+            child: Material(
+                color: Colors.transparent,
+                child: InkWell(
+                    borderRadius: ThemeBorderRadius.r6,
+                    onTap: () => onTap.call(),
+                    child: Padding(
+                        padding: ThemePadding.p1 * 2.5,
+                        child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                          if (icon != null) Padding(padding: ThemePadding.pr2, child: FaIcon(icon, size: 14, color: dark ? Colors.white : ThemeColor.primary)),
+                          Text(title, style: TextStyle(fontSize: 14, color: dark ? Colors.white : ThemeColor.primary, fontWeight: FontWeight.bold))
+                        ]))))));
   }
 }

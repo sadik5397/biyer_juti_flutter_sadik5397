@@ -1,16 +1,21 @@
+import 'package:biyer_juti/component/button.dart';
 import 'package:biyer_juti/component/give_heart_button.dart';
 import 'package:biyer_juti/component/profile_carosel_image.dart';
 import 'package:biyer_juti/component/profile_chip.dart';
 import 'package:biyer_juti/theme/padding.dart';
+import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 import '../component/app_bar.dart';
+import '../component/bottom_navigation.dart';
 import '../component/information_tile.dart';
 import '../component/information_tile_detail.dart';
 import '../component/profile_information_sub_header.dart';
 import '../component/section_header.dart';
 
 class Profile extends StatefulWidget {
-  const Profile({super.key});
+  const Profile({super.key, this.myProfile = false});
+
+  final bool myProfile;
 
   @override
   State<Profile> createState() => _ProfileState();
@@ -20,13 +25,15 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: ThemeAppBar.primary,
+        appBar: ThemeAppBar.primary(hideBack: widget.myProfile),
+        bottomNavigationBar: widget.myProfile ? const ThemeNavigation(currentIndex: 3) : null,
         body: SingleChildScrollView(
             padding: EdgeInsets.fromLTRB(ThemePadding.value * 6, ThemePadding.value * 8, ThemePadding.value * 6, ThemePadding.value * 24),
             child: Column(children: [
               ProfileCarouselImage(images: List.generate(6, (index) => "https://picsum.photos/1024/1024?random=$index")),
               const ProfileChip(labels: ["27  Years old", "Dhaka, Bangladesh", "Private Service Holder"]),
               GiveHeartButton(hearted: false, matched: false, onTap: () {}),
+              if (widget.myProfile) ThemeButton.edit(title: "Edit Profile", onTap: () {}, padding: (ThemePadding.px6 * 4).copyWith(top: ThemePadding.value * 4), icon: FeatherIcons.edit3),
               Column(children: [
                 ...personalInformation,
                 ...educationInformation,

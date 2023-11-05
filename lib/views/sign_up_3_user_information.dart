@@ -26,7 +26,7 @@ class _SignUp3UserInformationState extends State<SignUp3UserInformation> {
         appBar: ThemeAppBar.blank,
         body: SingleChildScrollView(
             child: SizedBox(
-                height: MediaQuery.of(context).size.height - 100,
+                height: MediaQuery.of(context).size.height,
                 child: Padding(
                     padding: ThemePadding.px6,
                     child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [

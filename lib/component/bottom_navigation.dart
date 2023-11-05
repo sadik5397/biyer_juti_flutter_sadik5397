@@ -1,7 +1,7 @@
 import 'package:biyer_juti/util/page_navigation.dart';
 import 'package:biyer_juti/views/heart_received.dart';
 import 'package:biyer_juti/views/home.dart';
-import 'package:biyer_juti/views/my_profile.dart';
+import 'package:biyer_juti/views/profile.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -9,7 +9,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../theme/colors.dart';
 import '../views/notification.dart';
 
-List<Widget> pages = const [Home(), HeartReceived(), Notifications(), MyProfile()];
+List<Widget> pages = const [Home(), HeartReceived(), Notifications(), Profile(myProfile: true)];
 
 class ThemeNavigation extends StatefulWidget {
   const ThemeNavigation({Key? key, required this.currentIndex}) : super(key: key);

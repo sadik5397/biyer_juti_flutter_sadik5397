@@ -17,7 +17,7 @@ class _NotificationsState extends State<Notifications> {
   Widget build(BuildContext context) {
     return Scaffold(
         bottomNavigationBar: const ThemeNavigation(currentIndex: 2),
-        appBar: ThemeAppBar.primary,
+        appBar: ThemeAppBar.primary(hideBack: true),
         body: ListView(padding: ThemePadding.p4.copyWith(top: ThemePadding.value * 8), children: [
           ...List.generate(40, (index) => NotificationTile(index: index, onTap: () {})),
         ]));

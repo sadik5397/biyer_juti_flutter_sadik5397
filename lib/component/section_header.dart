@@ -12,6 +12,6 @@ class SectionHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
         padding: ThemePadding.p4.copyWith(top: topGap ? ThemePadding.value * 12 : ThemePadding.value * 4),
-        child: Text(label, style: TextStyle(color: ThemeColor.secondary, fontWeight: FontWeight.bold, fontSize: 24)));
+        child: Text(label, textAlign: TextAlign.center, style: TextStyle(color: ThemeColor.secondary, fontWeight: FontWeight.bold, fontSize: 24)));
   }
 }

@@ -21,8 +21,7 @@ class _HeartReceivedState extends State<HeartReceived> {
   Widget build(BuildContext context) {
     return Scaffold(
         bottomNavigationBar: const ThemeNavigation(currentIndex: 1),
-        appBar: ThemeAppBar.primary,
-        body: ListView(padding: ThemePadding.p4.copyWith(top: ThemePadding.value * 8), children: [
+        appBar: ThemeAppBar.primary(hideBack: true),        body: ListView(padding: ThemePadding.p4.copyWith(top: ThemePadding.value * 8), children: [
           const HeartStat(heartReceived: 999, heartGiven: 99),
           ...List.generate(
               40,

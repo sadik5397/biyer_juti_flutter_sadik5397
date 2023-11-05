@@ -23,7 +23,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
         bottomNavigationBar: const ThemeNavigation(currentIndex: 0),
-        appBar: ThemeAppBar.primary,
+        appBar: ThemeAppBar.primary(hideBack: true, premium: true),
         body: ListView(padding: ThemePadding.p4.copyWith(top: ThemePadding.value * 8), children: [
           const ProfileSearch(needToBePremium: true),
           Text("Search Results", textAlign: TextAlign.center, style: TextStyle(color: ThemeColor.secondary, fontSize: 16, fontWeight: FontWeight.bold)),
