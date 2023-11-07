@@ -6,6 +6,7 @@ import 'package:biyer_juti/theme/padding.dart';
 import 'package:biyer_juti/util/page_navigation.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
+
 import '../component/app_bar.dart';
 import '../component/bottom_navigation.dart';
 import '../component/information_tile.dart';
@@ -35,9 +36,7 @@ class _ProfileState extends State<Profile> {
               ProfileCarouselImage(images: List.generate(6, (index) => "https://picsum.photos/1024/1024?random=$index")),
               const ProfileChip(labels: ["27  Years old", "Dhaka, Bangladesh", "Private Service Holder"]),
               if (!widget.myProfile) GiveHeartButton(hearted: false, matched: false, onTap: () {}),
-              if (widget.myProfile)
-                ThemeButton.edit(
-                    title: "Edit Profile", onTap: () => route(context, const EditMyProfile(id: 0)), padding: ThemePadding.px6 * 4, icon: FeatherIcons.edit3),
+              if (widget.myProfile) ThemeButton.edit(title: "Edit Profile", onTap: () => route(context, const EditMyProfile(id: 0)), padding: ThemePadding.px6 * 4, icon: FeatherIcons.edit3),
               Column(children: [
                 ...personalInformation,
                 ...educationInformation,
