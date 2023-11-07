@@ -26,14 +26,13 @@ class _SignUp2UserInformationState extends State<SignUp2UserInformation> {
     return Scaffold(
         backgroundColor: ThemeColor.lightPinkBackground,
         appBar: ThemeAppBar.blank,
-        body: ListView( padding: ThemePadding.px6,children: [
+        body: ListView(padding: ThemePadding.px6, children: [
           Image.asset("assets/logo-wide.png", height: 75),
           const SectionHeader(label: "Account Information", topGap: false),
           Gap.gy2,
           ThemeTextField.primary(labelText: "Name", controller: TextEditingController(), required: true, keyboardType: TextInputType.name, autofillHints: AutofillHints.name, autoFocus: true),
           ThemeTextField.primary(labelText: "Gender", controller: TextEditingController(), required: true, keyboardType: TextInputType.text, autofillHints: AutofillHints.gender),
-          ThemeTextField.primary(
-              labelText: "Date of Birth", controller: TextEditingController(), required: true, keyboardType: TextInputType.datetime, autofillHints: AutofillHints.birthdayDay, isDate: true),
+          ThemeTextField.primary(labelText: "Date of Birth", controller: TextEditingController(), required: true, keyboardType: TextInputType.datetime, autofillHints: AutofillHints.birthdayDay, isDate: true),
           ThemeTextField.primary(labelText: "Email", controller: TextEditingController(), required: true, keyboardType: TextInputType.emailAddress, autofillHints: AutofillHints.email),
           ThemeTextField.primary(
               labelText: "Password",
@@ -51,7 +50,8 @@ class _SignUp2UserInformationState extends State<SignUp2UserInformation> {
               showPassword: shoConfirmPassword,
               autofillHints: AutofillHints.password,
               showPasswordPressed: () => setState(() => shoConfirmPassword = !shoConfirmPassword)),
-          Gap.gy6,          Padding(padding: ThemePadding.px6 * 4, child: ThemeButton.primary(title: "NEXT", onTap: () => route(context, const Home()), color: ThemeColor.primary)),
+          Gap.gy6,
+          Padding(padding: ThemePadding.px6 * 4, child: ThemeButton.primary(title: "NEXT", onTap: () => route(context, const Home()), color: ThemeColor.primary)),
           const Progress(progress: 3, outOf: 6),
           Gap.gy6
         ]));

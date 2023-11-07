@@ -1,15 +1,10 @@
 import 'package:biyer_juti/component/button.dart';
-import 'package:biyer_juti/component/give_heart_button.dart';
 import 'package:biyer_juti/component/profile_carosel_image.dart';
 import 'package:biyer_juti/component/profile_chip.dart';
 import 'package:biyer_juti/theme/colors.dart';
 import 'package:biyer_juti/theme/padding.dart';
-import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 import '../component/app_bar.dart';
-import '../component/bottom_navigation.dart';
-import '../component/information_tile.dart';
-import '../component/information_tile_detail.dart';
 import '../component/information_tile_detail_edit.dart';
 import '../component/information_tile_edit.dart';
 import '../component/profile_information_sub_header.dart';

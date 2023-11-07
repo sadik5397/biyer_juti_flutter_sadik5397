@@ -1,14 +1,12 @@
-import 'package:biyer_juti/component/app_bar.dart';
+import 'package:biyer_juti/component/bottom_navigation.dart';
+import 'package:biyer_juti/component/heart_stat.dart';
 import 'package:biyer_juti/component/pagination.dart';
 import 'package:biyer_juti/component/profile_card.dart';
-import 'package:biyer_juti/theme/colors.dart';
-import 'package:biyer_juti/theme/gap.dart';
 import 'package:biyer_juti/theme/padding.dart';
-import 'package:biyer_juti/util/dummy_daya.dart';
 import 'package:flutter/material.dart';
 
-import '../component/bottom_navigation.dart';
-import '../component/profile_search.dart';
+import '../api/dummy_daya.dart';
+import '../component/app_bar.dart';
 import '../util/global_function.dart';
 
 class Home extends StatefulWidget {
@@ -23,25 +21,20 @@ enum SampleItem { itemOne, itemTwo, itemThree }
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    SampleItem? selectedMenu;
     return Scaffold(
         bottomNavigationBar: const ThemeNavigation(currentIndex: 0),
         appBar: ThemeAppBar.primary(hideBack: true, premium: true),
         body: ListView(padding: ThemePadding.p4.copyWith(top: ThemePadding.value * 8), children: [
-          const ProfileSearch(needToBePremium: true),
-          Text("Search Results", textAlign: TextAlign.center, style: TextStyle(color: ThemeColor.secondary, fontSize: 16, fontWeight: FontWeight.bold)),
-          Gap.gy4,
-          const Pagination(),
+          const HeartStat(heartReceived: 999, heartGiven: 99),
           ...List.generate(
               40,
               (index) => ProfileCard(
-                    id: index,
-                    online: index % 3 == 0,
-                    premium: index % 4 == 0,
-                    hearted: index % 2 == 0,
-                    match: index % 5 == 0,
-                    requestState: DummyData.currentRequestState[randomNumber(DummyData.currentRequestState.length)],
-                  )),
+                  id: index,
+                  online: index % 3 == 0,
+                  premium: index % 4 == 0,
+                  hearted: index % 2 == 0,
+                  match: index % 5 == 0,
+                  requestState: DummyData.currentRequestState[randomNumber(DummyData.currentRequestState.length)])),
           const Pagination(),
         ]));
   }

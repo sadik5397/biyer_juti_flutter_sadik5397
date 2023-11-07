@@ -1,7 +1,6 @@
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../theme/border_radius.dart';
 import '../theme/colors.dart';
@@ -63,7 +62,7 @@ class _ProfileSearchState extends State<ProfileSearch> {
               ThemeButton.pill(
                   title: "Advanced Search Filters",
                   onTap: () => setState(() => showAdvanced = !showAdvanced),
-                  icon: showAdvanced ? FontAwesomeIcons.angleDown : FontAwesomeIcons.angleRight,
+                  icon: showAdvanced ? FeatherIcons.chevronDown : FeatherIcons.chevronRight,
                   padding: (ThemePadding.px6 * 2),
                   dark: showAdvanced)
             ])),

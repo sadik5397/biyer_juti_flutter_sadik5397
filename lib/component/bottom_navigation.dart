@@ -1,15 +1,14 @@
 import 'package:biyer_juti/util/page_navigation.dart';
-import 'package:biyer_juti/views/heart_received.dart';
 import 'package:biyer_juti/views/home.dart';
-import 'package:biyer_juti/views/profile.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../theme/colors.dart';
 import '../views/notification.dart';
+import '../views/profile.dart';
+import '../views/search.dart';
 
-List<Widget> pages = const [Home(), HeartReceived(), Notifications(), Profile(myProfile: true)];
+List<Widget> pages = const [Home(), Search(), Notifications(), Profile(myProfile: true)];
 
 class ThemeNavigation extends StatefulWidget {
   const ThemeNavigation({Key? key, required this.currentIndex}) : super(key: key);
@@ -50,10 +49,10 @@ class ThemeNavigationItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return NavigationDestination(
-      icon: FaIcon(icon, color: ThemeColor.jetBlack.withOpacity(.5), size: 24),
+      icon: Icon(icon, color: ThemeColor.jetBlack.withOpacity(.5), size: 24),
       label: label,
       tooltip: label,
-      selectedIcon: FaIcon(icon, color: ThemeColor.primary, size: 18),
+      selectedIcon: Icon(icon, color: ThemeColor.primary, size: 18),
     );
   }
 }

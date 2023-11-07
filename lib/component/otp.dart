@@ -49,7 +49,10 @@ class _OTPState extends State<OTP> {
                           textAlign: TextAlign.center,
                           onChanged: (value) => FocusScope.of(context).nextFocus(),
                           buildCounter: null,
-                          decoration: InputDecoration(border: UnderlineInputBorder(borderSide: BorderSide(color: ThemeColor.primary)))))))),
+                          decoration: InputDecoration(
+                              focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: ThemeColor.primary, width: 2)),
+                              counterText: "",
+                              border: UnderlineInputBorder(borderSide: BorderSide(color: ThemeColor.primary)))))))),
       Gap.gy4,
       Text("Resend Code in $eta Seconds"),
       Gap.gy2,
