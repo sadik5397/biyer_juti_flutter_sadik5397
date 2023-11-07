@@ -31,7 +31,7 @@ class ThemeAppBar {
                   Gap.gy1,
                   if (!premium) SvgPicture.asset("assets/svg/get_premium.svg", height: 18)
                 ]),
-                itemBuilder: (BuildContext context) => appMenu))
+                itemBuilder: (BuildContext context) => appMenu(context)))
       ],
       titleSpacing: 0,
       foregroundColor: ThemeColor.primary,
