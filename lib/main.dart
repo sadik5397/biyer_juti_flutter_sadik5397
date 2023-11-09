@@ -2,6 +2,7 @@ import 'package:biyer_juti/views/welcome.dart';
 import 'package:flutter/material.dart';
 
 import 'util/global_function.dart';
+import 'util/page_navigation.dart';
 
 void main() {
   initialConfiguration();
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Biyer Juti',
       // themeMode: ThemeMode.system,
+      navigatorKey: navigatorKey,
       themeMode: ThemeMode.light,
       theme: ThemeData.light(useMaterial3: true),
       darkTheme: ThemeData.dark(useMaterial3: true),
