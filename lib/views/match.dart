@@ -1,5 +1,3 @@
-import 'package:biyer_juti/component/bottom_navigation.dart';
-import 'package:biyer_juti/component/heart_stat.dart';
 import 'package:biyer_juti/component/pagination.dart';
 import 'package:biyer_juti/component/profile_card.dart';
 import 'package:biyer_juti/component/section_header.dart';

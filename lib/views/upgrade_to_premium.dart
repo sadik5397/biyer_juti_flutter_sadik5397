@@ -1,16 +1,9 @@
-import 'package:biyer_juti/component/hyperlink.dart';
 import 'package:biyer_juti/component/payment_gateway_button.dart';
 import 'package:biyer_juti/component/section_header.dart';
-import 'package:biyer_juti/theme/border_radius.dart';
 import 'package:biyer_juti/theme/gap.dart';
 import 'package:biyer_juti/theme/padding.dart';
-import 'package:biyer_juti/theme/shadow.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import '../component/app_bar.dart';
-import '../component/bottom_navigation.dart';
-import '../component/notification_tile.dart';
 import '../component/video_card.dart';
 
 class UpgradeToPremium extends StatefulWidget {

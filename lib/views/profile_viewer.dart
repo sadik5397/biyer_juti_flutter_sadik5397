@@ -1,5 +1,3 @@
-import 'package:biyer_juti/component/bottom_navigation.dart';
-import 'package:biyer_juti/component/heart_stat.dart';
 import 'package:biyer_juti/component/pagination.dart';
 import 'package:biyer_juti/component/profile_card.dart';
 import 'package:biyer_juti/component/section_header.dart';
@@ -8,7 +6,6 @@ import 'package:flutter/material.dart';
 
 import '../api/dummy_daya.dart';
 import '../component/app_bar.dart';
-import '../component/match_stat.dart';
 import '../util/global_function.dart';
 
 class ProfileViewer extends StatefulWidget {
