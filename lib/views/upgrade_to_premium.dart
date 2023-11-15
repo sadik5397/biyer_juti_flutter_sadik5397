@@ -1,7 +1,9 @@
+import 'package:biyer_juti/api/dummy_daya.dart';
 import 'package:biyer_juti/component/payment_gateway_button.dart';
 import 'package:biyer_juti/component/section_header.dart';
 import 'package:biyer_juti/theme/gap.dart';
 import 'package:biyer_juti/theme/padding.dart';
+import 'package:biyer_juti/util/page_navigation.dart';
 import 'package:flutter/material.dart';
 import '../component/app_bar.dart';
 import '../component/video_card.dart';
@@ -32,7 +34,7 @@ class _UpgradeToPremiumState extends State<UpgradeToPremium> {
           Gap.gy6,
           const Text("Learn More About Biyer Juti", textAlign: TextAlign.center),
           Gap.gy3,
-          SingleChildScrollView(scrollDirection: Axis.horizontal, child: Row(children: List.generate(5, (index) => VideoCard(onTap: () {}, image: "https://picsum.photos/720/480?random=$index")))),
+          SingleChildScrollView(scrollDirection: Axis.horizontal, child: Row(children: List.generate(5, (index) => VideoCard( videoID: DummyData.youtubeVideoIDs[index])))),
           Gap.gy6,
           Gap.gy6
         ]));

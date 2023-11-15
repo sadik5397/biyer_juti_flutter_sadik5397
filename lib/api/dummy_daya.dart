@@ -10,4 +10,5 @@ class DummyData {
     RequestState.requestContact,
     RequestState.none,
   ];
+  static List<String> youtubeVideoIDs = [ "JebT4Z-p6QI", "69ROC05QX1g", "I0mmGZAa3to","b4JpCGcCv8k", "UmOIA2-MoEU", "t1Feq5jlUq0"];
 }
