@@ -1,3 +1,4 @@
+import 'package:biyer_juti/views/choose_viewers.dart';
 import 'package:biyer_juti/views/upgrade_to_premium.dart';
 import 'package:biyer_juti/views/welcome.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
       theme: ThemeData.light(useMaterial3: true),
       darkTheme: ThemeData.dark(useMaterial3: true),
-      home: const UpgradeToPremium(),
+      home: const ChooseViewers(),
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:biyer_juti/component/text_field.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -90,7 +91,7 @@ class _ProfileSearchState extends State<ProfileSearch> {
                           Expanded(child: Divider(color: ThemeColor.yellow, thickness: 2))
                         ]),
                       ),
-                    ThemeButton.pill(title: "Search by Profile ID", onTap: () {}),
+                    ThemeTextField.pill(labelText: "Search by Profile ID", controller: TextEditingController(), showLabel: false, centerAlign: true),
                     Row(children: [
                       ThemeDropDownButton.expandedSearch(title: "Citizenship", options: ["a", "b", "c"], value: "a", onChanged: (value) {}),
                       Gap.gx2,

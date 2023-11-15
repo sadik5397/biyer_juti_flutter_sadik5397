@@ -9,6 +9,7 @@ import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 
 import '../component/popup_menu.dart';
+import '../views/choose_viewers.dart';
 import '../views/home.dart';
 import '../views/online.dart';
 import '../views/profile_viewer.dart';
@@ -21,7 +22,7 @@ List<PopupMenuEntry> appMenu(BuildContext context) => [
       menuItem(index: 4, label: "Matches", icon: FeatherIcons.gitPullRequest, onTap: () => route(context, const Match())),
       menuItem(index: 5, label: "Profile Viewers", icon: FeatherIcons.eye, onTap: () => route(context, const ProfileViewer())),
       menuItem(index: 6, label: "Online Users", icon: FeatherIcons.users, onTap: () => route(context, const Online())),
-      menuItem(index: 7, label: "Choose Viewers", icon: FeatherIcons.mousePointer),
+      menuItem(index: 7, label: "Choose Viewers", icon: FeatherIcons.mousePointer, onTap: () => route(context, const ChooseViewers())),
       menuItem(index: 8, label: "Billing", icon: FeatherIcons.creditCard, onTap: () => route(context, const UpgradeToPremium())),
       menuItem(index: 9, label: "Settings", icon: FeatherIcons.settings),
       menuItem(index: 10, label: "Contact Us", icon: FeatherIcons.phone),

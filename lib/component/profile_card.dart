@@ -53,7 +53,7 @@ class ProfileCard extends StatelessWidget {
                                       Gap.gy1,
                                       const Text("25 Years | Dhaka", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white))
                                     ])))
-                          ]),
+                          ])
                         )),
                     Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
                       Text("BJT 205011203", style: TextStyle(color: ThemeColor.secondary, fontWeight: FontWeight.bold, fontSize: 18)),

@@ -81,11 +81,7 @@ class ThemeTextField {
                     ? Padding(
                         padding: ThemePadding.pr2,
                         child: isPassword
-                            ? IconButton(
-                                onPressed: showPasswordPressed,
-                                icon: Icon((!showPassword) ? Icons.visibility_outlined : Icons.visibility_off_outlined),
-                                iconSize: 18,
-                                color: ThemeColor.jetBlack.withOpacity(.5))
+                            ? IconButton(onPressed: showPasswordPressed, icon: Icon((!showPassword) ? Icons.visibility_outlined : Icons.visibility_off_outlined), iconSize: 18, color: ThemeColor.jetBlack.withOpacity(.5))
                             : isDate
                                 ? IconButton(onPressed: onTap, icon: const Icon(Icons.calendar_month_sharp), iconSize: 18, color: ThemeColor.jetBlack.withOpacity(.5))
                                 : isFile
@@ -96,6 +92,78 @@ class ThemeTextField {
                                             ? IconButton(onPressed: () => controller.clear(), icon: const Icon(Icons.cancel_outlined), iconSize: 18, color: ThemeColor.jetBlack.withOpacity(.5))
                                             : null)
                     : null)));
+  }
+
+  static Padding pill(
+      {required String labelText,
+      required TextEditingController controller,
+      EdgeInsetsGeometry? padding,
+      int maxLines = 1,
+      bool required = false,
+      bool isPassword = false,
+      bool hasSubmitButton = false,
+      bool isDate = false,
+      bool isFile = false,
+      bool showLabel = true,
+      bool showIcon = true,
+      bool floatLabel = true,
+      bool readOnly = false,
+      bool autoFocus = false,
+      bool centerAlign = false,
+      bool showPassword = false,
+      bool isDisable = false,
+      bool showClearButton = false,
+      TextInputType keyboardType = TextInputType.text,
+      String hintText = "Type Here",
+      String? errorText,
+      String autofillHints = "",
+      FocusNode? focusNode,
+      TextCapitalization textCapitalization = TextCapitalization.sentences,
+      VoidCallback? showPasswordPressed,
+      VoidCallback? onFieldSubmittedAlternate,
+      VoidCallback? onTap,
+      Function(String value)? onChanged,
+      Function(String value)? onFieldSubmitted,
+      List<TextInputFormatter>? textInputFormatter}) {
+    return Padding(
+        padding: padding ?? ThemePadding.pb4,
+        child: TextFormField(
+            inputFormatters: textInputFormatter,
+            readOnly: (isDate || isFile || readOnly),
+            showCursor: !(isDate || isFile || readOnly),
+            onTap: onTap,
+            onChanged: onChanged,
+            maxLines: maxLines,
+            autofillHints: [autofillHints],
+            focusNode: focusNode,
+            textAlign: centerAlign ? TextAlign.center : TextAlign.start,
+            onFieldSubmitted: onFieldSubmitted,
+            keyboardType: keyboardType,
+            textCapitalization: textCapitalization,
+            obscureText: (isPassword) ? !showPassword : false,
+            controller: controller,
+            style: TextStyle(color: ThemeColor.jetBlack, fontSize: 14, fontWeight: FontWeight.w500),
+            autofocus: autoFocus,
+            enabled: !isDisable,
+            decoration: InputDecoration(
+                focusedBorder: OutlineInputBorder(borderRadius: ThemeBorderRadius.r6, borderSide: const BorderSide(color: Colors.transparent)),
+                errorBorder: OutlineInputBorder(borderRadius: ThemeBorderRadius.r6, borderSide: const BorderSide(color: Colors.transparent)),
+                focusedErrorBorder: OutlineInputBorder(borderRadius: ThemeBorderRadius.r6, borderSide: const BorderSide(color: Colors.transparent)),
+                enabledBorder: OutlineInputBorder(borderRadius: ThemeBorderRadius.r6, borderSide: const BorderSide(color: Colors.transparent)),
+                disabledBorder: OutlineInputBorder(borderRadius: ThemeBorderRadius.r6, borderSide: BorderSide.none),
+                labelText: showLabel ? "$labelText ${required ? '*' : ''}" : null,
+                isDense: true,
+                errorText: (errorText == "null" || errorText == null) ? null : cleanedString(errorText),
+                alignLabelWithHint: false,
+                filled: true,
+                fillColor: isDisable ? Colors.black12 : Colors.white,
+                floatingLabelBehavior: floatLabel ? FloatingLabelBehavior.auto : FloatingLabelBehavior.always,
+                contentPadding: ThemePadding.p2 * 1.25,
+                labelStyle: TextStyle(fontSize: 14, color: ThemeColor.primary, fontWeight: FontWeight.bold),
+                hintText: showLabel ? hintText : "$labelText ${required ? '*' : ''}",
+                hintStyle: showLabel ? TextStyle(fontSize: 14, color: ThemeColor.primary, fontWeight: FontWeight.bold) : null,
+                floatingLabelStyle: TextStyle(color: ThemeColor.primary, fontWeight: FontWeight.bold),
+                suffixIconColor: ThemeColor.jetBlack)));
   }
 
   static TextFormField inline(
@@ -169,11 +237,7 @@ class ThemeTextField {
                 ? Padding(
                     padding: ThemePadding.pr2,
                     child: isPassword
-                        ? IconButton(
-                            onPressed: showPasswordPressed,
-                            icon: Icon((!showPassword) ? Icons.visibility_outlined : Icons.visibility_off_outlined),
-                            iconSize: 18,
-                            color: ThemeColor.jetBlack.withOpacity(.5))
+                        ? IconButton(onPressed: showPasswordPressed, icon: Icon((!showPassword) ? Icons.visibility_outlined : Icons.visibility_off_outlined), iconSize: 18, color: ThemeColor.jetBlack.withOpacity(.5))
                         : isDate
                             ? IconButton(onPressed: onTap, icon: const Icon(Icons.calendar_month_sharp), iconSize: 18, color: ThemeColor.jetBlack.withOpacity(.5))
                             : isFile
