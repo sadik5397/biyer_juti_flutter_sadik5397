@@ -65,4 +65,8 @@ class ThemePadding {
   static EdgeInsets pb5 = EdgeInsets.only(bottom: value * 5);
   static EdgeInsets pb6 = EdgeInsets.only(bottom: value * 6);
   //endregion
+
+  // region bottom
+  static EdgeInsets none = EdgeInsets.zero;
+  //endregion
 }

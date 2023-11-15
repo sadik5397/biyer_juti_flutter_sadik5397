@@ -42,8 +42,8 @@ dependencies:
   flutter_svg: ^2.0.8
   dropdown_button2: 1.7.2
   feather_icons: ^1.2.0
-  youtube_player_iframe: ^4.0.4
   youtube_player_flutter: ^8.1.2
+  dotted_border: ^2.1.0
 
 dev_dependencies:
   flutter_test:
