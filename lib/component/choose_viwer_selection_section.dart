@@ -2,13 +2,11 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 
-import '../api/dummy_daya.dart';
 import '../theme/border_radius.dart';
 import '../theme/colors.dart';
 import '../theme/gap.dart';
 import '../theme/padding.dart';
 import 'button.dart';
-import 'item_chip.dart';
 
 class ChooseViewerSelectionSection extends StatelessWidget {
   const ChooseViewerSelectionSection({super.key, required this.header, required this.children, required this.onAdd, required this.onReset});

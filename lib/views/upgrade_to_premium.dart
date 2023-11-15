@@ -3,7 +3,6 @@ import 'package:biyer_juti/component/payment_gateway_button.dart';
 import 'package:biyer_juti/component/section_header.dart';
 import 'package:biyer_juti/theme/gap.dart';
 import 'package:biyer_juti/theme/padding.dart';
-import 'package:biyer_juti/util/page_navigation.dart';
 import 'package:flutter/material.dart';
 import '../component/app_bar.dart';
 import '../component/video_card.dart';

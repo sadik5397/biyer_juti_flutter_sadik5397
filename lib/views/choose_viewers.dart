@@ -1,16 +1,9 @@
-import 'dart:math';
 
-import 'package:biyer_juti/component/bottom_navigation.dart';
 import 'package:biyer_juti/component/choose_viwer_selection_section.dart';
 import 'package:biyer_juti/component/chosen_viewer_stat.dart';
-import 'package:biyer_juti/component/heart_stat.dart';
 import 'package:biyer_juti/component/item_chip.dart';
-import 'package:biyer_juti/component/pagination.dart';
-import 'package:biyer_juti/component/profile_card.dart';
 import 'package:biyer_juti/component/section_header.dart';
-import 'package:biyer_juti/component/text_field.dart';
 import 'package:biyer_juti/theme/padding.dart';
-import 'package:dotted_border/dotted_border.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
