@@ -89,42 +89,54 @@ class _ProfileSearchState extends State<ProfileSearch> {
                           SvgPicture.asset("assets/svg/gold_crown.svg", width: 40, height: 40),
                           Text("For Premium Members Only  ", style: TextStyle(height: .6, fontSize: 16, fontWeight: FontWeight.bold, color: ThemeColor.yellow)),
                           Expanded(child: Divider(color: ThemeColor.yellow, thickness: 2))
-                        ]),
+                        ])
                       ),
-                    ThemeTextField.pill(labelText: "Search by Profile ID", controller: TextEditingController(), showLabel: false, centerAlign: true),
-                    Row(children: [
-                      ThemeDropDownButton.expandedSearch(title: "Citizenship", options: ["a", "b", "c"], value: "a", onChanged: (value) {}),
-                      Gap.gx2,
-                      ThemeDropDownButton.expandedSearch(title: "Education", options: ["a", "b", "c"], value: "a", onChanged: (value) {}),
-                    ]),
-                    Row(children: [
-                      ThemeDropDownButton.expandedSearch(title: "Min. Height", options: ["a", "b", "c"], value: "a", onChanged: (value) {}),
-                      Gap.gx2,
-                      ThemeDropDownButton.expandedSearch(title: "Profession", options: ["a", "b", "c"], value: "a", onChanged: (value) {}),
-                    ]),
-                    Row(children: [
-                      ThemeDropDownButton.expandedSearch(title: "Min. Height", options: ["a", "b", "c"], value: "a", onChanged: (value) {}),
-                      Gap.gx2,
-                      ThemeDropDownButton.expandedSearch(title: "Profession", options: ["a", "b", "c"], value: "a", onChanged: (value) {}),
-                    ]),
-                    ThemeDropDownButton.search(title: "Hometown", options: ["a", "b", "c"], value: "a", onChanged: (value) {}),
-                    const Text("Present Address", style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold)),
-                    Gap.gy3,
-                    Row(children: [
-                      ThemeDropDownButton.expandedSearch(title: "Country", options: ["a", "b", "c"], value: "a", onChanged: (value) {}),
-                      Gap.gx2,
-                      ThemeDropDownButton.expandedSearch(title: "District", options: ["a", "b", "c"], value: "a", onChanged: (value) {}),
-                    ]),
-                    Row(children: [
-                      ThemeButton.expandedPill(title: "Reset Search", onTap: () {}, icon: FeatherIcons.refreshCw),
-                      Gap.gx2,
-                      ThemeButton.expandedPill(title: "Adv. Search", onTap: () {}, icon: FeatherIcons.search, dark: true),
-                    ]),
-                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                      const Text("Lock Search Filter", style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold)),
-                      Gap.gx2,
-                      Switch(value: lockSearchFilter, activeColor: ThemeColor.secondary, onChanged: (value) => setState(() => lockSearchFilter = !lockSearchFilter))
-                    ])
+                    AbsorbPointer(
+                      absorbing: widget.needToBePremium,
+                      child: Opacity(opacity: widget.needToBePremium ? 0.6 : 1,
+                      child:
+                        Column(
+                          children: [
+                            if(!widget.needToBePremium) Gap.gy2,
+                            ThemeTextField.pill(labelText: "Search by Profile ID", controller: TextEditingController(), showLabel: false, centerAlign: true),
+                            Row(children: [
+                              ThemeDropDownButton.expandedSearch(title: "Citizenship", options: ["a", "b", "c"], value: "a", onChanged: (value) {}),
+                              Gap.gx2,
+                              ThemeDropDownButton.expandedSearch(title: "Education", options: ["a", "b", "c"], value: "a", onChanged: (value) {}),
+                            ]),
+                            Row(children: [
+                              ThemeDropDownButton.expandedSearch(title: "Min. Height", options: ["a", "b", "c"], value: "a", onChanged: (value) {}),
+                              Gap.gx2,
+                              ThemeDropDownButton.expandedSearch(title: "Profession", options: ["a", "b", "c"], value: "a", onChanged: (value) {}),
+                            ]),
+                            Row(children: [
+                              ThemeDropDownButton.expandedSearch(title: "Min. Height", options: ["a", "b", "c"], value: "a", onChanged: (value) {}),
+                              Gap.gx2,
+                              ThemeDropDownButton.expandedSearch(title: "Profession", options: ["a", "b", "c"], value: "a", onChanged: (value) {}),
+                            ]),
+                            ThemeDropDownButton.search(title: "Hometown", options: ["a", "b", "c"], value: "a", onChanged: (value) {}),
+                            const Text("Present Address", style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold)),
+                            Gap.gy3,
+                            Row(children: [
+                              ThemeDropDownButton.expandedSearch(title: "Country", options: ["a", "b", "c"], value: "a", onChanged: (value) {}),
+                              Gap.gx2,
+                              ThemeDropDownButton.expandedSearch(title: "District", options: ["a", "b", "c"], value: "a", onChanged: (value) {}),
+                            ]),
+                            Row(children: [
+                              ThemeButton.expandedPill(title: "Reset Search", onTap: () {}, icon: FeatherIcons.refreshCw),
+                              Gap.gx2,
+                              ThemeButton.expandedPill(title: "Adv. Search", onTap: () {}, icon: FeatherIcons.search, dark: true),
+                            ]),
+                            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                              const Text("Lock Search Filter", style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold)),
+                              Gap.gx2,
+                              Switch(value: lockSearchFilter, activeColor: ThemeColor.secondary, onChanged: (value) => setState(() => lockSearchFilter = !lockSearchFilter))
+                            ])
+                          ]
+                        )),
+                    )
+
+
                   ]))
             ]))
       ].reversed.toList()),

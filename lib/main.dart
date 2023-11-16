@@ -1,4 +1,6 @@
+import 'package:biyer_juti/component/otp.dart';
 import 'package:biyer_juti/views/choose_viewers.dart';
+import 'package:biyer_juti/views/welcome.dart';
 import 'package:flutter/material.dart';
 
 import 'util/global_function.dart';
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
       theme: ThemeData.light(useMaterial3: true),
       darkTheme: ThemeData.dark(useMaterial3: true),
-      home: const ChooseViewers(),
+      home: const Welcome(),
     );
   }
 }
