@@ -2,7 +2,9 @@ import 'package:biyer_juti/theme/border_radius.dart';
 import 'package:biyer_juti/theme/padding.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../theme/colors.dart';
 
@@ -57,9 +59,10 @@ class RequestButton extends StatelessWidget {
                                 TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: state == RequestState.requestPending || state == RequestState.contactInfo ? ThemeColor.primary : Colors.white)))))),
       ),
       if (state == RequestState.contactInfo)
-        FloatingActionButton(shape: const CircleBorder(), onPressed: () {}, mini: true, elevation: 0, backgroundColor: ThemeColor.primary, child: const Icon(FeatherIcons.phone, size: 16, color: Colors.white)),
+        FloatingActionButton(shape: const CircleBorder(), onPressed: () async => await launchUrl(Uri.parse("tel:$mobileNumber")), mini: true, elevation: 0, backgroundColor: ThemeColor.primary, child: const Icon(FeatherIcons.phone, size: 16, color: Colors.white)),
       if (state == RequestState.contactInfo)
-        FloatingActionButton(shape: const CircleBorder(), onPressed: () {}, mini: true, elevation: 0, backgroundColor: ThemeColor.primary, child: const Icon(FeatherIcons.copy, size: 18, color: Colors.white)),
+        FloatingActionButton(shape: const CircleBorder(), onPressed: () async =>   await Clipboard.setData(ClipboardData(text: mobileNumber.toString()))
+            , mini: true, elevation: 0, backgroundColor: ThemeColor.primary, child: const Icon(FeatherIcons.copy, size: 18, color: Colors.white)),
     ]);
   }
 }
