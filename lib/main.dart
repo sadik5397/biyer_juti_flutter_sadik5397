@@ -1,4 +1,4 @@
-import 'package:biyer_juti/views/splash_screen.dart';
+import 'package:biyer_juti/views/under_review.dart';
 import 'package:flutter/material.dart';
 
 import 'util/global_function.dart';
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
       theme: ThemeData.light(useMaterial3: true),
       darkTheme: ThemeData.dark(useMaterial3: true),
-      home: const SplashScreen(),
+      home: const UnderReview(),
     );
   }
 }
