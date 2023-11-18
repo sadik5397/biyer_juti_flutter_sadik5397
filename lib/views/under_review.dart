@@ -7,20 +7,19 @@ import 'package:biyer_juti/theme/colors.dart';
 import 'package:biyer_juti/theme/gap.dart';
 import 'package:biyer_juti/theme/padding.dart';
 import 'package:biyer_juti/util/page_navigation.dart';
-import 'package:biyer_juti/views/under_review.dart';
 import 'package:flutter/material.dart';
 
 import '../component/custom_information_section.dart';
 import '../component/custom_toggle_selection.dart';
 
-class SignUp5PhotoInformation extends StatefulWidget {
-  const SignUp5PhotoInformation({super.key});
+class UnderReview extends StatefulWidget {
+  const UnderReview({super.key});
 
   @override
-  State<SignUp5PhotoInformation> createState() => _SignUp5PhotoInformationState();
+  State<UnderReview> createState() => _UnderReviewState();
 }
 
-class _SignUp5PhotoInformationState extends State<SignUp5PhotoInformation> {
+class _UnderReviewState extends State<UnderReview> {
   List<String> sideNames = ["Front Side", "Back Side"];
   late List<String?> base64bothSides = List.generate(sideNames.length, (index) => null);
 
