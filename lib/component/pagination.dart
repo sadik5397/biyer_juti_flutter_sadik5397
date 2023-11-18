@@ -8,9 +8,14 @@ import '../theme/colors.dart';
 import '../theme/padding.dart';
 import '../theme/shadow.dart';
 
-class Pagination extends StatelessWidget {
+class Pagination extends StatefulWidget {
   const Pagination({super.key});
 
+  @override
+  State<Pagination> createState() => _PaginationState();
+}
+
+class _PaginationState extends State<Pagination> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -51,7 +56,7 @@ class Pagination extends StatelessWidget {
         padding: ThemePadding.p1,
         child: DropdownButton2(
             underline: const SizedBox(),
-            buttonElevation: 1,
+            buttonElevation: 0,
             dropdownElevation: 1,
             selectedItemHighlightColor: ThemeColor.lightPink.withOpacity(.1),
             isExpanded: true,
@@ -68,6 +73,7 @@ class Pagination extends StatelessWidget {
             value: null,
             onChanged: (value) {
               if (kDebugMode) print("Selected Page Number : --- $value ---");
+              setState(() {});
             },
             buttonWidth: double.maxFinite,
             dropdownMaxHeight: 500),
