@@ -13,6 +13,7 @@ import '../component/information_tile.dart';
 import '../component/information_tile_detail.dart';
 import '../component/profile_information_sub_header.dart';
 import '../component/section_header.dart';
+import '../util/global_function.dart';
 import 'edit_my_profile.dart';
 
 class Profile extends StatefulWidget {
@@ -33,7 +34,7 @@ class _ProfileState extends State<Profile> {
         body: SingleChildScrollView(
             padding: EdgeInsets.fromLTRB(ThemePadding.value * 6, ThemePadding.value * 8, ThemePadding.value * 6, ThemePadding.value * 24),
             child: Column(children: [
-              ProfileCarouselImage(images: List.generate(6, (index) => "https://picsum.photos/1024/1024?random=$index")),
+              ProfileCarouselImage(images: List.generate(6, (index) => "https://picsum.photos/1024/1024?random=${randomNumber(20)}")),
               const ProfileChip(labels: ["27  Years old", "Dhaka, Bangladesh", "Private Service Holder"]),
               if (!widget.myProfile) GiveHeartButton(hearted: false, matched: false, onTap: () {}),
               if (widget.myProfile) ThemeButton.edit(title: "Edit Profile", onTap: () => route(context, const EditMyProfile(id: 0)), padding: ThemePadding.px6 * 4, icon: FeatherIcons.edit3),

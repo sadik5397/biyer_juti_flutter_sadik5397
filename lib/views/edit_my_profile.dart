@@ -4,12 +4,14 @@ import 'package:biyer_juti/component/profile_chip.dart';
 import 'package:biyer_juti/theme/colors.dart';
 import 'package:biyer_juti/theme/padding.dart';
 import 'package:flutter/material.dart';
+
 import '../component/app_bar.dart';
 import '../component/information_tile_detail_edit.dart';
 import '../component/information_tile_edit.dart';
 import '../component/profile_information_sub_header.dart';
 import '../component/section_header.dart';
 import '../theme/gap.dart';
+import '../util/global_function.dart';
 
 class EditMyProfile extends StatefulWidget {
   const EditMyProfile({super.key, required this.id});
@@ -28,7 +30,7 @@ class _EditMyProfileState extends State<EditMyProfile> {
         body: SingleChildScrollView(
             padding: EdgeInsets.fromLTRB(ThemePadding.value * 6, ThemePadding.value * 8, ThemePadding.value * 6, ThemePadding.value * 24),
             child: Column(children: [
-              ProfileCarouselImage(images: List.generate(6, (index) => "https://picsum.photos/1024/1024?random=$index")),
+              ProfileCarouselImage(images: List.generate(6, (index) => "https://picsum.photos/1024/1024?random=${randomNumber(20)}")),
               const ProfileChip(labels: ["27  Years old", "Dhaka, Bangladesh", "Private Service Holder"]),
               Text("Your are now editing your profile", style: TextStyle(color: ThemeColor.primary, fontWeight: FontWeight.bold)),
               Column(children: [
