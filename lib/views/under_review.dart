@@ -4,6 +4,9 @@ import 'package:biyer_juti/component/section_header.dart';
 import 'package:biyer_juti/theme/colors.dart';
 import 'package:biyer_juti/theme/gap.dart';
 import 'package:biyer_juti/theme/padding.dart';
+import 'package:biyer_juti/util/page_navigation.dart';
+import 'package:biyer_juti/views/sign_in.dart';
+import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 
 import '../api/dummy_daya.dart';
@@ -25,7 +28,11 @@ class _UnderReviewState extends State<UnderReview> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: ThemeColor.lightPinkBackground,
-        appBar: ThemeAppBar.blank(),
+        appBar: ThemeAppBar.blank(
+            action: Padding(
+          padding: ThemePadding.px3,
+          child: IconButton(onPressed: () => route(context, const SignIn()), icon: const Icon(FeatherIcons.logOut, size: 20)),
+        )),
         body: ListView(padding: ThemePadding.px6, children: [
           Image.asset("assets/logo-wide.png", height: 75),
           const SectionHeader(label: "Under Review", topGap: false),
