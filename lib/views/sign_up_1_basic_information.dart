@@ -25,7 +25,7 @@ class _SignUp1BasicInformationState extends State<SignUp1BasicInformation> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: ThemeColor.lightPinkBackground,
-        appBar: ThemeAppBar.blank,
+        appBar: ThemeAppBar.blank(),
         body: SingleChildScrollView(
             child: SizedBox(
                 height: MediaQuery.of(context).size.height - 100,

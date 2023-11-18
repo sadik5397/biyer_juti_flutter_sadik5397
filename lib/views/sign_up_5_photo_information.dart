@@ -28,7 +28,7 @@ class _SignUp5PhotoInformationState extends State<SignUp5PhotoInformation> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: ThemeColor.lightPinkBackground,
-        appBar: ThemeAppBar.blank,
+        appBar: ThemeAppBar.blank(),
         body: ListView(padding: ThemePadding.px6, children: [
           Image.asset("assets/logo-wide.png", height: 75),
           const SectionHeader(label: "Verification", topGap: false),

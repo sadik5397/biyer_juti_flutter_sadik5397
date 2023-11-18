@@ -27,7 +27,7 @@ class _SignUp3UserInformationState extends State<SignUp3UserInformation> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: ThemeColor.lightPinkBackground,
-        appBar: ThemeAppBar.blank,
+        appBar: ThemeAppBar.blank(),
         body: ListView(padding: ThemePadding.px6, children: [
           Image.asset("assets/logo-wide.png", height: 75),
           const SectionHeader(label: "User Information", topGap: false),

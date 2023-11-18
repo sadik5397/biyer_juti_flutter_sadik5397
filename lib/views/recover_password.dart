@@ -24,7 +24,7 @@ class _RecoverPasswordState extends State<RecoverPassword> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: ThemeColor.lightPinkBackground,
-        appBar: ThemeAppBar.blank,
+        appBar: ThemeAppBar.blank(),
         body: SingleChildScrollView(
             child: SizedBox(
                 height: MediaQuery.of(context).size.height - 100,

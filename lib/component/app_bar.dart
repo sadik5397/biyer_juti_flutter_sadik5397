@@ -42,6 +42,5 @@ class ThemeAppBar {
       leadingWidth: Gap.value * 14,
       automaticallyImplyLeading: hideBack != null ? !hideBack : true);
 
-  static AppBar blank =
-      AppBar(surfaceTintColor: Colors.transparent, foregroundColor: ThemeColor.primary, backgroundColor: Colors.transparent, bottomOpacity: 0, elevation: 0, scrolledUnderElevation: 0);
+  static AppBar blank() => AppBar(surfaceTintColor: Colors.transparent, foregroundColor: ThemeColor.primary, backgroundColor: Colors.transparent, bottomOpacity: 0, elevation: 0, scrolledUnderElevation: 0);
 }
