@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 
 import '../component/popup_menu.dart';
 import '../views/choose_viewers.dart';
+import '../views/contact_us.dart';
 import '../views/home.dart';
 import '../views/online.dart';
 import '../views/profile_viewer.dart';
@@ -25,7 +26,7 @@ List<PopupMenuEntry> appMenu(BuildContext context) => [
       menuItem(index: 7, label: "Choose Viewers", icon: FeatherIcons.mousePointer, onTap: () => route(context, const ChooseViewers())),
       menuItem(index: 8, label: "Billing", icon: FeatherIcons.creditCard, onTap: () => route(context, const UpgradeToPremium())),
       menuItem(index: 9, label: "Settings", icon: FeatherIcons.settings),
-      menuItem(index: 10, label: "Contact Us", icon: FeatherIcons.phone),
+      menuItem(index: 10, label: "Contact Us", icon: FeatherIcons.phone, onTap: () => route(context, const ContactUs())),
       menuItem(index: 11, label: "Logout", icon: FeatherIcons.logOut, onTap: () => routeNoBack(context, const SignIn())),
       footerItem(index: 12, toAbout: () {}, toTnC: () {}, toPrivacy: () {}, toARefund: () {})
     ];
