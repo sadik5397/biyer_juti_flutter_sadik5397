@@ -1,6 +1,6 @@
-import 'package:biyer_juti/api/dummy_daya.dart';
 import 'package:biyer_juti/component/app_bar.dart';
 import 'package:biyer_juti/component/button.dart';
+import 'package:biyer_juti/component/photo_uploader.dart';
 import 'package:biyer_juti/component/progress.dart';
 import 'package:biyer_juti/component/section_header.dart';
 import 'package:biyer_juti/theme/colors.dart';
@@ -9,8 +9,6 @@ import 'package:biyer_juti/theme/padding.dart';
 import 'package:flutter/material.dart';
 
 import '../component/custom_information_section.dart';
-import '../component/dropdown_button.dart';
-import '../component/text_field.dart';
 
 class SignUp4PhotoInformation extends StatefulWidget {
   const SignUp4PhotoInformation({super.key});
@@ -20,6 +18,9 @@ class SignUp4PhotoInformation extends StatefulWidget {
 }
 
 class _SignUp4PhotoInformationState extends State<SignUp4PhotoInformation> {
+  String? base64ProfilePicture;
+  List<String?> base64AdditionalPictures = List.generate(3, (index) => null);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,46 +28,57 @@ class _SignUp4PhotoInformationState extends State<SignUp4PhotoInformation> {
         appBar: ThemeAppBar.blank,
         body: ListView(padding: ThemePadding.px6, children: [
           Image.asset("assets/logo-wide.png", height: 75),
-          const SectionHeader(label: "Family Information", topGap: false),
+          const SectionHeader(label: "Photograph", topGap: false),
           Gap.gy2,
-          CustomInformationSection(header: "Father’s Information *", children: [
+          CustomInformationSection(header: "Upload Photo", children: [
             Gap.gy4,
-            Row(children: [
-              ThemeDropDownButton.expandedSearch(title: "Profession", options: DummyData.randomNames, value: null, onChanged: (value) {}, padding: ThemePadding.pb1),
-              Gap.gx3,
-              ThemeDropDownButton.expandedSearch(title: "Hometown", options: DummyData.randomNames, value: null, onChanged: (value) {}, padding: ThemePadding.pb1)
-            ])
-          ]),
-          Gap.gy4,
-          Gap.gy4,
-          CustomInformationSection(header: "Mother’s Information *", children: [
+            Text("Please  upload the most recent\nphotographs of yours.", style: TextStyle(color: ThemeColor.primary), textAlign: TextAlign.center),
             Gap.gy4,
-            Row(children: [
-              ThemeDropDownButton.expandedSearch(title: "Profession", options: DummyData.randomNames, value: null, onChanged: (value) {}, padding: ThemePadding.pb1),
-              Gap.gx3,
-              ThemeDropDownButton.expandedSearch(title: "Hometown", options: DummyData.randomNames, value: null, onChanged: (value) {}, padding: ThemePadding.pb1),
-            ])
-          ]),
-          Gap.gy4,
-          Gap.gy4,
-          CustomInformationSection(header: "Siblings *", children: [
             Gap.gy4,
-            Row(children: [
-              ThemeDropDownButton.expandedSearch(title: "# Brothers", options: DummyData.randomNames, value: null, onChanged: (value) {}, padding: ThemePadding.pb1),
-              Gap.gx3,
-              ThemeDropDownButton.expandedSearch(title: "# Sisters", options: DummyData.randomNames, value: null, onChanged: (value) {}, padding: ThemePadding.pb1),
-            ])
+            Text("Profile Photo *", style: TextStyle(color: ThemeColor.primary, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+            Gap.gy4,
+            PhotoUploader.base64(
+                size: 160,
+                base64img: base64ProfilePicture,
+                onDelete: () => setState(() => base64ProfilePicture = null),
+                onTap: () async => await PhotoUploader.popup(
+                    context: context,
+                    onCamera: () async {
+                      base64ProfilePicture = await PhotoUploader.getImageBase64(fromCamera: true);
+                      setState(() {});
+                    },
+                    onGallery: () async {
+                      base64ProfilePicture = await PhotoUploader.getImageBase64();
+                      setState(() {});
+                    })),
+            Gap.gy6,
+            Text("Additional Photos (Optional)", style: TextStyle(color: ThemeColor.primary, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+            Gap.gy4,
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: List.generate(
+                    base64AdditionalPictures.length,
+                    (index) => PhotoUploader.base64(
+                        size: 80,
+                        base64img: base64AdditionalPictures[index],
+                        onDelete: () => setState(() => base64AdditionalPictures[index] = null),
+                        onTap: () async => await PhotoUploader.popup(
+                            context: context,
+                            onCamera: () async {
+                              base64AdditionalPictures[index] = await PhotoUploader.getImageBase64(fromCamera: true);
+                              setState(() {});
+                            },
+                            onGallery: () async {
+                              base64AdditionalPictures[index] = await PhotoUploader.getImageBase64();
+                              setState(() {});
+                            })))),
+            Gap.gy2
           ]),
-          Gap.gy4,
-          Gap.gy4,
-          CustomInformationSection(
-              header: "Family Details (Optional)",
-              children: [Gap.gy4, ThemeTextField.pill(labelText: "Write About Your Family", controller: TextEditingController(), maxLines: 5, showLabel: false, padding: ThemePadding.pb2)]),
           Gap.gy4,
           Gap.gy4,
           Gap.gy4,
           Padding(padding: ThemePadding.px6 * 4, child: ThemeButton.primary(title: "NEXT", onTap: () {}, color: ThemeColor.primary)),
-          const Progress(progress: 5, outOf: 6),
+          const Progress(progress: 6, outOf: 7),
           Gap.gy6
         ]));
   }

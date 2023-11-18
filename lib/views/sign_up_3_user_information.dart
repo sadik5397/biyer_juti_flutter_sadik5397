@@ -62,7 +62,7 @@ class _SignUp3UserInformationState extends State<SignUp3UserInformation> {
           Gap.gy4,
           Gap.gy4,
           Padding(padding: ThemePadding.px6 * 4, child: ThemeButton.primary(title: "NEXT", onTap: () => route(context, const SignUp4FamilyInformation()), color: ThemeColor.primary)),
-          const Progress(progress: 4, outOf: 6),
+          const Progress(progress: 4, outOf: 7),
           Gap.gy6
         ]));
   }

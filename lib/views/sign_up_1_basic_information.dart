@@ -48,7 +48,7 @@ class _SignUp1BasicInformationState extends State<SignUp1BasicInformation> {
                       if (codeSent) const OTP(),
                       Gap.infinity,
                       Padding(padding: ThemePadding.px6 * 4, child: ThemeButton.primary(title: "NEXT", onTap: () => route(context, const SignUp2UserInformation()), color: ThemeColor.primary)),
-                      Progress(progress: codeSent ? 2 : 1, outOf: 6),
+                      Progress(progress: codeSent ? 2 : 1, outOf: 7),
                       Gap.gy6
                     ])))));
   }

@@ -55,7 +55,7 @@ class _SignUp2UserInformationState extends State<SignUp2UserInformation> {
               showPasswordPressed: () => setState(() => shoConfirmPassword = !shoConfirmPassword)),
           Gap.gy6,
           Padding(padding: ThemePadding.px6 * 4, child: ThemeButton.primary(title: "NEXT", onTap: () => route(context, const SignUp3UserInformation()), color: ThemeColor.primary)),
-          const Progress(progress: 3, outOf: 6),
+          const Progress(progress: 3, outOf: 7),
           Gap.gy6
         ]));
   }

@@ -3,6 +3,7 @@ import 'package:hexcolor/hexcolor.dart';
 
 class ThemeColor {
   static Color primary = HexColor("#B74242");
+  static Color light = ThemeColor.primary.withOpacity(.25);
   static Color secondary = HexColor("#661010");
   static Color jetBlack = HexColor("#243757");
   static Color lightPink = HexColor("#B91A1A");
@@ -13,6 +14,7 @@ class ThemeColor {
   static Color lightPinkBackground = HexColor("#F6E8E8");
   static Color yellow = HexColor("#FFDB21");
   static Color navyBlue = HexColor("#243757");
+  static Color grey = Colors.black26;
 }
 
 class ThemeGradient {
