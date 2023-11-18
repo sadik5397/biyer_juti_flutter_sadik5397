@@ -1,3 +1,4 @@
+import 'package:biyer_juti/api/dummy_daya.dart';
 import 'package:biyer_juti/component/hyperlink.dart';
 import 'package:biyer_juti/theme/border_radius.dart';
 import 'package:biyer_juti/theme/colors.dart';
@@ -50,13 +51,13 @@ class ProfileCard extends StatelessWidget {
                                   child: Padding(
                                       padding: ThemePadding.pb4,
                                       child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-                                        Text("87% Match", style: TextStyle(fontSize: 12, fontWeight: FontWeight.normal, color: HexColor("#FC6161"))),
+                                        Text("${randomNumber(99)}% Match", style: TextStyle(fontSize: 12, fontWeight: FontWeight.normal, color: HexColor("#FC6161"))),
                                         Gap.gy1,
-                                        const Text("25 Years | Dhaka", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white))
+                                        Text("${randomNumber(50)} Years | ${DummyData.randomNameList(1)[0].toString().split(" ")[0]}", style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white))
                                       ])))
                             ]))),
                     Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
-                      Text("BJT 205011203", style: TextStyle(color: ThemeColor.secondary, fontWeight: FontWeight.bold, fontSize: 18)),
+                      Text("BJT ${randomNumberBetween(10000000, 99999999)}", style: TextStyle(color: ThemeColor.secondary, fontWeight: FontWeight.bold, fontSize: 18)),
                       Gap.gy2,
                       GiveHeartButtonSmall(onTap: () {}, hearted: hearted, matched: match),
                       Gap.gy3,

@@ -2,6 +2,7 @@ import 'package:biyer_juti/component/section_header.dart';
 import 'package:biyer_juti/theme/gap.dart';
 import 'package:biyer_juti/theme/padding.dart';
 import 'package:biyer_juti/util/page_navigation.dart';
+import 'package:biyer_juti/views/home.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 
@@ -35,7 +36,7 @@ class _ContactUsState extends State<ContactUs> {
           Row(children: [
             ThemeButton.expandedPill(title: "Cancel", onTap: () => routeBack(context), icon: FeatherIcons.x, border: true),
             Gap.gx2,
-            ThemeButton.expandedPill(title: "Send", onTap: () => routeBack(context), icon: FeatherIcons.send, dark: true)
+            ThemeButton.expandedPill(title: "Send", onTap: () => route(context, const Home()), icon: FeatherIcons.send, dark: true)
           ]),
           Gap.gy6
         ]));

@@ -25,7 +25,7 @@ class _HomeState extends State<Home> {
         bottomNavigationBar: const ThemeNavigation(currentIndex: 0),
         appBar: ThemeAppBar.primary(hideBack: true, premium: true),
         body: ListView(padding: ThemePadding.p4.copyWith(top: ThemePadding.value * 8), children: [
-          const HeartStat(heartReceived: 999, heartGiven: 99),
+          HeartStat(heartReceived: randomNumber(999), heartGiven: randomNumber(999)),
           ...List.generate(
               40,
               (index) => ProfileCard(

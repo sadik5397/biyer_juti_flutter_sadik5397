@@ -17,6 +17,11 @@ randomNumber(int max) {
   return random.nextInt(max);
 }
 
+randomNumberBetween(int min, int max) {
+  Random random = Random();
+  return random.nextInt(max) + min;
+}
+
 String capitalizeAllWord(var value) {
   value = value.toString();
   if (value == "") {

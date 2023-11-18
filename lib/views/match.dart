@@ -24,7 +24,7 @@ class _MatchState extends State<Match> {
     return Scaffold(
         appBar: ThemeAppBar.primary(premium: true),
         body: ListView(padding: ThemePadding.p4.copyWith(top: ThemePadding.value * 8), children: [
-          const MatchStat(heartGiven: 789, match: 9),
+          MatchStat(heartGiven: randomNumber(999), match: randomNumber(99)),
           const SectionHeader(label: "Matched Profiles", topGap: false),
           ...List.generate(
               9,

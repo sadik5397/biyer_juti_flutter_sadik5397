@@ -13,7 +13,6 @@ class DummyData {
     RequestState.none,
   ];
   static List<String> youtubeVideoIDs = ["JebT4Z-p6QI", "69ROC05QX1g", "I0mmGZAa3to", "b4JpCGcCv8k", "UmOIA2-MoEU", "t1Feq5jlUq0"];
-
   static List<String> months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   static List<String> randomNames = [
     'Sakura Tanaka',
@@ -64,6 +63,5 @@ class DummyData {
     'Hong Wu',
     'Jin-ho Lee'
   ];
-
   static List<String> randomNameList(int count) => (List<String>.from(randomNames)..shuffle(Random())).take(count).toList();
 }

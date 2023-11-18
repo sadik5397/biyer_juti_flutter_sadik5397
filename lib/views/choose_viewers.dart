@@ -1,4 +1,3 @@
-
 import 'package:biyer_juti/component/choose_viwer_selection_section.dart';
 import 'package:biyer_juti/component/chosen_viewer_stat.dart';
 import 'package:biyer_juti/component/item_chip.dart';
@@ -7,6 +6,7 @@ import 'package:biyer_juti/theme/padding.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+
 import '../api/dummy_daya.dart';
 import '../component/app_bar.dart';
 import '../component/button.dart';
@@ -15,6 +15,7 @@ import '../theme/border_radius.dart';
 import '../theme/colors.dart';
 import '../theme/gap.dart';
 import '../theme/shadow.dart';
+import '../util/global_function.dart';
 
 class ChooseViewers extends StatefulWidget {
   const ChooseViewers({Key? key}) : super(key: key);
@@ -33,12 +34,18 @@ class _ChooseViewersState extends State<ChooseViewers> {
         appBar: ThemeAppBar.primary(hideBack: true, premium: true),
         body: ListView(padding: ThemePadding.p4, children: [
           const SectionHeader(label: 'Choose Viewers', topGap: false),
-          Padding(padding: ThemePadding.px4, child: const Text("Do not use these filters if you want all users to view your profile. Using these filters will reduce your chances to get hearts and matches.", textAlign: TextAlign.justify)),
-          Padding(padding: ThemePadding.p4, child: const Text("এই ফিল্টারগুলি ব্যবহার করবেন না, যদি আপনি চান যে সমস্ত ব্যবহারকারী আপনার প্রোফাইল দেখতে পারে। এই ফিল্টার ব্যবহার করে আপনার হার্ট এবং ম্যাচ পাওয়ার সম্ভাবনা কমে যাবে।", textAlign: TextAlign.justify)),
+          Padding(
+              padding: ThemePadding.px4,
+              child: const Text("Do not use these filters if you want all users to view your profile. Using these filters will reduce your chances to get hearts and matches.", textAlign: TextAlign.justify)),
+          Padding(
+              padding: ThemePadding.p4,
+              child: const Text("এই ফিল্টারগুলি ব্যবহার করবেন না, যদি আপনি চান যে সমস্ত ব্যবহারকারী আপনার প্রোফাইল দেখতে পারে। এই ফিল্টার ব্যবহার করে আপনার হার্ট এবং ম্যাচ পাওয়ার সম্ভাবনা কমে যাবে।",
+                  textAlign: TextAlign.justify)),
           Container(
               padding: ThemePadding.p6.copyWith(left: ThemePadding.value * 4, right: ThemePadding.value * 4),
               margin: ThemePadding.pb5,
-              decoration: BoxDecoration(color: HexColor("CD7B7B"), borderRadius: ThemeBorderRadius.r6, boxShadow: ThemeShadow.primary, border: Border.all(width: 2, color: ThemeColor.secondary.withOpacity(.25))),
+              decoration:
+                  BoxDecoration(color: HexColor("CD7B7B"), borderRadius: ThemeBorderRadius.r6, boxShadow: ThemeShadow.primary, border: Border.all(width: 2, color: ThemeColor.secondary.withOpacity(.25))),
               width: double.maxFinite,
               child: Column(children: [
                 const Text("Filters", style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
@@ -77,11 +84,26 @@ class _ChooseViewersState extends State<ChooseViewers> {
                 Gap.gy6,
                 ChooseViewerSelectionSection(header: "Education", children: List.generate(6, (index) => ItemChip(label: DummyData.randomNameList(6)[index], onDelete: () {})), onAdd: () {}, onReset: () {}),
                 Gap.gy3,
-                Padding(padding: ThemePadding.p4, child: const Text("Upon confirmation, your profile viewers will be limited to the people in the above categories. If you want to get more hearts and matches, Reset these filters and allow all users to view your profile.", textAlign: TextAlign.justify, style: TextStyle(color: Colors.white))),
-                Padding(padding: ThemePadding.px4, child: const Text("নিশ্চিতকরণের পরে, আপনার প্রোফাইলের দর্শকরা উপরের বিভাগের লোকেদের মধ্যে সীমাবদ্ধ থাকবে। আপনি যদি আরও হৃদয় এবং ম্যাচ পেতে চান, এই ফিল্টারগুলি রিসেট করুন এবং সমস্ত ব্যবহারকারীদের আপনার প্রোফাইল দেখার অনুমতি দিন৷", textAlign: TextAlign.justify, style: TextStyle(color: Colors.white))),
-                Gap.gy4,Row(children: [ThemeButton.expandedPill(title: "Reset All", onTap: (){}, icon: FeatherIcons.refreshCw, padding: ThemePadding.none), Gap.gx2, ThemeButton.expandedPill(title: "Confirm Filter", onTap: (){}, icon: FeatherIcons.filter, dark: true, padding: ThemePadding.none)]),
+                Padding(
+                    padding: ThemePadding.p4,
+                    child: const Text(
+                        "Upon confirmation, your profile viewers will be limited to the people in the above categories. If you want to get more hearts and matches, Reset these filters and allow all users to view your profile.",
+                        textAlign: TextAlign.justify,
+                        style: TextStyle(color: Colors.white))),
+                Padding(
+                    padding: ThemePadding.px4,
+                    child: const Text(
+                        "নিশ্চিতকরণের পরে, আপনার প্রোফাইলের দর্শকরা উপরের বিভাগের লোকেদের মধ্যে সীমাবদ্ধ থাকবে। আপনি যদি আরও হৃদয় এবং ম্যাচ পেতে চান, এই ফিল্টারগুলি রিসেট করুন এবং সমস্ত ব্যবহারকারীদের আপনার প্রোফাইল দেখার অনুমতি দিন৷",
+                        textAlign: TextAlign.justify,
+                        style: TextStyle(color: Colors.white))),
+                Gap.gy4,
+                Row(children: [
+                  ThemeButton.expandedPill(title: "Reset All", onTap: () {}, icon: FeatherIcons.refreshCw, padding: ThemePadding.none),
+                  Gap.gx2,
+                  ThemeButton.expandedPill(title: "Confirm Filter", onTap: () {}, icon: FeatherIcons.filter, dark: true, padding: ThemePadding.none)
+                ]),
               ])),
-          const ChosenViewerStat(foundProfileCount: 8910),
+          ChosenViewerStat(foundProfileCount: randomNumber(9999)),
         ]));
   }
 }
