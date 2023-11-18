@@ -6,26 +6,27 @@ import 'package:flutter/material.dart';
 import 'hyperlink.dart';
 
 class ThemeButton {
-  static Padding pill({EdgeInsets? padding, required String title, IconData? icon, required VoidCallback onTap, bool dark = false, bool border = false}) {
+  static Padding pill({EdgeInsets? padding, EdgeInsets? innerPadding, required String title, IconData? icon, required VoidCallback onTap, bool dark = false, bool border = false, Color? color}) {
     return Padding(
         padding: padding ?? ThemePadding.pb4,
         child: Container(
-            decoration: BoxDecoration(borderRadius: ThemeBorderRadius.r6, color: dark ? ThemeColor.secondary : Colors.white, border: Border.all(color: border ? ThemeColor.primary : Colors.transparent)),
+            decoration:
+                BoxDecoration(borderRadius: ThemeBorderRadius.r6, color: color ?? (dark ? ThemeColor.secondary : Colors.white), border: Border.all(color: border ? ThemeColor.primary : Colors.transparent)),
             child: Material(
                 color: Colors.transparent,
                 child: InkWell(
                     borderRadius: ThemeBorderRadius.r6,
                     onTap: () => onTap.call(),
                     child: Padding(
-                        padding: ThemePadding.p1 * 2.5,
+                        padding: innerPadding ?? ThemePadding.p1 * 2.5,
                         child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                           if (icon != null) Padding(padding: ThemePadding.pr2, child: Icon(icon, size: 14, color: dark ? Colors.white : ThemeColor.primary)),
                           Text(title, style: TextStyle(fontSize: 14, color: dark ? Colors.white : ThemeColor.primary))
                         ]))))));
   }
 
-  static Expanded expandedPill({EdgeInsets? padding, required String title, IconData? icon, required VoidCallback onTap, bool dark = false, bool border = false}) {
-    return Expanded(child: pill(title: title, padding: padding, onTap: onTap, icon: icon, dark: dark, border: border));
+  static Expanded expandedPill({EdgeInsets? innerPadding, EdgeInsets? padding, required String title, IconData? icon, required VoidCallback onTap, bool dark = false, bool border = false, Color? color}) {
+    return Expanded(child: pill(title: title, padding: padding, onTap: onTap, icon: icon, dark: dark, border: border, innerPadding: innerPadding, color: color));
   }
 
   static Padding primary({EdgeInsets? padding, required String title, IconData? icon, required VoidCallback onTap, Color? color, LinearGradient? gradient, bool darkText = false, bool border = false}) {

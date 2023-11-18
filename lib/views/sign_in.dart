@@ -5,9 +5,10 @@ import 'package:biyer_juti/theme/gap.dart';
 import 'package:biyer_juti/theme/padding.dart';
 import 'package:biyer_juti/util/page_navigation.dart';
 import 'package:biyer_juti/views/forgot_password.dart';
-import 'package:biyer_juti/views/search.dart';
 import 'package:biyer_juti/views/sign_up_1_basic_information.dart';
 import 'package:flutter/material.dart';
+
+import 'home.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -46,9 +47,9 @@ class _SignInState extends State<SignIn> {
                           autofillHints: AutofillHints.password,
                           showPasswordPressed: () => setState(() => showPassword = !showPassword)),
                       Gap.gy2,
-                      ThemeButton.primary(title: "SIGN IN", onTap: () => route(context, const Search()), gradient: ThemeGradient.secondary),
+                      ThemeButton.primary(title: "SIGN IN", onTap: () => route(context, const Home()), gradient: ThemeGradient.secondary),
                       Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                        ThemeButton.text(label: "Frgot Password", color: ThemeColor.primary, weight: FontWeight.bold, onTap: () => route(context, const ForgotPassword())),
+                        ThemeButton.text(label: "Forgot Password", color: ThemeColor.primary, weight: FontWeight.bold, onTap: () => route(context, const ForgotPassword())),
                         ThemeButton.text(label: "Create Profile", color: ThemeColor.secondary, weight: FontWeight.bold, onTap: () => route(context, const SignUp1BasicInformation()))
                       ]),
                       Gap.gy6

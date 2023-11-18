@@ -81,7 +81,8 @@ class ThemeTextField {
                     ? Padding(
                         padding: ThemePadding.pr2,
                         child: isPassword
-                            ? IconButton(onPressed: showPasswordPressed, icon: Icon((!showPassword) ? Icons.visibility_outlined : Icons.visibility_off_outlined), iconSize: 18, color: ThemeColor.jetBlack.withOpacity(.5))
+                            ? IconButton(
+                                onPressed: showPasswordPressed, icon: Icon((!showPassword) ? Icons.visibility_outlined : Icons.visibility_off_outlined), iconSize: 18, color: ThemeColor.jetBlack.withOpacity(.5))
                             : isDate
                                 ? IconButton(onPressed: onTap, icon: const Icon(Icons.calendar_month_sharp), iconSize: 18, color: ThemeColor.jetBlack.withOpacity(.5))
                                 : isFile
@@ -161,7 +162,7 @@ class ThemeTextField {
                 contentPadding: ThemePadding.p2 * 1.25,
                 labelStyle: TextStyle(fontSize: 14, color: ThemeColor.primary, fontWeight: FontWeight.bold),
                 hintText: showLabel ? hintText : "$labelText ${required ? '*' : ''}",
-                hintStyle: showLabel ? TextStyle(fontSize: 14, color: ThemeColor.primary, fontWeight: FontWeight.bold) : null,
+                hintStyle: showLabel ? TextStyle(fontSize: 14, color: ThemeColor.jetBlack.withOpacity(.5), fontWeight: FontWeight.normal) : null,
                 floatingLabelStyle: TextStyle(color: ThemeColor.primary, fontWeight: FontWeight.bold),
                 suffixIconColor: ThemeColor.jetBlack)));
   }
@@ -237,7 +238,8 @@ class ThemeTextField {
                 ? Padding(
                     padding: ThemePadding.pr2,
                     child: isPassword
-                        ? IconButton(onPressed: showPasswordPressed, icon: Icon((!showPassword) ? Icons.visibility_outlined : Icons.visibility_off_outlined), iconSize: 18, color: ThemeColor.jetBlack.withOpacity(.5))
+                        ? IconButton(
+                            onPressed: showPasswordPressed, icon: Icon((!showPassword) ? Icons.visibility_outlined : Icons.visibility_off_outlined), iconSize: 18, color: ThemeColor.jetBlack.withOpacity(.5))
                         : isDate
                             ? IconButton(onPressed: onTap, icon: const Icon(Icons.calendar_month_sharp), iconSize: 18, color: ThemeColor.jetBlack.withOpacity(.5))
                             : isFile

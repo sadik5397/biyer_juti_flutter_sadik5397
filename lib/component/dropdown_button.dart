@@ -48,7 +48,15 @@ class ThemeDropDownButton {
   }
 
   static Padding search(
-      {double? width, EdgeInsets? padding, bool isDisable = false, required String title, required List<String> options, required dynamic value, required void Function(Object? value) onChanged}) {
+      {double? width,
+      EdgeInsets? padding,
+      bool isDisable = false,
+      bool showLabelWhenSelected = true,
+      required String title,
+      required List<String> options,
+      required dynamic value,
+      required void Function(Object? value) onChanged,
+      bool dark = false}) {
     return Padding(
         padding: padding ?? ThemePadding.pb4,
         child: AbsorbPointer(
@@ -64,13 +72,22 @@ class ThemeDropDownButton {
               isExpanded: true,
               enableFeedback: true,
               buttonPadding: ThemePadding.px3,
-              buttonDecoration: BoxDecoration(borderRadius: ThemeBorderRadius.r6, color: isDisable ? Colors.black12 : const Color(0xfff8fafc)),
+              buttonDecoration: BoxDecoration(
+                  borderRadius: ThemeBorderRadius.r6,
+                  color: isDisable
+                      ? Colors.black12
+                      : dark
+                          ? ThemeColor.secondary
+                          : const Color(0xfff8fafc)),
               dropdownPadding: EdgeInsets.zero,
               dropdownDecoration: BoxDecoration(borderRadius: ThemeBorderRadius.r6, color: ThemeColor.lightRedBackground),
-              hint: Text(title, style: TextStyle(color: ThemeColor.primary)),
+              hint: Text(title, style: TextStyle(color: dark ? Colors.white : ThemeColor.primary)),
               items: options.map((item) => DropdownMenuItem<String>(value: item, child: Text(item, style: TextStyle(color: ThemeColor.secondary, fontSize: 14, fontWeight: FontWeight.bold)))).toList(),
-              selectedItemBuilder: (context) =>
-                  List.generate(options.length, (index) => Align(alignment: const Alignment(-1, 0), child: Text("$title: ${options[index]}", style: TextStyle(color: ThemeColor.primary, fontSize: 14)))),
+              selectedItemBuilder: (context) => List.generate(
+                  options.length,
+                  (index) => Align(
+                      alignment: const Alignment(-1, 0),
+                      child: Text("${showLabelWhenSelected ? '$title :' : ''} ${options[index]}", style: TextStyle(color: dark ? Colors.white : ThemeColor.primary, fontSize: 14)))),
               buttonHeight: 40,
               value: value,
               onChanged: onChanged,
@@ -80,7 +97,16 @@ class ThemeDropDownButton {
   }
 
   static Expanded expandedSearch(
-      {double? width, EdgeInsets? padding, bool isDisable = false, required String title, required List<String> options, required dynamic value, required void Function(Object? value) onChanged}) {
-    return Expanded(child: search(title: title, options: options, value: value, onChanged: onChanged, padding: padding, isDisable: isDisable, width: width));
+      {double? width,
+      EdgeInsets? padding,
+      bool isDisable = false,
+      bool showLabelWhenSelected = true,
+      required String title,
+      required List<String> options,
+      required dynamic value,
+      required void Function(Object? value) onChanged,
+      bool dark = false}) {
+    return Expanded(
+        child: search(title: title, options: options, value: value, onChanged: onChanged, padding: padding, isDisable: isDisable, width: width, dark: dark, showLabelWhenSelected: showLabelWhenSelected));
   }
 }

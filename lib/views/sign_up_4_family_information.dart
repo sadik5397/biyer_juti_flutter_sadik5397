@@ -6,8 +6,6 @@ import 'package:biyer_juti/component/section_header.dart';
 import 'package:biyer_juti/theme/colors.dart';
 import 'package:biyer_juti/theme/gap.dart';
 import 'package:biyer_juti/theme/padding.dart';
-import 'package:biyer_juti/util/page_navigation.dart';
-import 'package:biyer_juti/views/sign_up_4_family_information.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 
@@ -15,14 +13,14 @@ import '../component/custom_information_section.dart';
 import '../component/dropdown_button.dart';
 import '../component/text_field.dart';
 
-class SignUp3UserInformation extends StatefulWidget {
-  const SignUp3UserInformation({super.key});
+class SignUp4FamilyInformation extends StatefulWidget {
+  const SignUp4FamilyInformation({super.key});
 
   @override
-  State<SignUp3UserInformation> createState() => _SignUp3UserInformationState();
+  State<SignUp4FamilyInformation> createState() => _SignUp4FamilyInformationState();
 }
 
-class _SignUp3UserInformationState extends State<SignUp3UserInformation> {
+class _SignUp4FamilyInformationState extends State<SignUp4FamilyInformation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +61,7 @@ class _SignUp3UserInformationState extends State<SignUp3UserInformation> {
           Gap.gy4,
           Gap.gy4,
           Gap.gy4,
-          Padding(padding: ThemePadding.px6 * 4, child: ThemeButton.primary(title: "NEXT", onTap: () => route(context, const SignUp4FamilyInformation()), color: ThemeColor.primary)),
+          Padding(padding: ThemePadding.px6 * 4, child: ThemeButton.primary(title: "NEXT", onTap: () {}, color: ThemeColor.primary)),
           const Progress(progress: 4, outOf: 6),
           Gap.gy6
         ]));

@@ -1,5 +1,7 @@
 import 'package:biyer_juti/component/app_bar.dart';
 import 'package:biyer_juti/component/button.dart';
+import 'package:biyer_juti/component/custom_date_selection.dart';
+import 'package:biyer_juti/component/custom_gender_selection.dart';
 import 'package:biyer_juti/component/progress.dart';
 import 'package:biyer_juti/component/section_header.dart';
 import 'package:biyer_juti/component/text_field.dart';
@@ -7,7 +9,7 @@ import 'package:biyer_juti/theme/colors.dart';
 import 'package:biyer_juti/theme/gap.dart';
 import 'package:biyer_juti/theme/padding.dart';
 import 'package:biyer_juti/util/page_navigation.dart';
-import 'package:biyer_juti/views/home.dart';
+import 'package:biyer_juti/views/sign_up_3_user_information.dart';
 import 'package:flutter/material.dart';
 
 class SignUp2UserInformation extends StatefulWidget {
@@ -31,8 +33,9 @@ class _SignUp2UserInformationState extends State<SignUp2UserInformation> {
           const SectionHeader(label: "Account Information", topGap: false),
           Gap.gy2,
           ThemeTextField.primary(labelText: "Name", controller: TextEditingController(), required: true, keyboardType: TextInputType.name, autofillHints: AutofillHints.name, autoFocus: true),
-          ThemeTextField.primary(labelText: "Gender", controller: TextEditingController(), required: true, keyboardType: TextInputType.text, autofillHints: AutofillHints.gender),
-          ThemeTextField.primary(labelText: "Date of Birth", controller: TextEditingController(), required: true, keyboardType: TextInputType.datetime, autofillHints: AutofillHints.birthdayDay, isDate: true),
+          const CustomGenderSelection(label: "Gender *"),
+          const CustomDateSelection(label: "Date of Birth *"),
+          Gap.gy1,
           ThemeTextField.primary(labelText: "Email", controller: TextEditingController(), required: true, keyboardType: TextInputType.emailAddress, autofillHints: AutofillHints.email),
           ThemeTextField.primary(
               labelText: "Password",
@@ -51,7 +54,7 @@ class _SignUp2UserInformationState extends State<SignUp2UserInformation> {
               autofillHints: AutofillHints.password,
               showPasswordPressed: () => setState(() => shoConfirmPassword = !shoConfirmPassword)),
           Gap.gy6,
-          Padding(padding: ThemePadding.px6 * 4, child: ThemeButton.primary(title: "NEXT", onTap: () => route(context, const Home()), color: ThemeColor.primary)),
+          Padding(padding: ThemePadding.px6 * 4, child: ThemeButton.primary(title: "NEXT", onTap: () => route(context, const SignUp3UserInformation()), color: ThemeColor.primary)),
           const Progress(progress: 3, outOf: 6),
           Gap.gy6
         ]));
