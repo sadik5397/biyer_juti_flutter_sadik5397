@@ -1,7 +1,7 @@
 import 'package:biyer_juti/component/app_bar.dart';
 import 'package:biyer_juti/component/button.dart';
 import 'package:biyer_juti/component/custom_date_selection.dart';
-import 'package:biyer_juti/component/custom_gender_selection.dart';
+import 'package:biyer_juti/component/custom_toggle_selection.dart';
 import 'package:biyer_juti/component/progress.dart';
 import 'package:biyer_juti/component/section_header.dart';
 import 'package:biyer_juti/component/text_field.dart';
@@ -33,7 +33,7 @@ class _SignUp2UserInformationState extends State<SignUp2UserInformation> {
           const SectionHeader(label: "Account Information", topGap: false),
           Gap.gy2,
           ThemeTextField.primary(labelText: "Name", controller: TextEditingController(), required: true, keyboardType: TextInputType.name, autofillHints: AutofillHints.name, autoFocus: true),
-          const CustomGenderSelection(label: "Gender *"),
+          const CustomToggleSelection(label: "Gender *", options: ["Male", "Female"]),
           const CustomDateSelection(label: "Date of Birth *"),
           Gap.gy1,
           ThemeTextField.primary(labelText: "Email", controller: TextEditingController(), required: true, keyboardType: TextInputType.emailAddress, autofillHints: AutofillHints.email),

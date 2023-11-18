@@ -56,10 +56,8 @@ class _SignUp3UserInformationState extends State<SignUp3UserInformation> {
           ]),
           Gap.gy4,
           Gap.gy4,
-          CustomInformationSection(header: "Bio *", children: [
-            Gap.gy4,
-            ThemeTextField.pill(labelText: "Write About Yourself *", controller: TextEditingController(), maxLines: 5, showLabel: false),
-          ]),
+          CustomInformationSection(
+              header: "Bio *", children: [Gap.gy4, ThemeTextField.pill(labelText: "Write About Yourself *", controller: TextEditingController(), maxLines: 5, showLabel: false, padding: ThemePadding.pb2)]),
           Gap.gy4,
           Gap.gy4,
           Gap.gy4,

@@ -5,17 +5,18 @@ import 'package:flutter/material.dart';
 import '../theme/border_radius.dart';
 import '../theme/colors.dart';
 
-class CustomGenderSelection extends StatefulWidget {
-  const CustomGenderSelection({super.key, required this.label});
+class CustomToggleSelection extends StatefulWidget {
+  const CustomToggleSelection({super.key, required this.label, required this.options});
 
   final String label;
+  final List<String> options;
 
   @override
-  State<CustomGenderSelection> createState() => _CustomGenderSelectionState();
+  State<CustomToggleSelection> createState() => _CustomToggleSelectionState();
 }
 
-class _CustomGenderSelectionState extends State<CustomGenderSelection> {
-  bool selectedMale = true;
+class _CustomToggleSelectionState extends State<CustomToggleSelection> {
+  bool selectedLeft = true;
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +27,11 @@ class _CustomGenderSelectionState extends State<CustomGenderSelection> {
           decoration: BoxDecoration(border: Border.all(color: ThemeColor.primary), borderRadius: ThemeBorderRadius.r4, color: Colors.white),
           height: 55,
           child: Row(children: [
-            ThemeButton.expandedPill(title: "Male", onTap: () => setState(() => selectedMale = true), border: !selectedMale, padding: ThemePadding.p1 * 2.5, innerPadding: ThemePadding.p1, dark: selectedMale),
-            ThemeButton.expandedPill(title: "Female", onTap: () => setState(() => selectedMale = false), border: selectedMale, padding: ThemePadding.p1 * 2.5, innerPadding: ThemePadding.p1, dark: !selectedMale)
+            ThemeButton.expandedPill(
+                title: widget.options[0], onTap: () => setState(() => selectedLeft = true), border: !selectedLeft, padding: ThemePadding.p1 * 2.5, innerPadding: ThemePadding.p1, dark: selectedLeft),
+            if (widget.options.length > 1)
+              ThemeButton.expandedPill(
+                  title: widget.options[1], onTap: () => setState(() => selectedLeft = false), border: selectedLeft, padding: ThemePadding.p1 * 2.5, innerPadding: ThemePadding.p1, dark: !selectedLeft)
           ])),
       Container(
           padding: ThemePadding.px2,
