@@ -1,5 +1,6 @@
 import 'package:biyer_juti/util/page_navigation.dart';
 import 'package:biyer_juti/views/account_settings.dart';
+import 'package:biyer_juti/views/long_text.dart';
 import 'package:biyer_juti/views/match.dart';
 import 'package:biyer_juti/views/notification.dart';
 import 'package:biyer_juti/views/profile.dart';
@@ -29,5 +30,11 @@ List<PopupMenuEntry> appMenu(BuildContext context) => [
       menuItem(index: 9, context: context, label: "Settings", icon: FeatherIcons.settings, onTap: () => route(context, const AccountSettings())),
       menuItem(index: 10, context: context, label: "Contact Us", icon: FeatherIcons.phone, onTap: () => route(context, const ContactUs())),
       menuItem(index: 11, context: context, label: "Logout", icon: FeatherIcons.logOut, onTap: () => routeNoBack(context, const SignIn())),
-      footerItem(index: 12, context: context, toAbout: () {}, toTnC: () {}, toPrivacy: () {}, toRefund: () {})
+      footerItem(
+          index: 12,
+          context: context,
+          toAbout: () => route(context, const LongText(pageName: "About Us")),
+          toTnC: () => route(context, const LongText(pageName: "Terms & Conditions")),
+          toPrivacy: () => route(context, const LongText(pageName: "Privacy Policy")),
+          toRefund: () => route(context, const LongText(pageName: "Refund Policy")))
     ];
