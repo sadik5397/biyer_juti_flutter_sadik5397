@@ -13,11 +13,8 @@ class FullScreenImage extends StatelessWidget {
       Opacity(opacity: .15, child: CachedNetworkImage(imageUrl: imageUrl, width: MediaQuery.of(context).size.width, height: MediaQuery.of(context).size.height, fit: BoxFit.cover)),
       Padding(
         padding: ThemePadding.p4,
-        child: Hero(
-            tag: "image",
-            child: ClipRRect(
-                borderRadius: ThemeBorderRadius.r4,
-                child: CachedNetworkImage(imageUrl: imageUrl, width: MediaQuery.of(context).size.width, height: MediaQuery.of(context).size.height, fit: BoxFit.contain))),
+        child: ClipRRect(
+            borderRadius: ThemeBorderRadius.r4, child: CachedNetworkImage(imageUrl: imageUrl, width: MediaQuery.of(context).size.width, height: MediaQuery.of(context).size.height, fit: BoxFit.contain)),
       )
     ]);
   }

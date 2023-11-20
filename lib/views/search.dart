@@ -37,6 +37,7 @@ class _SearchState extends State<Search> {
                   premium: index % 4 == 0,
                   hearted: index % 2 == 0,
                   match: index % 5 == 0,
+                  imageUrl: "https://picsum.photos/400/410?random=${randomNumber(90)}",
                   requestState: DummyData.currentRequestState[randomNumber(DummyData.currentRequestState.length)])),
           const Pagination(),
         ]));

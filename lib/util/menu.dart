@@ -16,17 +16,17 @@ import '../views/online.dart';
 import '../views/profile_viewer.dart';
 
 List<PopupMenuEntry> appMenu(BuildContext context) => [
-      menuItem(index: 0, label: "My Profile", icon: FeatherIcons.user, onTap: () => route(context, const Profile(myProfile: true))),
-      menuItem(index: 1, label: "Notification", icon: FeatherIcons.bell, onTap: () => route(context, const Notifications())),
-      menuItem(index: 2, label: "Search", icon: FeatherIcons.search, onTap: () => route(context, const Search())),
-      menuItem(index: 3, label: "Hearts Received", icon: FeatherIcons.heart, onTap: () => route(context, const Home())),
-      menuItem(index: 4, label: "Matches", icon: FeatherIcons.gitPullRequest, onTap: () => route(context, const Match())),
-      menuItem(index: 5, label: "Profile Viewers", icon: FeatherIcons.eye, onTap: () => route(context, const ProfileViewer())),
-      menuItem(index: 6, label: "Online Users", icon: FeatherIcons.users, onTap: () => route(context, const Online())),
-      menuItem(index: 7, label: "Choose Viewers", icon: FeatherIcons.mousePointer, onTap: () => route(context, const ChooseViewers())),
-      menuItem(index: 8, label: "Billing", icon: FeatherIcons.creditCard, onTap: () => route(context, const UpgradeToPremium())),
-      menuItem(index: 9, label: "Settings", icon: FeatherIcons.settings),
-      menuItem(index: 10, label: "Contact Us", icon: FeatherIcons.phone, onTap: () => route(context, const ContactUs())),
-      menuItem(index: 11, label: "Logout", icon: FeatherIcons.logOut, onTap: () => routeNoBack(context, const SignIn())),
-      footerItem(index: 12, toAbout: () {}, toTnC: () {}, toPrivacy: () {}, toARefund: () {})
+      menuItem(index: 0, context: context, label: "My Profile", icon: FeatherIcons.user, onTap: () => route(context, const Profile(myProfile: true))),
+      menuItem(index: 1, context: context, label: "Notification", icon: FeatherIcons.bell, onTap: () => route(context, const Notifications())),
+      menuItem(index: 2, context: context, label: "Search", icon: FeatherIcons.search, onTap: () => route(context, const Search())),
+      menuItem(index: 3, context: context, label: "Hearts Received", icon: FeatherIcons.heart, onTap: () => route(context, const Home())),
+      menuItem(index: 4, context: context, label: "Matches", icon: FeatherIcons.gitPullRequest, onTap: () => route(context, const Match())),
+      menuItem(index: 5, context: context, label: "Profile Viewers", icon: FeatherIcons.eye, onTap: () => route(context, const ProfileViewer())),
+      menuItem(index: 6, context: context, label: "Online Users", icon: FeatherIcons.users, onTap: () => route(context, const Online())),
+      menuItem(index: 7, context: context, label: "Choose Viewers", icon: FeatherIcons.mousePointer, onTap: () => route(context, const ChooseViewers())),
+      menuItem(index: 8, context: context, label: "Billing", icon: FeatherIcons.creditCard, onTap: () => route(context, const UpgradeToPremium())),
+      menuItem(index: 9, context: context, label: "Settings", icon: FeatherIcons.settings),
+      menuItem(index: 10, context: context, label: "Contact Us", icon: FeatherIcons.phone, onTap: () => route(context, const ContactUs())),
+      menuItem(index: 11, context: context, label: "Logout", icon: FeatherIcons.logOut, onTap: () => routeNoBack(context, const SignIn())),
+      footerItem(index: 12, context: context, toAbout: () {}, toTnC: () {}, toPrivacy: () {}, toRefund: () {})
     ];
