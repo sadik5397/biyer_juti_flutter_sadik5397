@@ -29,22 +29,32 @@ class ThemeButton {
     return Expanded(child: pill(title: title, padding: padding, onTap: onTap, icon: icon, dark: dark, border: border, innerPadding: innerPadding, color: color));
   }
 
-  static Padding primary({EdgeInsets? padding, required String title, IconData? icon, required VoidCallback onTap, Color? color, LinearGradient? gradient, bool darkText = false, bool border = false}) {
+  static Padding primary(
+      {EdgeInsets? padding,
+      EdgeInsets? innerPadding,
+      BorderRadius? borderRadius,
+      required String title,
+      IconData? icon,
+      required VoidCallback onTap,
+      Color? color,
+      LinearGradient? gradient,
+      bool darkText = false,
+      bool border = false}) {
     return Padding(
         padding: padding ?? ThemePadding.pb4,
         child: Container(
             decoration: BoxDecoration(
-                borderRadius: ThemeBorderRadius.r6,
+                borderRadius: borderRadius ?? ThemeBorderRadius.r6,
                 gradient: gradient,
                 color: gradient == null ? (color ?? ThemeColor.primary) : null,
                 border: border ? Border.all(color: ThemeColor.primary, strokeAlign: BorderSide.strokeAlignOutside) : null),
             child: Material(
                 color: Colors.transparent,
                 child: InkWell(
-                    borderRadius: ThemeBorderRadius.r6,
+                    borderRadius: borderRadius ?? ThemeBorderRadius.r6,
                     onTap: () => onTap.call(),
                     child: Padding(
-                        padding: ThemePadding.p4,
+                        padding: innerPadding ?? ThemePadding.p4,
                         child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                           if (icon != null) Padding(padding: ThemePadding.pr2, child: Icon(icon, size: 12, color: darkText ? ThemeColor.primary : Colors.white)),
                           Text(title, style: TextStyle(fontSize: 14, color: darkText ? ThemeColor.primary : Colors.white, fontWeight: FontWeight.bold))
