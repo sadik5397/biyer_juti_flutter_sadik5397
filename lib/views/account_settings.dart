@@ -8,6 +8,7 @@ import '../component/app_bar.dart';
 import '../component/section_header.dart';
 import '../theme/gap.dart';
 import '../theme/padding.dart';
+import 'change_email.dart';
 import 'change_mobile.dart';
 
 class AccountSettings extends StatefulWidget {
@@ -26,7 +27,7 @@ class _AccountSettingsState extends State<AccountSettings> {
           const SectionHeader(label: "Account Settings", topGap: false),
           BasicNavigationButton(label: "Change Password", onTap: () => route(context, const ChangePassword())),
           AccountUpdatableInfo(label: "Phone Number", onTapChange: () => route(context, const ChangeMobile()), value: "+8801515644470", verified: false),
-          // AccountUpdatableInfo(label: "Email", onTapChange: () => route(context, const ChangeEmail()), value: "+sadik5397@gmail.com", verified: true),
+          AccountUpdatableInfo(label: "Email", onTapChange: () => route(context, const ChangeEmail()), value: "sadik5397@gmail.com", verified: true),
           BasicNavigationButton(label: "Edit Full Profile", onTap: () {}),
           BasicNavigationButton(label: "Delete Profile", onTap: () {}, lastItem: true),
           Gap.gy6,
