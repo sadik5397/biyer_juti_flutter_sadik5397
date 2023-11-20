@@ -1,4 +1,5 @@
 import 'package:biyer_juti/util/page_navigation.dart';
+import 'package:biyer_juti/views/account_settings.dart';
 import 'package:biyer_juti/views/match.dart';
 import 'package:biyer_juti/views/notification.dart';
 import 'package:biyer_juti/views/profile.dart';
@@ -25,7 +26,7 @@ List<PopupMenuEntry> appMenu(BuildContext context) => [
       menuItem(index: 6, context: context, label: "Online Users", icon: FeatherIcons.users, onTap: () => route(context, const Online())),
       menuItem(index: 7, context: context, label: "Choose Viewers", icon: FeatherIcons.mousePointer, onTap: () => route(context, const ChooseViewers())),
       menuItem(index: 8, context: context, label: "Billing", icon: FeatherIcons.creditCard, onTap: () => route(context, const UpgradeToPremium())),
-      menuItem(index: 9, context: context, label: "Settings", icon: FeatherIcons.settings),
+      menuItem(index: 9, context: context, label: "Settings", icon: FeatherIcons.settings, onTap: () => route(context, const AccountSettings())),
       menuItem(index: 10, context: context, label: "Contact Us", icon: FeatherIcons.phone, onTap: () => route(context, const ContactUs())),
       menuItem(index: 11, context: context, label: "Logout", icon: FeatherIcons.logOut, onTap: () => routeNoBack(context, const SignIn())),
       footerItem(index: 12, context: context, toAbout: () {}, toTnC: () {}, toPrivacy: () {}, toRefund: () {})
