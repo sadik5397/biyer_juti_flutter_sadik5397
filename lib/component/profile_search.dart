@@ -83,21 +83,19 @@ class _ProfileSearchState extends State<ProfileSearch> {
                     SizedBox(height: Gap.value * 16),
                     if (widget.needToBePremium)
                       Padding(
-                        padding: ThemePadding.pb3,
-                        child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-                          Expanded(child: Divider(color: ThemeColor.yellow, thickness: 2)),
-                          SvgPicture.asset("assets/svg/gold_crown.svg", width: 40, height: 40),
-                          Text("For Premium Members Only  ", style: TextStyle(height: .6, fontSize: 16, fontWeight: FontWeight.bold, color: ThemeColor.yellow)),
-                          Expanded(child: Divider(color: ThemeColor.yellow, thickness: 2))
-                        ])
-                      ),
+                          padding: ThemePadding.pb3,
+                          child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+                            Expanded(child: Divider(color: ThemeColor.yellow, thickness: 2)),
+                            SvgPicture.asset("assets/svg/gold_crown.svg", width: 40, height: 40),
+                            Text("For Premium Members Only  ", style: TextStyle(height: .6, fontSize: 16, fontWeight: FontWeight.bold, color: ThemeColor.yellow)),
+                            Expanded(child: Divider(color: ThemeColor.yellow, thickness: 2))
+                          ])),
                     AbsorbPointer(
                       absorbing: widget.needToBePremium,
-                      child: Opacity(opacity: widget.needToBePremium ? 0.6 : 1,
-                      child:
-                        Column(
-                          children: [
-                            if(!widget.needToBePremium) Gap.gy2,
+                      child: Opacity(
+                          opacity: widget.needToBePremium ? 0.6 : 1,
+                          child: Column(children: [
+                            if (!widget.needToBePremium) Gap.gy2,
                             ThemeTextField.pill(labelText: "Search by Profile ID", controller: TextEditingController(), showLabel: false, centerAlign: true),
                             Row(children: [
                               ThemeDropDownButton.expandedSearch(title: "Citizenship", options: ["a", "b", "c"], value: "a", onChanged: (value) {}),
@@ -114,7 +112,7 @@ class _ProfileSearchState extends State<ProfileSearch> {
                               Gap.gx2,
                               ThemeDropDownButton.expandedSearch(title: "Profession", options: ["a", "b", "c"], value: "a", onChanged: (value) {}),
                             ]),
-                            ThemeDropDownButton.search(title: "Hometown", options: ["a", "b", "c"], value: "a", onChanged: (value) {}),
+                            ThemeDropDownButton.pill(title: "Hometown", options: ["a", "b", "c"], value: "a", onChanged: (value) {}),
                             const Text("Present Address", style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold)),
                             Gap.gy3,
                             Row(children: [
@@ -132,11 +130,8 @@ class _ProfileSearchState extends State<ProfileSearch> {
                               Gap.gx2,
                               Switch(value: lockSearchFilter, activeColor: ThemeColor.secondary, onChanged: (value) => setState(() => lockSearchFilter = !lockSearchFilter))
                             ])
-                          ]
-                        )),
+                          ])),
                     )
-
-
                   ]))
             ]))
       ].reversed.toList()),

@@ -23,6 +23,8 @@ class SignUp3UserInformation extends StatefulWidget {
 }
 
 class _SignUp3UserInformationState extends State<SignUp3UserInformation> {
+  int educationSet = 1, professionSet = 1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,34 +34,54 @@ class _SignUp3UserInformationState extends State<SignUp3UserInformation> {
           Image.asset("assets/logo-wide.png", height: 75),
           const SectionHeader(label: "User Information", topGap: false),
           Gap.gy2,
-          CustomInformationSection(header: "Educational Qualification *", children: [
+          CustomInformationSection(padding: ThemePadding.pb4 * 2, header: "Educational Qualification *", children: [
             Gap.gy4,
-            Row(children: [
-              ThemeDropDownButton.expandedSearch(title: "Your Degree *", options: DummyData.randomNames, value: null, onChanged: (value) {}),
-              Gap.gx3,
-              ThemeDropDownButton.expandedSearch(title: "Passing Year", options: DummyData.randomNames, value: null, onChanged: (value) {}),
-            ]),
-            ThemeTextField.pill(labelText: "Subject *", controller: TextEditingController()),
-            ThemeTextField.pill(labelText: "Institution *", controller: TextEditingController()),
-            ThemeTextField.pill(labelText: "Country *", controller: TextEditingController()),
-            ThemeButton.pill(title: "Add Another", onTap: () {}, icon: FeatherIcons.plus, dark: true, padding: ThemePadding.px6 * 2, color: ThemeColor.primary)
+            Column(
+                children: List.generate(
+                    educationSet,
+                    (index) => Column(children: [
+                          Row(children: [
+                            ThemeDropDownButton.expandedSearch(title: "Your Degree *", options: DummyData.randomNames, value: null, onChanged: (value) {}),
+                            Gap.gx3,
+                            ThemeDropDownButton.expandedSearch(title: "Passing Year", options: DummyData.randomNames, value: null, onChanged: (value) {})
+                          ]),
+                          ThemeTextField.pill(labelText: "Subject *", controller: TextEditingController()),
+                          ThemeDropDownButton.pill(useSearch: true, title: "Institution *", value: null, options: DummyData.randomNames, onChanged: (value) {}),
+                          ThemeDropDownButton.pill(useSearch: true, title: "Country *", value: null, options: DummyData.randomNames, onChanged: (value) {}),
+                          Gap.gy4
+                        ]))),
+            ThemeButton.pill(title: "Add Another", onTap: () => setState(() => educationSet++), icon: FeatherIcons.plus, dark: true, padding: ThemePadding.px6 * 2, color: ThemeColor.primary),
           ]),
-          Gap.gy4,
-          Gap.gy4,
-          CustomInformationSection(header: "Profession *", children: [
+          CustomInformationSection(padding: ThemePadding.pb4 * 2, header: "Profession *", children: [
             Gap.gy4,
-            ThemeDropDownButton.search(title: "Industry Category *", options: DummyData.randomNames, value: null, dark: true, onChanged: (value) {}, padding: ThemePadding.px6),
-            Gap.gy4,
-            ThemeTextField.pill(labelText: "Designation *", controller: TextEditingController()),
-            ThemeTextField.pill(labelText: "Organization’s Name *", controller: TextEditingController()),
-            ThemeButton.pill(title: "Add Another", onTap: () {}, icon: FeatherIcons.plus, dark: true, padding: ThemePadding.px6 * 2, color: ThemeColor.primary)
+            Column(
+                children: List.generate(
+                    professionSet,
+                    (index) => Column(children: [
+                          ThemeDropDownButton.pill(title: "Industry Category *", options: DummyData.randomNames, value: null, dark: true, onChanged: (value) {}, padding: ThemePadding.px6),
+                          Gap.gy4,
+                          ThemeDropDownButton.pill(useSearch: true, title: "Designation *", value: null, options: DummyData.randomNames, onChanged: (value) {}),
+                          ThemeDropDownButton.pill(useSearch: true, title: "Organization *", value: null, options: DummyData.randomNames, onChanged: (value) {}),
+                          Gap.gy4
+                        ]))),
+            ThemeButton.pill(title: "Add Another", onTap: () => setState(() => professionSet++), icon: FeatherIcons.plus, dark: true, padding: ThemePadding.px6 * 2, color: ThemeColor.primary)
           ]),
-          Gap.gy4,
-          Gap.gy4,
+          CustomInformationSection(padding: ThemePadding.pb4 * 2, header: "Present Address *", children: [
+            Gap.gy4,
+            ThemeDropDownButton.pill(useSearch: true, title: "Country *", value: null, options: DummyData.randomNames, onChanged: (value) {}),
+            ThemeTextField.pill(labelText: "District *", controller: TextEditingController()),
+            ThemeTextField.pill(labelText: "Area *", controller: TextEditingController())
+          ]),
+          CustomInformationSection(padding: ThemePadding.pb4 * 2, header: "Permanent Address *", children: [
+            Gap.gy4,
+            ThemeDropDownButton.pill(useSearch: true, title: "Country *", value: null, options: DummyData.randomNames, onChanged: (value) {}),
+            ThemeTextField.pill(labelText: "District *", controller: TextEditingController()),
+            ThemeTextField.pill(labelText: "Area *", controller: TextEditingController())
+          ]),
           CustomInformationSection(
-              header: "Bio *", children: [Gap.gy4, ThemeTextField.pill(labelText: "Write About Yourself *", controller: TextEditingController(), maxLines: 5, showLabel: false, padding: ThemePadding.pb2)]),
-          Gap.gy4,
-          Gap.gy4,
+              padding: ThemePadding.pb4 * 2,
+              header: "Bio *",
+              children: [Gap.gy4, ThemeTextField.pill(labelText: "Write About Yourself *", controller: TextEditingController(), maxLines: 5, showLabel: false, padding: ThemePadding.pb2)]),
           Gap.gy4,
           Padding(padding: ThemePadding.px6 * 4, child: ThemeButton.primary(title: "NEXT", onTap: () => route(context, const SignUp4FamilyInformation()), color: ThemeColor.primary)),
           const Progress(progress: 4, outOf: 7),

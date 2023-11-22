@@ -1,3 +1,4 @@
+import 'package:biyer_juti/component/text_field.dart';
 import 'package:biyer_juti/theme/border_radius.dart';
 import 'package:biyer_juti/theme/colors.dart';
 import 'package:biyer_juti/theme/padding.dart';
@@ -9,7 +10,7 @@ class ThemeDropDownButton {
   static Padding primary(
       {double? width,
       EdgeInsets? padding,
-      bool useSearch = true,
+      bool useSearch = false,
       bool isDisable = false,
       required String title,
       required List<String> options,
@@ -22,7 +23,7 @@ class ThemeDropDownButton {
           absorbing: isDisable,
           child: DropdownButton2(
               searchController: useSearch ? search : null,
-              // searchInnerWidget: useSearch ? primaryTextField(padding: primaryPadding, showLabel: false, controller: search, labelText: "Search") : null,
+              searchInnerWidget: useSearch ? ThemeTextField.pill(padding: ThemePadding.p4, showLabel: false, controller: search, labelText: "Search") : null,
               searchMatchFn: (item, searchValue) => item.value.toString().toLowerCase().contains(searchValue.toLowerCase()),
               underline: const SizedBox(),
               iconEnabledColor: ThemeColor.jetBlack.withOpacity(.5),
@@ -47,9 +48,10 @@ class ThemeDropDownButton {
         ));
   }
 
-  static Padding search(
+  static Padding pill(
       {double? width,
       EdgeInsets? padding,
+      bool useSearch = false,
       bool isDisable = false,
       bool showLabelWhenSelected = true,
       required String title,
@@ -57,12 +59,16 @@ class ThemeDropDownButton {
       required dynamic value,
       required void Function(Object? value) onChanged,
       bool dark = false}) {
+    TextEditingController search = TextEditingController();
     return Padding(
         padding: padding ?? ThemePadding.pb4,
         child: AbsorbPointer(
           absorbing: isDisable,
           child: DropdownButton2(
-              searchInnerWidget: Padding(padding: ThemePadding.py3, child: Text("Select $title", style: TextStyle(fontSize: 12, color: ThemeColor.primary))),
+              searchController: useSearch ? search : null,
+              searchInnerWidget: useSearch
+                  ? ThemeTextField.pill(padding: ThemePadding.p4, showLabel: false, controller: search, labelText: "Search")
+                  : Padding(padding: ThemePadding.py3, child: Text("Select " "$title", style: TextStyle(fontSize: 12, color: ThemeColor.primary))),
               searchMatchFn: (item, searchValue) => item.value.toString().toLowerCase().contains(searchValue.toLowerCase()),
               underline: const SizedBox(),
               iconEnabledColor: HexColor("#e18e8e"),
@@ -79,7 +85,7 @@ class ThemeDropDownButton {
                       : dark
                           ? ThemeColor.secondary
                           : const Color(0xfff8fafc)),
-              dropdownPadding: EdgeInsets.zero,
+              dropdownPadding: ThemePadding.none,
               dropdownDecoration: BoxDecoration(borderRadius: ThemeBorderRadius.r6, color: ThemeColor.lightRedBackground),
               hint: Text(title, style: TextStyle(color: dark ? Colors.white : ThemeColor.primary)),
               items: options.map((item) => DropdownMenuItem<String>(value: item, child: Text(item, style: TextStyle(color: ThemeColor.secondary, fontSize: 14, fontWeight: FontWeight.bold)))).toList(),
@@ -98,6 +104,7 @@ class ThemeDropDownButton {
 
   static Expanded expandedSearch(
       {double? width,
+      bool useSearch = false,
       EdgeInsets? padding,
       bool isDisable = false,
       bool showLabelWhenSelected = true,
@@ -107,6 +114,16 @@ class ThemeDropDownButton {
       required void Function(Object? value) onChanged,
       bool dark = false}) {
     return Expanded(
-        child: search(title: title, options: options, value: value, onChanged: onChanged, padding: padding, isDisable: isDisable, width: width, dark: dark, showLabelWhenSelected: showLabelWhenSelected));
+        child: pill(
+            title: title,
+            options: options,
+            value: value,
+            onChanged: onChanged,
+            padding: padding,
+            isDisable: isDisable,
+            width: width,
+            dark: dark,
+            showLabelWhenSelected: showLabelWhenSelected,
+            useSearch: useSearch));
   }
 }
