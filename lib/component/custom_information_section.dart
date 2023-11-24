@@ -6,10 +6,11 @@ import '../theme/border_radius.dart';
 import '../theme/colors.dart';
 
 class CustomInformationSection extends StatelessWidget {
-  const CustomInformationSection({super.key, required this.header, required this.children, this.padding});
+  const CustomInformationSection({super.key, required this.header, required this.children, this.padding, this.innerPadding});
 
   final String header;
   final EdgeInsets? padding;
+  final EdgeInsets? innerPadding;
   final List<Widget> children;
 
   @override
@@ -24,7 +25,7 @@ class CustomInformationSection extends StatelessWidget {
               strokeCap: StrokeCap.round,
               dashPattern: const [2, 0],
               radius: Radius.circular(ThemeBorderRadius.value * 4),
-              padding: ThemePadding.p4,
+              padding: innerPadding??ThemePadding.p4,
               child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.center, children: children)),
           Container(
               padding: ThemePadding.px1,

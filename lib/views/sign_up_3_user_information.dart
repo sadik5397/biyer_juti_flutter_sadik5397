@@ -83,7 +83,7 @@ class _SignUp3UserInformationState extends State<SignUp3UserInformation> {
               header: "Bio *",
               children: [Gap.gy4, ThemeTextField.pill(labelText: "Write About Yourself *", controller: TextEditingController(), maxLines: 5, showLabel: false, padding: ThemePadding.pb2)]),
           Gap.gy4,
-          Padding(padding: ThemePadding.px6 * 4, child: ThemeButton.primary(title: "NEXT", onTap: () => route(context, const SignUp4FamilyInformation()), color: ThemeColor.primary)),
+          Padding(padding: ThemePadding.px6 * 4, child: ThemeButton.primary(title: "NEXT", bold: true, onTap: () => route(context, const SignUp4FamilyInformation()), color: ThemeColor.superRed)),
           const Progress(progress: 4, outOf: 7),
           Gap.gy6
         ]));

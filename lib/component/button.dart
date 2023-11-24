@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'hyperlink.dart';
 
 class ThemeButton {
-  static Padding pill({EdgeInsets? padding, EdgeInsets? innerPadding, required String title, IconData? icon, required VoidCallback onTap, bool dark = false, bool border = false, Color? color}) {
+  static Padding pill({EdgeInsets? padding, EdgeInsets? innerPadding, required String title, TextStyle? textStyle, IconData? icon, required VoidCallback onTap, bool dark = false, bool border = false, Color? color}) {
     return Padding(
         padding: padding ?? ThemePadding.pb4,
         child: Container(
@@ -21,7 +21,7 @@ class ThemeButton {
                         padding: innerPadding ?? ThemePadding.p1 * 2.5,
                         child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                           if (icon != null) Padding(padding: ThemePadding.pr2, child: Icon(icon, size: 14, color: dark ? Colors.white : ThemeColor.primary)),
-                          Text(title, style: TextStyle(fontSize: 14, color: dark ? Colors.white : ThemeColor.primary))
+                          Text(title, style: textStyle??TextStyle(fontSize: 14, color: dark ? Colors.white : ThemeColor.primary))
                         ]))))));
   }
 
@@ -39,6 +39,7 @@ class ThemeButton {
       Color? color,
       LinearGradient? gradient,
       bool darkText = false,
+      bool bold = true,
       bool border = false}) {
     return Padding(
         padding: padding ?? ThemePadding.pb4,
@@ -57,7 +58,7 @@ class ThemeButton {
                         padding: innerPadding ?? ThemePadding.p4,
                         child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                           if (icon != null) Padding(padding: ThemePadding.pr2, child: Icon(icon, size: 12, color: darkText ? ThemeColor.primary : Colors.white)),
-                          Text(title, style: TextStyle(fontSize: 14, color: darkText ? ThemeColor.primary : Colors.white, fontWeight: FontWeight.bold))
+                          Text(title, style: TextStyle(fontSize: 14, color: darkText ? ThemeColor.primary : Colors.white, fontWeight: bold ? FontWeight.w900 : FontWeight.bold))
                         ]))))));
   }
 

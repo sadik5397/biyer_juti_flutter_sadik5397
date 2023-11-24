@@ -30,7 +30,7 @@ class _OTPState extends State<OTP> {
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      const Text("Enter Code"),
+      Text("Enter Code", style: TextStyle(color: ThemeColor.secondary, fontWeight: FontWeight.normal)),
       Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: List.generate(
@@ -54,9 +54,9 @@ class _OTPState extends State<OTP> {
                               counterText: "",
                               border: UnderlineInputBorder(borderSide: BorderSide(color: ThemeColor.primary)))))))),
       Gap.gy4,
-      Text("Resend Code in $eta Seconds"),
+      Text("Resend Code in $eta Seconds", style: TextStyle(color: ThemeColor.secondary, fontWeight: FontWeight.normal)),
       Gap.gy2,
-      ThemeButton.text(label: "Resend Now", color: ThemeColor.secondary, weight: FontWeight.bold, onTap: () {}),
+      ThemeButton.text(label: "Resend Now...", color: ThemeColor.jetBlack, weight: FontWeight.bold, onTap: () {}),
     ]);
   }
 }

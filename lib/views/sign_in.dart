@@ -27,12 +27,13 @@ class _SignInState extends State<SignIn> {
             decoration: const BoxDecoration(image: DecorationImage(image: AssetImage("assets/biyer_juti_backdrop.jpg"), fit: BoxFit.cover)),
             child: Container(
                 padding: ThemePadding.p4,
-                decoration: BoxDecoration(gradient: ThemeGradient.semiTransparentWhite),
+                decoration: BoxDecoration(gradient: ThemeGradient.qtrTransparentWhite),
                 child: Padding(
                     padding: ThemePadding.px6,
                     child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
                       ThemeTextField.primary(
                           labelText: "Your Phone Number",
+                          labelStyle: TextStyle(color: ThemeColor.primary.withOpacity(.5), fontSize: 14, fontWeight: FontWeight.bold),
                           controller: TextEditingController(text: "+880"),
                           required: true,
                           keyboardType: TextInputType.phone,
@@ -40,6 +41,7 @@ class _SignInState extends State<SignIn> {
                           autofillHints: AutofillHints.telephoneNumber),
                       ThemeTextField.primary(
                           labelText: "Your Password",
+                          labelStyle: TextStyle(color: ThemeColor.primary.withOpacity(.5), fontSize: 14, fontWeight: FontWeight.bold),
                           controller: TextEditingController(),
                           required: true,
                           isPassword: true,
@@ -47,9 +49,9 @@ class _SignInState extends State<SignIn> {
                           autofillHints: AutofillHints.password,
                           showPasswordPressed: () => setState(() => showPassword = !showPassword)),
                       Gap.gy2,
-                      ThemeButton.primary(title: "SIGN IN", onTap: () => route(context, const Home()), gradient: ThemeGradient.secondary),
+                      ThemeButton.primary(title: "LOGIN", onTap: () => route(context, const Home()), color: ThemeColor.primary),
                       Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                        ThemeButton.text(label: "Forgot Password", color: ThemeColor.primary, weight: FontWeight.bold, onTap: () => route(context, const ForgotPassword())),
+                        ThemeButton.text(label: "Forgot Password", color: ThemeColor.red, weight: FontWeight.bold, onTap: () => route(context, const ForgotPassword())),
                         ThemeButton.text(label: "Create Profile", color: ThemeColor.secondary, weight: FontWeight.bold, onTap: () => route(context, const SignUp1BasicInformation()))
                       ]),
                       Gap.gy6

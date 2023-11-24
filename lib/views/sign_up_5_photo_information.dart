@@ -7,6 +7,7 @@ import 'package:biyer_juti/theme/colors.dart';
 import 'package:biyer_juti/theme/gap.dart';
 import 'package:biyer_juti/theme/padding.dart';
 import 'package:biyer_juti/util/page_navigation.dart';
+import 'package:biyer_juti/views/sign_up_6_verification.dart';
 import 'package:biyer_juti/views/under_review.dart';
 import 'package:flutter/material.dart';
 
@@ -21,8 +22,10 @@ class SignUp5PhotoInformation extends StatefulWidget {
 }
 
 class _SignUp5PhotoInformationState extends State<SignUp5PhotoInformation> {
-  List<String> sideNames = ["Front Side", "Back Side"];
-  late List<String?> base64bothSides = List.generate(sideNames.length, (index) => null);
+
+
+  String? base64ProfilePicture;
+  List<String?> base64AdditionalPictures = List.generate(3, (index) => null);
 
   @override
   Widget build(BuildContext context) {
@@ -31,46 +34,57 @@ class _SignUp5PhotoInformationState extends State<SignUp5PhotoInformation> {
         appBar: ThemeAppBar.blank(),
         body: ListView(padding: ThemePadding.px6, children: [
           Image.asset("assets/logo-wide.png", height: 75),
-          const SectionHeader(label: "Verification", topGap: false),
-          Gap.gy4,
-          Text("This section is for verification only. Other users will not see this information.", style: TextStyle(color: ThemeColor.primary), textAlign: TextAlign.center),
-          Text("এই বিভাগটি শুধুমাত্র যাচাইকরণের জন্য। অন্য ব্যবহারকারীরা এই তথ্য দেখতে পাবেন না।", style: TextStyle(color: ThemeColor.primary), textAlign: TextAlign.center),
-          Gap.gy6,
-          const CustomToggleSelection(label: "Verification Method *", options: ["NID Card", "Passport"]),
-          Gap.gy4,
-          CustomInformationSection(header: "Upload NID or Passport’s Images", children: [
+          const SectionHeader(label: "Photograph", topGap: false),
+          Gap.gy2,
+          CustomInformationSection(header: "Upload Photo", children: [
+            Gap.gy4,
+            Text("Please  upload the most recent\nphotographs of yours.", style: TextStyle(color: ThemeColor.primary), textAlign: TextAlign.center),
+            Gap.gy4,
+            Gap.gy4,
+            Text("Profile Photo *", style: TextStyle(color: ThemeColor.primary, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+            Gap.gy4,
+            PhotoUploader.base64(
+                size: 160,
+                base64img: base64ProfilePicture,
+                onDelete: () => setState(() => base64ProfilePicture = null),
+                onTap: () async => await PhotoUploader.popup(
+                    context: context,
+                    onCamera: () async {
+                      base64ProfilePicture = await PhotoUploader.getImageBase64(fromCamera: true);
+                      setState(() {});
+                    },
+                    onGallery: () async {
+                      base64ProfilePicture = await PhotoUploader.getImageBase64();
+                      setState(() {});
+                    })),
             Gap.gy6,
             Text("Additional Photos (Optional)", style: TextStyle(color: ThemeColor.primary, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
             Gap.gy4,
             Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(
-                    base64bothSides.length,
-                    (index) => PhotoUploader.base64(
-                        size: 120,
-                        base64img: base64bothSides[index],
-                        onDelete: () => setState(() => base64bothSides[index] = null),
+                    base64AdditionalPictures.length,
+                        (index) => PhotoUploader.base64(
+                        size: 80,
+                        base64img: base64AdditionalPictures[index],
+                        onDelete: () => setState(() => base64AdditionalPictures[index] = null),
                         onTap: () async => await PhotoUploader.popup(
                             context: context,
                             onCamera: () async {
-                              base64bothSides[index] = await PhotoUploader.getImageBase64(fromCamera: true);
+                              base64AdditionalPictures[index] = await PhotoUploader.getImageBase64(fromCamera: true);
                               setState(() {});
                             },
                             onGallery: () async {
-                              base64bothSides[index] = await PhotoUploader.getImageBase64();
+                              base64AdditionalPictures[index] = await PhotoUploader.getImageBase64();
                               setState(() {});
                             })))),
-            Gap.gy2,
-            Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: List.generate(sideNames.length, (index) => Text(sideNames[index], style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: ThemeColor.navyBlue)))),
-            Gap.gy3
+            Gap.gy2
           ]),
           Gap.gy4,
           Gap.gy4,
           Gap.gy4,
-          Padding(padding: ThemePadding.px6 * 4, child: ThemeButton.primary(title: "SUBMIT", onTap: () => route(context, const UnderReview()), color: ThemeColor.primary)),
-          const Progress(progress: 7, outOf: 7),
+          Padding(padding: ThemePadding.px6 * 4, child: ThemeButton.primary(title: "NEXT", bold: true, onTap: () => route(context, const SignUp6Verification()), color: ThemeColor.superRed)),
+          const Progress(progress: 6, outOf: 7),
           Gap.gy6
         ]));
   }

@@ -47,6 +47,7 @@ dependencies:
   url_launcher: ^6.2.1
   image_picker:
   flutter_image_compress: ^2.1.0
+  google_fonts: ^6.1.0
 
 dev_dependencies:
   flutter_launcher_icons: ^0.13.1

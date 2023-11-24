@@ -54,7 +54,7 @@ class _SignUp2UserInformationState extends State<SignUp2UserInformation> {
               autofillHints: AutofillHints.password,
               showPasswordPressed: () => setState(() => shoConfirmPassword = !shoConfirmPassword)),
           Gap.gy6,
-          Padding(padding: ThemePadding.px6 * 4, child: ThemeButton.primary(title: "NEXT", onTap: () => route(context, const SignUp3UserInformation()), color: ThemeColor.primary)),
+          Padding(padding: ThemePadding.px6 * 4, child: ThemeButton.primary(title: "NEXT", bold: true, onTap: () => route(context, const SignUp3UserInformation()), color: ThemeColor.superRed)),
           const Progress(progress: 3, outOf: 7),
           Gap.gy6
         ]));

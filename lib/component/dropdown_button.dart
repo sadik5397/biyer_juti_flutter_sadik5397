@@ -3,6 +3,7 @@ import 'package:biyer_juti/theme/border_radius.dart';
 import 'package:biyer_juti/theme/colors.dart';
 import 'package:biyer_juti/theme/padding.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -52,8 +53,9 @@ class ThemeDropDownButton {
       {double? width,
       EdgeInsets? padding,
       bool useSearch = false,
+      bool smallSize = true,
       bool isDisable = false,
-      bool showLabelWhenSelected = true,
+      bool showLabelWhenSelected = false,
       required String title,
       required List<String> options,
       required dynamic value,
@@ -74,6 +76,7 @@ class ThemeDropDownButton {
               iconEnabledColor: HexColor("#e18e8e"),
               buttonElevation: 0,
               dropdownElevation: 1,
+              icon: Icon(FeatherIcons.chevronDown, color: Colors.white,size: 12),
               selectedItemHighlightColor: ThemeColor.lightPink.withOpacity(.1),
               isExpanded: true,
               enableFeedback: true,
@@ -94,7 +97,7 @@ class ThemeDropDownButton {
                   (index) => Align(
                       alignment: const Alignment(-1, 0),
                       child: Text("${showLabelWhenSelected ? '$title :' : ''} ${options[index]}", style: TextStyle(color: dark ? Colors.white : ThemeColor.primary, fontSize: 14)))),
-              buttonHeight: 40,
+              buttonHeight: ThemePadding.value*8,
               value: value,
               onChanged: onChanged,
               buttonWidth: width ?? double.maxFinite,
@@ -107,7 +110,7 @@ class ThemeDropDownButton {
       bool useSearch = false,
       EdgeInsets? padding,
       bool isDisable = false,
-      bool showLabelWhenSelected = true,
+      bool showLabelWhenSelected = false,
       required String title,
       required List<String> options,
       required dynamic value,

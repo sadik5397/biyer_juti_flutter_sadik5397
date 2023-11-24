@@ -2,6 +2,7 @@ import 'package:biyer_juti/theme/colors.dart';
 import 'package:biyer_juti/theme/gap.dart';
 import 'package:biyer_juti/theme/padding.dart';
 import 'package:biyer_juti/views/sign_in.dart';
+import 'package:biyer_juti/views/welcome.dart';
 import 'package:flutter/material.dart';
 
 import '../util/page_navigation.dart';
@@ -21,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
     setState(() => triggerAnimation = true);
     await Future.delayed(const Duration(seconds: 2)); //todo: Write all the pre-initialization functions here
     // ignore: use_build_context_synchronously
-    route(context, const SignIn());
+    route(context, const Welcome());
   }
 
   @override
