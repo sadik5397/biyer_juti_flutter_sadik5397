@@ -8,10 +8,11 @@ import 'package:hexcolor/hexcolor.dart';
 import '../theme/colors.dart';
 
 class CustomToggleButton extends StatefulWidget {
-  const CustomToggleButton({super.key, required this.options, this.label});
+  const CustomToggleButton({super.key, required this.options, this.label, this.transparent = false});
 
   final List<String> options;
   final String? label;
+  final bool transparent;
 
   @override
   State<CustomToggleButton> createState() => _CustomToggleButtonState();
@@ -31,7 +32,7 @@ class _CustomToggleButtonState extends State<CustomToggleButton> {
             decoration: BoxDecoration(gradient: ThemeGradient.secondary, borderRadius: ThemeBorderRadius.r4),
             child: Container(
                 margin: ThemePadding.p1 / 2,
-                decoration: BoxDecoration(color: HexColor("#fffbfe"), borderRadius: ThemeBorderRadius.r4 / 1.25),
+                decoration: BoxDecoration(color: widget.transparent ? Colors.transparent : Colors.white, borderRadius: ThemeBorderRadius.r4 / 1.25),
                 child: Column(children: [
                   ThemeButton.primary(
                       icon: selectedLeft ? FeatherIcons.checkCircle : null,
@@ -42,7 +43,7 @@ class _CustomToggleButtonState extends State<CustomToggleButton> {
                       borderRadius: ThemeBorderRadius.r4,
                       innerPadding: ThemePadding.p3,
                       darkText: !selectedLeft,
-                      color: selectedLeft ? null : HexColor("#DFE2E6")),
+                      color: selectedLeft ? (widget.transparent ? Colors.transparent : null) : HexColor("#DFE2E6")),
                   if (widget.options.length > 1)
                     ThemeButton.primary(
                         icon: !selectedLeft ? FeatherIcons.checkCircle : null,
@@ -53,7 +54,7 @@ class _CustomToggleButtonState extends State<CustomToggleButton> {
                         padding: ThemePadding.p6.copyWith(top: 0),
                         innerPadding: ThemePadding.p3,
                         darkText: selectedLeft,
-                        color: !selectedLeft ? null : HexColor("#DFE2E6"))
+                        color: !selectedLeft ? (widget.transparent ? Colors.transparent : null) : HexColor("#DFE2E6"))
                 ]))),
       ],
     );

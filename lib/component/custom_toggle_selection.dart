@@ -6,9 +6,10 @@ import '../theme/border_radius.dart';
 import '../theme/colors.dart';
 
 class CustomToggleSelection extends StatefulWidget {
-  const CustomToggleSelection({super.key, required this.label, required this.options});
+  const CustomToggleSelection({super.key, required this.label, required this.options, this.transparent = false});
 
   final String label;
+  final bool transparent;
   final List<String> options;
 
   @override
@@ -24,14 +25,26 @@ class _CustomToggleSelectionState extends State<CustomToggleSelection> {
       Container(
           alignment: Alignment.center,
           margin: ThemePadding.py2.copyWith(bottom: ThemePadding.value * 4),
-          decoration: BoxDecoration(border: Border.all(color: ThemeColor.primary), borderRadius: ThemeBorderRadius.r4, color: Colors.white),
+          decoration: BoxDecoration(border: Border.all(color: ThemeColor.primary), borderRadius: ThemeBorderRadius.r4, color: widget.transparent ? Colors.transparent : Colors.white),
           height: 55,
           child: Row(children: [
             ThemeButton.expandedPill(
-                title: widget.options[0], onTap: () => setState(() => selectedLeft = true), border: !selectedLeft, padding: ThemePadding.p1 * 2.5, innerPadding: ThemePadding.p1, dark: selectedLeft),
+                transparent: true,
+                title: widget.options[0],
+                onTap: () => setState(() => selectedLeft = true),
+                border: !selectedLeft,
+                padding: ThemePadding.p1 * 2.5,
+                innerPadding: ThemePadding.p1,
+                dark: selectedLeft),
             if (widget.options.length > 1)
               ThemeButton.expandedPill(
-                  title: widget.options[1], onTap: () => setState(() => selectedLeft = false), border: selectedLeft, padding: ThemePadding.p1 * 2.5, innerPadding: ThemePadding.p1, dark: !selectedLeft)
+                  transparent: true,
+                  title: widget.options[1],
+                  onTap: () => setState(() => selectedLeft = false),
+                  border: selectedLeft,
+                  padding: ThemePadding.p1 * 2.5,
+                  innerPadding: ThemePadding.p1,
+                  dark: !selectedLeft)
           ])),
       Container(
           padding: ThemePadding.px2,

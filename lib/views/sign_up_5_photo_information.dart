@@ -8,11 +8,9 @@ import 'package:biyer_juti/theme/gap.dart';
 import 'package:biyer_juti/theme/padding.dart';
 import 'package:biyer_juti/util/page_navigation.dart';
 import 'package:biyer_juti/views/sign_up_6_verification.dart';
-import 'package:biyer_juti/views/under_review.dart';
 import 'package:flutter/material.dart';
 
 import '../component/custom_information_section.dart';
-import '../component/custom_toggle_selection.dart';
 
 class SignUp5PhotoInformation extends StatefulWidget {
   const SignUp5PhotoInformation({super.key});
@@ -22,8 +20,6 @@ class SignUp5PhotoInformation extends StatefulWidget {
 }
 
 class _SignUp5PhotoInformationState extends State<SignUp5PhotoInformation> {
-
-
   String? base64ProfilePicture;
   List<String?> base64AdditionalPictures = List.generate(3, (index) => null);
 
@@ -34,7 +30,7 @@ class _SignUp5PhotoInformationState extends State<SignUp5PhotoInformation> {
         appBar: ThemeAppBar.blank(),
         body: ListView(padding: ThemePadding.px6, children: [
           Image.asset("assets/logo-wide.png", height: 75),
-          const SectionHeader(label: "Photograph", topGap: false),
+          SectionHeader(label: "Photograph", topGap: false, color: ThemeColor.primary),
           Gap.gy2,
           CustomInformationSection(header: "Upload Photo", children: [
             Gap.gy4,
@@ -42,8 +38,9 @@ class _SignUp5PhotoInformationState extends State<SignUp5PhotoInformation> {
             Gap.gy4,
             Gap.gy4,
             Text("Profile Photo *", style: TextStyle(color: ThemeColor.primary, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
-            Gap.gy4,
+            Gap.gy2,
             PhotoUploader.base64(
+                useGradientBackground: true,
                 size: 160,
                 base64img: base64ProfilePicture,
                 onDelete: () => setState(() => base64ProfilePicture = null),
@@ -57,14 +54,15 @@ class _SignUp5PhotoInformationState extends State<SignUp5PhotoInformation> {
                       base64ProfilePicture = await PhotoUploader.getImageBase64();
                       setState(() {});
                     })),
-            Gap.gy6,
-            Text("Additional Photos (Optional)", style: TextStyle(color: ThemeColor.primary, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
             Gap.gy4,
+            Gap.gy4,
+            Text("Additional Photos (Optional)", style: TextStyle(color: ThemeColor.primary, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+            Gap.gy2,
             Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(
                     base64AdditionalPictures.length,
-                        (index) => PhotoUploader.base64(
+                    (index) => PhotoUploader.base64(
                         size: 80,
                         base64img: base64AdditionalPictures[index],
                         onDelete: () => setState(() => base64AdditionalPictures[index] = null),
@@ -80,9 +78,8 @@ class _SignUp5PhotoInformationState extends State<SignUp5PhotoInformation> {
                             })))),
             Gap.gy2
           ]),
-          Gap.gy4,
-          Gap.gy4,
-          Gap.gy4,
+          Gap.gy6,
+          Gap.gy6,
           Padding(padding: ThemePadding.px6 * 4, child: ThemeButton.primary(title: "NEXT", bold: true, onTap: () => route(context, const SignUp6Verification()), color: ThemeColor.superRed)),
           const Progress(progress: 6, outOf: 7),
           Gap.gy6

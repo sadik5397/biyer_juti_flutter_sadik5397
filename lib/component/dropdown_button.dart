@@ -1,6 +1,7 @@
 import 'package:biyer_juti/component/text_field.dart';
 import 'package:biyer_juti/theme/border_radius.dart';
 import 'package:biyer_juti/theme/colors.dart';
+import 'package:biyer_juti/theme/gap.dart';
 import 'package:biyer_juti/theme/padding.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:feather_icons/feather_icons.dart';
@@ -52,8 +53,10 @@ class ThemeDropDownButton {
   static Padding pill(
       {double? width,
       EdgeInsets? padding,
+      Color? labelColor,
       bool useSearch = false,
       bool smallSize = true,
+      bool useBorder = false,
       bool isDisable = false,
       bool showLabelWhenSelected = false,
       required String title,
@@ -76,28 +79,43 @@ class ThemeDropDownButton {
               iconEnabledColor: HexColor("#e18e8e"),
               buttonElevation: 0,
               dropdownElevation: 1,
-              icon: Icon(FeatherIcons.chevronDown, color: Colors.white,size: 12),
+              icon: Gap.none,
               selectedItemHighlightColor: ThemeColor.lightPink.withOpacity(.1),
               isExpanded: true,
               enableFeedback: true,
               buttonPadding: ThemePadding.px3,
               buttonDecoration: BoxDecoration(
+                  border: useBorder ? Border.all(color: (labelColor ?? ThemeColor.red).withOpacity(.25), width: 1) : null,
                   borderRadius: ThemeBorderRadius.r6,
                   color: isDisable
                       ? Colors.black12
                       : dark
                           ? ThemeColor.secondary
-                          : const Color(0xfff8fafc)),
+                          : Colors.white),
               dropdownPadding: ThemePadding.none,
               dropdownDecoration: BoxDecoration(borderRadius: ThemeBorderRadius.r6, color: ThemeColor.lightRedBackground),
-              hint: Text(title, style: TextStyle(color: dark ? Colors.white : ThemeColor.primary)),
+              hint: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(title, style: TextStyle(color: labelColor ?? (dark ? Colors.white : ThemeColor.primary))),
+                  Gap.gx1,
+                  Icon(FeatherIcons.chevronDown, color: labelColor ?? (dark ? Colors.white : ThemeColor.primary), size: 12)
+                ],
+              ),
               items: options.map((item) => DropdownMenuItem<String>(value: item, child: Text(item, style: TextStyle(color: ThemeColor.secondary, fontSize: 14, fontWeight: FontWeight.bold)))).toList(),
               selectedItemBuilder: (context) => List.generate(
                   options.length,
                   (index) => Align(
                       alignment: const Alignment(-1, 0),
-                      child: Text("${showLabelWhenSelected ? '$title :' : ''} ${options[index]}", style: TextStyle(color: dark ? Colors.white : ThemeColor.primary, fontSize: 14)))),
-              buttonHeight: ThemePadding.value*8,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("${showLabelWhenSelected ? '$title :' : ''} ${options[index]}", style: TextStyle(color: dark ? Colors.white : ThemeColor.primary, fontSize: 14)),
+                          Gap.gx1,
+                          Icon(FeatherIcons.chevronDown, color: labelColor ?? (dark ? Colors.white : ThemeColor.primary), size: 12)
+                        ],
+                      ))),
+              buttonHeight: ThemePadding.value * 8,
               value: value,
               onChanged: onChanged,
               buttonWidth: width ?? double.maxFinite,
@@ -110,6 +128,8 @@ class ThemeDropDownButton {
       bool useSearch = false,
       EdgeInsets? padding,
       bool isDisable = false,
+      bool useBorder = false,
+      Color? labelColor,
       bool showLabelWhenSelected = false,
       required String title,
       required List<String> options,
@@ -120,11 +140,13 @@ class ThemeDropDownButton {
         child: pill(
             title: title,
             options: options,
+            useBorder: useBorder,
             value: value,
             onChanged: onChanged,
             padding: padding,
             isDisable: isDisable,
             width: width,
+            labelColor: labelColor,
             dark: dark,
             showLabelWhenSelected: showLabelWhenSelected,
             useSearch: useSearch));

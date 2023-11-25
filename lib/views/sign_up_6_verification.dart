@@ -21,7 +21,6 @@ class SignUp6Verification extends StatefulWidget {
 }
 
 class _SignUp6VerificationState extends State<SignUp6Verification> {
-
   List<String> sideNames = ["Front Side", "Back Side"];
   late List<String?> base64bothSides = List.generate(sideNames.length, (index) => null);
 
@@ -32,22 +31,25 @@ class _SignUp6VerificationState extends State<SignUp6Verification> {
         appBar: ThemeAppBar.blank(),
         body: ListView(padding: ThemePadding.px6, children: [
           Image.asset("assets/logo-wide.png", height: 75),
-          const SectionHeader(label: "Verification", topGap: false),
+          SectionHeader(label: "Verification", topGap: false, color: ThemeColor.primary),
           Gap.gy4,
           Text("This section is for verification only. Other users will not see this information.", style: TextStyle(color: ThemeColor.primary), textAlign: TextAlign.center),
           Text("এই বিভাগটি শুধুমাত্র যাচাইকরণের জন্য। অন্য ব্যবহারকারীরা এই তথ্য দেখতে পাবেন না।", style: TextStyle(color: ThemeColor.primary), textAlign: TextAlign.center),
           Gap.gy6,
-          const CustomToggleSelection(label: "Verification Method *", options: ["NID Card", "Passport"]),
+          const CustomToggleSelection(transparent: true, label: "Verification Method *", options: ["NID Card", "Passport"]),
           Gap.gy4,
-          CustomInformationSection(header: "Upload NID or Passport’s Images", children: [
+          CustomInformationSection(transparent: false, header: "Upload NID or Passport’s Images", children: [
             Gap.gy6,
-            Text("Additional Photos (Optional)", style: TextStyle(color: ThemeColor.primary, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
-            Gap.gy4,
+            // Text("Additional Photos (Optional)", style: TextStyle(color: ThemeColor.primary, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+            // Gap.gy4,
             Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: List.generate(
                     base64bothSides.length,
-                        (index) => PhotoUploader.base64(
+                    (index) => PhotoUploader.base64(
+                        useGradientBackground: true,
+                        useSolidColor: true,
+                        backgroundColor: ThemeColor.secondary,
                         size: 120,
                         base64img: base64bothSides[index],
                         onDelete: () => setState(() => base64bothSides[index] = null),
@@ -67,9 +69,8 @@ class _SignUp6VerificationState extends State<SignUp6Verification> {
                 children: List.generate(sideNames.length, (index) => Text(sideNames[index], style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: ThemeColor.navyBlue)))),
             Gap.gy3
           ]),
-          Gap.gy4,
-          Gap.gy4,
-          Gap.gy4,
+          Gap.gy6,
+          Gap.gy6,
           Padding(padding: ThemePadding.px6 * 4, child: ThemeButton.primary(title: "SUBMIT", bold: true, onTap: () => route(context, const UnderReview()), color: ThemeColor.superRed)),
           const Progress(progress: 7, outOf: 7),
           Gap.gy6

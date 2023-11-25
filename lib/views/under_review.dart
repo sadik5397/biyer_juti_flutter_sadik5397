@@ -6,7 +6,6 @@ import 'package:biyer_juti/theme/gap.dart';
 import 'package:biyer_juti/theme/padding.dart';
 import 'package:biyer_juti/util/page_navigation.dart';
 import 'package:biyer_juti/views/sign_in.dart';
-import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 
 import '../api/dummy_daya.dart';
@@ -31,11 +30,16 @@ class _UnderReviewState extends State<UnderReview> {
         appBar: ThemeAppBar.blank(
             action: Padding(
           padding: ThemePadding.px3,
-          child: IconButton(onPressed: () => route(context, const SignIn()), icon: const Icon(FeatherIcons.logOut, size: 20)),
+          child: InkWell(
+              onTap: () => route(context, const SignIn()),
+              child: Padding(
+                padding: ThemePadding.px3,
+                child: Text("Logout", style: TextStyle(color: ThemeColor.secondary, decoration: TextDecoration.underline)),
+              )),
         )),
         body: ListView(padding: ThemePadding.px6, children: [
           Image.asset("assets/logo-wide.png", height: 75),
-          const SectionHeader(label: "Under Review", topGap: false),
+          SectionHeader(label: "Under Review", topGap: false, color: ThemeColor.primary),
           Gap.gy4,
           Text(
               "Thank you for signing up. To ensure that all the users are real and also to maintain the standard of our website, we review each profile before activating the same. This review process may take up to 4 days. You will receive confirmation sms and/or email after your profile is activated. Thank you.",
@@ -58,7 +62,7 @@ class _UnderReviewState extends State<UnderReview> {
                     child: Text(verificationSent ? "Verification link sent" : "Send verification link",
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                            color: verificationSent ? ThemeColor.navyBlue : ThemeColor.primary,
+                            color: verificationSent ? ThemeColor.navyBlue.withOpacity(.25) : ThemeColor.primary,
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                             decoration: verificationSent ? TextDecoration.none : TextDecoration.underline))),

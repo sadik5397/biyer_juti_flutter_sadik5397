@@ -1,7 +1,6 @@
 import 'package:biyer_juti/theme/colors.dart';
 import 'package:biyer_juti/theme/gap.dart';
 import 'package:biyer_juti/theme/padding.dart';
-import 'package:biyer_juti/views/sign_in.dart';
 import 'package:biyer_juti/views/welcome.dart';
 import 'package:flutter/material.dart';
 

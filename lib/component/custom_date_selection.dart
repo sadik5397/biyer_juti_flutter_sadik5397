@@ -9,9 +9,10 @@ import '../theme/colors.dart';
 import 'dropdown_button.dart';
 
 class CustomDateSelection extends StatelessWidget {
-  const CustomDateSelection({super.key, required this.label});
+  const CustomDateSelection({super.key, required this.label, required this.transparent});
 
   final String label;
+  final bool transparent;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class CustomDateSelection extends StatelessWidget {
       Container(
           alignment: Alignment.center,
           margin: ThemePadding.py2.copyWith(bottom: ThemePadding.value * 4),
-          decoration: BoxDecoration(border: Border.all(color: ThemeColor.primary), borderRadius: ThemeBorderRadius.r4, color: Colors.white),
+          decoration: BoxDecoration(border: Border.all(color: ThemeColor.primary), borderRadius: ThemeBorderRadius.r4, color: transparent ? Colors.transparent : Colors.white),
           height: 55,
           child: Row(children: [
             Gap.gx2,

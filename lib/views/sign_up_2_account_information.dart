@@ -30,14 +30,15 @@ class _SignUp2UserInformationState extends State<SignUp2UserInformation> {
         appBar: ThemeAppBar.blank(),
         body: ListView(padding: ThemePadding.px6, children: [
           Image.asset("assets/logo-wide.png", height: 75),
-          const SectionHeader(label: "Account Information", topGap: false),
+          SectionHeader(label: "Account Information", topGap: false, color: ThemeColor.primary),
           Gap.gy2,
-          ThemeTextField.primary(labelText: "Name", controller: TextEditingController(), required: true, keyboardType: TextInputType.name, autofillHints: AutofillHints.name, autoFocus: true),
-          const CustomToggleSelection(label: "Gender *", options: ["Male", "Female"]),
-          const CustomDateSelection(label: "Date of Birth *"),
+          ThemeTextField.primary(transparent: true, labelText: "Name", controller: TextEditingController(), required: true, keyboardType: TextInputType.name, autofillHints: AutofillHints.name, autoFocus: true),
+          const CustomToggleSelection(transparent: true, label: "Gender *", options: ["Male", "Female"]),
+          const CustomDateSelection(transparent: true, label: "Date of Birth *"),
           Gap.gy1,
-          ThemeTextField.primary(labelText: "Email", controller: TextEditingController(), required: true, keyboardType: TextInputType.emailAddress, autofillHints: AutofillHints.email),
+          ThemeTextField.primary(transparent: true, labelText: "Email", controller: TextEditingController(), required: true, keyboardType: TextInputType.emailAddress, autofillHints: AutofillHints.email),
           ThemeTextField.primary(
+              transparent: true,
               labelText: "Password",
               controller: TextEditingController(),
               required: true,
@@ -46,6 +47,7 @@ class _SignUp2UserInformationState extends State<SignUp2UserInformation> {
               autofillHints: AutofillHints.password,
               showPasswordPressed: () => setState(() => showPassword = !showPassword)),
           ThemeTextField.primary(
+              transparent: true,
               labelText: "Re-enter Password",
               controller: TextEditingController(),
               required: true,

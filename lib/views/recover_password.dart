@@ -32,17 +32,20 @@ class _RecoverPasswordState extends State<RecoverPassword> {
                     padding: ThemePadding.px6,
                     child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
                       Image.asset("assets/logo-wide.png", height: 75),
-                      const SectionHeader(label: "Create New Password", topGap: false),
+                      SectionHeader(label: "Recover Password", topGap: false, color: ThemeColor.primary),
                       Gap.gy2,
                       ThemeTextField.primary(
-                          labelText: "Password",
+                          transparent: true,
+                          labelText: "Enter New Password",
                           controller: TextEditingController(),
                           required: true,
+                          autoFocus: true,
                           isPassword: true,
                           showPassword: showPassword,
                           autofillHints: AutofillHints.password,
                           showPasswordPressed: () => setState(() => showPassword = !showPassword)),
                       ThemeTextField.primary(
+                          transparent: true,
                           labelText: "Re-enter Password",
                           controller: TextEditingController(),
                           required: true,
@@ -51,7 +54,15 @@ class _RecoverPasswordState extends State<RecoverPassword> {
                           autofillHints: AutofillHints.password,
                           showPasswordPressed: () => setState(() => shoConfirmPassword = !shoConfirmPassword)),
                       Gap.gy6,
-                      Padding(padding: ThemePadding.px6, child: ThemeButton.primary(title: "Confirm New Password", onTap: () => route(context, const SignIn()), color: ThemeColor.primary)),
+                      Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                        Center(
+                            child: ThemeButton.pill(
+                                innerPadding: ThemePadding.p1 * 1.5,
+                                textStyle: TextStyle(fontSize: 18, color: Colors.white, fontWeight: FontWeight.w900),
+                                title: "    Confirm New Password    ",
+                                onTap: () => route(context, const SignIn()),
+                                dark: true)),
+                      ]),
                       Gap.infinity,
                     ])))));
   }

@@ -39,22 +39,35 @@ class _SignUp1BasicInformationState extends State<SignUp1BasicInformation> {
                       Image.asset("assets/logo-wide.png", height: 75),
                       SectionHeader(label: "Basic Information", topGap: false, color: ThemeColor.primary),
                       Gap.gy2,
-                      CustomInformationSection(innerPadding: EdgeInsets.fromLTRB(ThemePadding.value * 2.25, ThemePadding.value * 4.5, ThemePadding.value * 2.25, ThemePadding.value * 2.5), header: "Phone *", children: [
-                        Row(
+                      CustomInformationSection(
+                          innerPadding: EdgeInsets.fromLTRB(ThemePadding.value * 2.25, ThemePadding.value * 4.5, ThemePadding.value * 2.25, ThemePadding.value * 2.5),
+                          header: "Phone *",
                           children: [
-                            Expanded(child: ThemeDropDownButton.pill(padding: ThemePadding.none, dark: true, title: "Country", options: prefixPhones, value: selectedPrefixPhone, onChanged: (value) {})),
-                            Expanded(child: ThemeTextField.pill(boldStyle: true, smallSize:true, padding: ThemePadding.pl2, showLabel: false, labelText: "Phone", controller: TextEditingController())),
-                          ],
-                        )
-                      ]),
+                            Row(children: [
+                              Expanded(child: ThemeDropDownButton.pill(padding: ThemePadding.none, dark: true, title: "Country", options: prefixPhones, value: selectedPrefixPhone, onChanged: (value) {})),
+                              Expanded(
+                                  child: ThemeTextField.pill(
+                                      boldStyle: true,
+                                      smallSize: true,
+                                      padding: ThemePadding.pl2,
+                                      showLabel: false,
+                                      labelText: "Phone",
+                                      autoFocus: true,
+                                      keyboardType: TextInputType.number,
+                                      controller: TextEditingController()))
+                            ])
+                          ]),
                       // ThemeTextField.primary(labelText: "Your Phone Number", controller: TextEditingController(text: "+880"), required: true, keyboardType: TextInputType.phone, autoFocus: true, autofillHints: AutofillHints.telephoneNumber),
                       Gap.gy6,
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Center(child: ThemeButton.pill(innerPadding: ThemePadding.p1 * 1.5, textStyle: TextStyle(fontSize: 18, color: Colors.white, fontWeight: FontWeight.w900), title: "  Send Verification Code  ", onTap: () => setState(() => codeSent = true), dark: true)),
-                        ]
-                      ),
+                      Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                        Center(
+                            child: ThemeButton.pill(
+                                innerPadding: ThemePadding.p1 * 1.5,
+                                textStyle: TextStyle(fontSize: 18, color: Colors.white, fontWeight: FontWeight.w900),
+                                title: "  Send Verification Code  ",
+                                onTap: () => setState(() => codeSent = true),
+                                dark: true)),
+                      ]),
                       Gap.gy4,
                       if (codeSent) const OTP(),
                       Gap.infinity,

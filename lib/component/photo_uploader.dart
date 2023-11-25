@@ -11,6 +11,7 @@ import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../theme/colors.dart';
+import '../theme/gap.dart';
 import '../util/page_navigation.dart';
 
 class PhotoUploader {
@@ -88,11 +89,12 @@ class PhotoUploader {
         CircleAvatar(radius: 16, backgroundColor: ThemeColor.primary, child: Icon(imageFile == null ? FeatherIcons.upload : FeatherIcons.trash2, size: 14, color: Colors.white))
       ]);
 
-  static Stack base64({required VoidCallback onTap, VoidCallback? onDelete, String? base64img, double size = 100}) => Stack(fit: StackFit.loose, alignment: Alignment.bottomRight, children: [
+  static Stack base64({required VoidCallback onTap, VoidCallback? onDelete, Color? backgroundColor, String? base64img, bool useGradientBackground = false, bool useSolidColor = false, double size = 100}) =>
+      Stack(fit: StackFit.loose, alignment: Alignment.topRight, children: [
         Padding(
-            padding: const EdgeInsets.all(8.0).copyWith(top: 0),
+            padding: const EdgeInsets.all(8.0).copyWith(bottom: 0),
             child: Material(
-                color: ThemeColor.light,
+                color: Colors.transparent,
                 borderRadius: ThemeBorderRadius.r4,
                 child: InkWell(
                     onTap: base64img == null ? onTap : onDelete,
@@ -101,19 +103,30 @@ class PhotoUploader {
                         width: size,
                         height: size,
                         duration: const Duration(milliseconds: 500),
-                        padding: (base64img == null) ? ThemePadding.p3 : EdgeInsets.zero,
-                        decoration: BoxDecoration(borderRadius: ThemeBorderRadius.r4),
+                        padding: EdgeInsets.zero,
+                        decoration: BoxDecoration(
+                            borderRadius: ThemeBorderRadius.r4,
+                            color: (useGradientBackground && !useSolidColor) ? null : backgroundColor,
+                            gradient: (useGradientBackground && !useSolidColor) ? ThemeGradient.orange : null),
                         child: (base64img == null)
                             ? DottedBorder(
                                 borderType: BorderType.RRect,
-                                radius: Radius.circular(ThemeBorderRadius.value * 2),
-                                dashPattern: const [3, 6],
-                                color: ThemeColor.grey,
+                                radius: Radius.circular(ThemeBorderRadius.value * 4),
+                                dashPattern: const [6, 6],
+                                color: useGradientBackground ? Colors.transparent : ThemeColor.secondary,
                                 strokeWidth: 1,
-                                child: Container(height: size * .8, width: size * .8, alignment: Alignment.center, child: Icon(FeatherIcons.camera, color: ThemeColor.grey, size: 32)))
+                                child: Center(
+                                    child: Container(
+                                        height: size * .8,
+                                        width: size * .8,
+                                        alignment: Alignment.center,
+                                        child: Icon(FeatherIcons.plus, color: useGradientBackground ? Colors.white : ThemeColor.secondary, size: 32))))
                             : Container(
                                 decoration: BoxDecoration(borderRadius: ThemeBorderRadius.r4),
                                 child: ClipRRect(borderRadius: ThemeBorderRadius.r4, child: Image.memory(base64Decode(base64img), fit: BoxFit.cover))))))),
-        CircleAvatar(radius: 16, backgroundColor: ThemeColor.primary, child: Icon(base64img == null ? FeatherIcons.upload : FeatherIcons.trash2, size: 14, color: Colors.white))
+        (base64img == null
+            ? Gap.none
+            : InkWell(
+                onTap: onDelete, child: Padding(padding: ThemePadding.pr5, child: CircleAvatar(radius: 12, backgroundColor: ThemeColor.secondary, child: Icon(FeatherIcons.x, size: 14, color: Colors.white)))))
       ]);
 }
