@@ -49,7 +49,7 @@ class _SignInState extends State<SignIn> {
                           autofillHints: AutofillHints.password,
                           showPasswordPressed: () => setState(() => showPassword = !showPassword)),
                       Gap.gy2,
-                      ThemeButton.primary(title: "LOGIN", onTap: () => route(context, const Home()), color: ThemeColor.primary),
+                      ThemeButton.primary(title: "LOGIN", onTap: () => route(context, const Home()), color: ThemeColor.superRed),
                       Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                         ThemeButton.text(label: "Forgot Password", color: ThemeColor.red, weight: FontWeight.bold, onTap: () => route(context, const ForgotPassword())),
                         ThemeButton.text(label: "Create Profile", color: ThemeColor.secondary, weight: FontWeight.bold, onTap: () => route(context, const SignUp1BasicInformation()))
