@@ -56,7 +56,9 @@ class ThemeDropDownButton {
       Color? labelColor,
       bool useSearch = false,
       bool smallSize = true,
+      bool iconRightSide = false,
       bool useBorder = false,
+      double? fontSize,
       bool isDisable = false,
       bool showLabelWhenSelected = false,
       required String title,
@@ -97,24 +99,26 @@ class ThemeDropDownButton {
               hint: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(title, style: TextStyle(color: labelColor ?? (dark ? Colors.white : ThemeColor.primary))),
-                  Gap.gx1,
-                  Icon(FeatherIcons.chevronDown, color: labelColor ?? (dark ? Colors.white : ThemeColor.primary), size: 12)
+                  if (!iconRightSide) Icon(FeatherIcons.chevronDown, color: labelColor ?? (dark ? Colors.white : ThemeColor.primary), size: 12),
+                  if (!iconRightSide) Gap.gx1,
+                  Text(title, style: TextStyle(color: labelColor ?? (dark ? Colors.white : ThemeColor.primary), fontSize: fontSize)),
+                  if (iconRightSide) Gap.gx1,
+                  if (iconRightSide) Icon(FeatherIcons.chevronDown, color: labelColor ?? (dark ? Colors.white : ThemeColor.primary), size: 12),
                 ],
               ),
-              items: options.map((item) => DropdownMenuItem<String>(value: item, child: Text(item, style: TextStyle(color: ThemeColor.secondary, fontSize: 14, fontWeight: FontWeight.bold)))).toList(),
+              items: options
+                  .map((item) => DropdownMenuItem<String>(
+                      value: item, child: Center(child: Text(item, textAlign: TextAlign.center, style: TextStyle(color: HexColor("#CD7B7B"), fontSize: 14, fontWeight: FontWeight.bold)))))
+                  .toList(),
               selectedItemBuilder: (context) => List.generate(
                   options.length,
                   (index) => Align(
                       alignment: const Alignment(-1, 0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text("${showLabelWhenSelected ? '$title :' : ''} ${options[index]}", style: TextStyle(color: dark ? Colors.white : ThemeColor.primary, fontSize: 14)),
-                          Gap.gx1,
-                          Icon(FeatherIcons.chevronDown, color: labelColor ?? (dark ? Colors.white : ThemeColor.primary), size: 12)
-                        ],
-                      ))),
+                      child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                        Text("${showLabelWhenSelected ? '$title :' : ''} ${options[index]}", style: TextStyle(color: dark ? Colors.white : ThemeColor.primary, fontSize: 14)),
+                        Gap.gx1,
+                        Icon(FeatherIcons.chevronDown, color: labelColor ?? (dark ? Colors.white : ThemeColor.primary), size: 12)
+                      ]))),
               buttonHeight: ThemePadding.value * 8,
               value: value,
               onChanged: onChanged,
@@ -129,6 +133,8 @@ class ThemeDropDownButton {
       EdgeInsets? padding,
       bool isDisable = false,
       bool useBorder = false,
+      bool iconRightSide = false,
+      double? fontSize,
       Color? labelColor,
       bool showLabelWhenSelected = false,
       required String title,
@@ -143,10 +149,12 @@ class ThemeDropDownButton {
             useBorder: useBorder,
             value: value,
             onChanged: onChanged,
+            fontSize: fontSize,
             padding: padding,
             isDisable: isDisable,
             width: width,
             labelColor: labelColor,
+            iconRightSide: iconRightSide,
             dark: dark,
             showLabelWhenSelected: showLabelWhenSelected,
             useSearch: useSearch));

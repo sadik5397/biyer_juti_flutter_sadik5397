@@ -102,6 +102,7 @@ class ThemeTextField {
       required TextEditingController controller,
       EdgeInsetsGeometry? padding,
       int maxLines = 1,
+      double? fontSize,
       bool required = false,
       bool boldStyle = false,
       bool isPassword = false,
@@ -150,8 +151,8 @@ class ThemeTextField {
             obscureText: (isPassword) ? !showPassword : false,
             controller: controller,
             style: boldStyle
-                ? TextStyle(color: ThemeColor.secondary, fontSize: 14, fontWeight: FontWeight.bold, letterSpacing: 6)
-                : TextStyle(color: ThemeColor.jetBlack, fontSize: 14, fontWeight: FontWeight.w500),
+                ? TextStyle(color: ThemeColor.secondary, fontSize: fontSize ?? 14, fontWeight: FontWeight.bold, letterSpacing: 6)
+                : TextStyle(color: ThemeColor.jetBlack, fontSize: fontSize ?? 14, fontWeight: FontWeight.w500),
             autofocus: autoFocus,
             enabled: !isDisable,
             decoration: InputDecoration(
@@ -168,9 +169,9 @@ class ThemeTextField {
                 fillColor: isDisable ? Colors.black12 : Colors.white,
                 floatingLabelBehavior: floatLabel ? FloatingLabelBehavior.auto : FloatingLabelBehavior.always,
                 contentPadding: smallSize ? EdgeInsets.symmetric(horizontal: ThemePadding.value * 3, vertical: ThemePadding.value * 1.5) : ThemePadding.p2 * 1.25,
-                labelStyle: TextStyle(fontSize: 14, color: ThemeColor.primary, fontWeight: FontWeight.bold),
+                labelStyle: TextStyle(fontSize: fontSize ?? 14, color: ThemeColor.primary, fontWeight: FontWeight.bold),
                 hintText: showLabel ? hintText : "$labelText ${required ? '*' : ''}",
-                hintStyle: (showLabel || hintColor != null) ? TextStyle(fontSize: 14, color: hintColor ?? ThemeColor.jetBlack.withOpacity(.5), fontWeight: FontWeight.normal) : null,
+                hintStyle: (showLabel || hintColor != null) ? TextStyle(fontSize: fontSize ?? 14, color: hintColor ?? ThemeColor.jetBlack.withOpacity(.5), fontWeight: FontWeight.normal) : null,
                 floatingLabelStyle: TextStyle(color: ThemeColor.primary, fontWeight: FontWeight.bold),
                 suffixIconColor: ThemeColor.jetBlack)));
   }

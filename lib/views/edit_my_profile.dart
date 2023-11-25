@@ -4,6 +4,7 @@ import 'package:biyer_juti/component/profile_chip.dart';
 import 'package:biyer_juti/theme/colors.dart';
 import 'package:biyer_juti/theme/padding.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 import '../component/app_bar.dart';
 import '../component/information_tile_detail_edit.dart';
@@ -40,7 +41,11 @@ class _EditMyProfileState extends State<EditMyProfile> {
                 ...familyInformation,
                 ...detailInformation,
                 Gap.gy4,
-                Row(children: [ThemeButton.expandedPill(title: "Cancel", onTap: () {}, border: true), Gap.gx4, ThemeButton.expandedPill(title: "Save Profile", onTap: () {}, dark: true)])
+                Row(children: [
+                  ThemeButton.expandedPill(title: "Cancel", onTap: () {},  dark: true, color: HexColor("#8993a4")),
+                  Gap.gx4,
+                  ThemeButton.expandedPill(title: "Save Profile", onTap: () {}, dark: true, color: ThemeColor.superRed)
+                ])
               ])
             ])));
   }

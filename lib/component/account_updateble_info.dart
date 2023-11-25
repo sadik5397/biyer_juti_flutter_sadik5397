@@ -19,15 +19,15 @@ class AccountUpdatableInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Row(children: [
-        Padding(padding: ThemePadding.p4, child: Text(label, style: TextStyle(color: ThemeColor.navyBlue, fontWeight: FontWeight.bold, fontSize: 17))),
-        CircleAvatar(radius: 10, backgroundColor: HexColor(verified ? "#42B77D" : "#FC6161"), child: Icon(verified ? FeatherIcons.check : FeatherIcons.x, color: Colors.white, size: 14))
+        Padding(padding: ThemePadding.p4, child: Text(label, style: TextStyle(color: ThemeColor.navyBlue, fontWeight: FontWeight.bold, fontSize: 14))),
+        CircleAvatar(radius: 10, backgroundColor: HexColor(verified ? "#42B77D" : "#FC6161"), child: Icon(verified ? FeatherIcons.check : FeatherIcons.x, color: Colors.white, size: 12))
       ]),
       Row(children: [
         Container(
             decoration: BoxDecoration(color: HexColor("#DFE2E6"), borderRadius: ThemeBorderRadius.r4),
-            margin: ThemePadding.p3.copyWith(top: 0, bottom: ThemePadding.value * 5),
-            padding: ThemePadding.p3.copyWith(left: ThemePadding.value * 6, right: ThemePadding.value * 6),
-            child: Text(value, style: TextStyle(color: ThemeColor.secondary, fontWeight: FontWeight.bold, fontSize: 17))),
+            margin: ThemePadding.p2.copyWith(top: 0, bottom: ThemePadding.value * 6),
+            padding: ThemePadding.p2.copyWith(left: ThemePadding.value * 5, right: ThemePadding.value * 5),
+            child: Text(value, style: TextStyle(color: ThemeColor.superRed, fontWeight: FontWeight.bold, fontSize: 14, letterSpacing: 2))),
         if (!verified)
           Padding(
               padding: ThemePadding.pb4,

@@ -3,6 +3,7 @@ import 'package:biyer_juti/theme/colors.dart';
 import 'package:biyer_juti/views/edit_my_profile.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 import '../component/app_bar.dart';
 import '../component/button.dart';
@@ -39,9 +40,17 @@ class _EditAccountState extends State<EditAccount> {
                     style: TextStyle(color: ThemeColor.navyBlue)),
                 Gap.gy6,
                 Row(children: [
-                  ThemeButton.expandedPill(title: "Cancel", onTap: () => routeBack(context), icon: FeatherIcons.x, border: true),
+                  ThemeButton.expandedPill(boldTitle: true, title: "Cancel", onTap: () => routeBack(context), icon: FeatherIcons.x, border: true, smallSize: true, iconRightSide: true, dark: true),
                   Gap.gx2,
-                  ThemeButton.expandedPill(title: "Edit Profile", onTap: () => route(context, const EditMyProfile(id: 0)), icon: FeatherIcons.userCheck, dark: true)
+                  ThemeButton.expandedPill(
+                      boldTitle: true,
+                      title: "Edit Profile",
+                      onTap: () => route(context, const EditMyProfile(id: 0)),
+                      icon: FeatherIcons.edit,
+                      titleColor: ThemeColor.jetBlack,
+                      color: HexColor("#c2c7d0"),
+                      smallSize: true,
+                      iconRightSide: true)
                 ])
               ])),
           Gap.gy6,

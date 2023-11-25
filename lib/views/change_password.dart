@@ -1,6 +1,8 @@
 import 'package:biyer_juti/component/bread_crumb.dart';
+import 'package:biyer_juti/theme/colors.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 import '../component/app_bar.dart';
 import '../component/button.dart';
@@ -30,17 +32,35 @@ class _ChangePasswordState extends State<ChangePassword> {
               child: Column(children: [
                 if (!currentPasswordAccepted)
                   ThemeTextField.primary(
-                      labelText: "Enter Current Password", controller: TextEditingController(), keyboardType: TextInputType.text, autofillHints: AutofillHints.password, autoFocus: true, isPassword: true),
+                      labelText: "Enter Current Password",
+                      controller: TextEditingController(),
+                      keyboardType: TextInputType.text,
+                      autofillHints: AutofillHints.password,
+                      autoFocus: true,
+                      isPassword: true,
+                      transparent: true),
                 if (currentPasswordAccepted)
-                  ThemeTextField.primary(labelText: "Enter New Password", controller: TextEditingController(), keyboardType: TextInputType.text, autofillHints: AutofillHints.newPassword, isPassword: true),
+                  ThemeTextField.primary(
+                      labelText: "Enter New Password", controller: TextEditingController(), keyboardType: TextInputType.text, autofillHints: AutofillHints.newPassword, isPassword: true, transparent: true),
                 if (currentPasswordAccepted)
-                  ThemeTextField.primary(labelText: "Re-Enter New Password", controller: TextEditingController(), keyboardType: TextInputType.text, autofillHints: AutofillHints.newPassword, isPassword: true),
+                  ThemeTextField.primary(
+                      labelText: "Re-Enter New Password", controller: TextEditingController(), keyboardType: TextInputType.text, autofillHints: AutofillHints.newPassword, isPassword: true, transparent: true),
                 Gap.gy6,
                 Row(children: [
-                  if (!currentPasswordAccepted) ThemeButton.expandedPill(title: "Cancel", onTap: () => routeBack(context), icon: FeatherIcons.x, border: true),
+                  if (!currentPasswordAccepted)
+                    ThemeButton.expandedPill(boldTitle: true, title: "Cancel", onTap: () => routeBack(context), icon: FeatherIcons.x, border: true, smallSize: true, iconRightSide: true, dark: true),
                   if (!currentPasswordAccepted) Gap.gx2,
-                  if (!currentPasswordAccepted) ThemeButton.expandedPill(title: "Next", onTap: () => setState(() => currentPasswordAccepted = true), icon: FeatherIcons.chevronRight, dark: true),
-                  if (currentPasswordAccepted) ThemeButton.expandedPill(title: "Confirm New Password", onTap: () => routeBack(context), icon: FeatherIcons.userCheck, dark: true)
+                  if (!currentPasswordAccepted)
+                    ThemeButton.expandedPill(
+                        boldTitle: true,
+                        title: "Next",
+                        onTap: () => setState(() => currentPasswordAccepted = true),
+                        icon: FeatherIcons.chevronRight,
+                        titleColor: ThemeColor.jetBlack,
+                        color: HexColor("#c2c7d0"),
+                        smallSize: true,
+                        iconRightSide: true),
+                  if (currentPasswordAccepted) ThemeButton.expandedPill(boldTitle: true, title: "Confirm New Password", onTap: () => routeBack(context), dark: true, smallSize: true, iconRightSide: true)
                 ])
               ])),
           Gap.gy6,

@@ -32,7 +32,7 @@ class _ChooseViewersState extends State<ChooseViewers> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: ThemeAppBar.primary(hideBack: true, premium: true),
-        body: ListView(padding: ThemePadding.p4, children: [
+        body: ListView(padding: ThemePadding.p6, children: [
           const SectionHeader(label: 'Choose Viewers', topGap: false),
           Padding(
               padding: ThemePadding.px4,
@@ -45,12 +45,12 @@ class _ChooseViewersState extends State<ChooseViewers> {
               padding: ThemePadding.p6.copyWith(left: ThemePadding.value * 4, right: ThemePadding.value * 4),
               margin: ThemePadding.pb5,
               decoration:
-                  BoxDecoration(color: HexColor("CD7B7B"), borderRadius: ThemeBorderRadius.r6, boxShadow: ThemeShadow.primary, border: Border.all(width: 2, color: ThemeColor.secondary.withOpacity(.25))),
+                  BoxDecoration(color: HexColor("CD7B7B"), borderRadius: ThemeBorderRadius.r4 * 2, boxShadow: ThemeShadow.primary, border: Border.all(width: 2, color: ThemeColor.secondary.withOpacity(.25))),
               width: double.maxFinite,
               child: Column(children: [
                 const Text("Filters", style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
                 Gap.gy6,
-                Text("Viewer’s Age: ${(selectedRange.start).toInt()}-${(selectedRange.end).toInt()} years", style: const TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold)),
+                Text("Viewer’s Age: ${(selectedRange.start).toInt()}-${(selectedRange.end).toInt()} years", style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold)),
                 RangeSlider(
                   overlayColor: MaterialStateColor.resolveWith((states) => Colors.white.withOpacity(.2)),
                   onChanged: (newRange) => setState(() => selectedRange = newRange),
@@ -63,17 +63,18 @@ class _ChooseViewersState extends State<ChooseViewers> {
                 ),
                 Gap.gy4,
                 Row(children: [
-                  ThemeDropDownButton.expandedSearch(title: "Region", options: ["a", "b", "c"], value: "a", onChanged: (value) {}),
+                  ThemeDropDownButton.expandedSearch(title: "Region", options: DummyData.randomNames, value: null, onChanged: (value) {}, labelColor: ThemeColor.superRed, iconRightSide: true, fontSize: 12),
                   Gap.gx2,
-                  ThemeDropDownButton.expandedSearch(title: "Marital Status", options: ["a", "b", "c"], value: "a", onChanged: (value) {})
+                  ThemeDropDownButton.expandedSearch(
+                      title: "Marital Status", options: DummyData.randomNames, value: null, onChanged: (value) {}, labelColor: ThemeColor.superRed, iconRightSide: true, fontSize: 12),
                 ]),
                 Gap.gy3,
                 const Text("Present Address", style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold)),
                 Gap.gy3,
                 Row(children: [
-                  ThemeDropDownButton.expandedSearch(title: "Country", options: ["a", "b", "c"], value: "a", onChanged: (value) {}),
+                  ThemeDropDownButton.expandedSearch(title: "Country", options: DummyData.randomNames, value: null, onChanged: (value) {}, labelColor: ThemeColor.superRed, iconRightSide: true, fontSize: 12),
                   Gap.gx2,
-                  ThemeDropDownButton.expandedSearch(title: "District", options: ["a", "b", "c"], value: "a", onChanged: (value) {}),
+                  ThemeDropDownButton.expandedSearch(title: "District", options: DummyData.randomNames, value: null, onChanged: (value) {}, labelColor: ThemeColor.superRed, iconRightSide: true, fontSize: 12),
                 ]),
                 Gap.gy3,
                 ChooseViewerSelectionSection(header: "Hometown", children: List.generate(5, (index) => ItemChip(label: DummyData.randomNameList(5)[index], onDelete: () {})), onAdd: () {}, onReset: () {}),
@@ -98,9 +99,10 @@ class _ChooseViewersState extends State<ChooseViewers> {
                         style: TextStyle(color: Colors.white))),
                 Gap.gy4,
                 Row(children: [
-                  ThemeButton.expandedPill(title: "Reset All", onTap: () {}, icon: FeatherIcons.refreshCw, padding: ThemePadding.none),
+                  ThemeButton.expandedPill(
+                      title: "Reset All Filter", onTap: () {}, icon: FeatherIcons.refreshCw, svgIcon: "assets/svg/refresh.svg", padding: ThemePadding.none, smallSize: true, iconRightSide: true),
                   Gap.gx2,
-                  ThemeButton.expandedPill(title: "Confirm Filter", onTap: () {}, icon: FeatherIcons.filter, dark: true, padding: ThemePadding.none)
+                  ThemeButton.expandedPill(title: "Confirm Filter", onTap: () {}, dark: true, padding: ThemePadding.none, smallSize: true)
                 ]),
               ])),
           ChosenViewerStat(foundProfileCount: randomNumber(9999)),

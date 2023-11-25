@@ -18,7 +18,7 @@ class BasicNavigationButton extends StatelessWidget {
       Hyperlink(
           onTap: onTap ?? () {},
           borderRadius: ThemeBorderRadius.r2,
-          child: Padding(padding: ThemePadding.p4, child: Text(label, style: TextStyle(color: ThemeColor.navyBlue, fontWeight: FontWeight.bold, fontSize: 17)))),
+          child: Padding(padding: ThemePadding.p4, child: Text(label, style: TextStyle(color: ThemeColor.navyBlue, fontWeight: FontWeight.bold, fontSize: 14)))),
       if (!lastItem) Divider(color: ThemeColor.primary.withOpacity(.5), height: 1, thickness: 1, endIndent: ThemePadding.value * 4, indent: ThemePadding.value * 4)
     ]);
   }

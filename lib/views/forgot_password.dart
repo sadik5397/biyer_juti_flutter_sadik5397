@@ -72,6 +72,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                         Center(
                             child: ThemeButton.pill(
+                                smallSize: true,
                                 innerPadding: ThemePadding.p1 * 1.5,
                                 textStyle: TextStyle(fontSize: 18, color: Colors.white, fontWeight: FontWeight.w900),
                                 title: "  Send Verification Code  ",

@@ -6,10 +6,11 @@ import '../theme/border_radius.dart';
 import '../theme/colors.dart';
 
 class CustomInformationSection extends StatelessWidget {
-  const CustomInformationSection({super.key, required this.header, required this.children, this.padding, this.innerPadding, this.transparent = false});
+  const CustomInformationSection({super.key, required this.header, required this.children, this.padding, this.innerPadding, this.transparent = false, this.backgroundColor});
 
   final String header;
   final bool transparent;
+  final Color? backgroundColor;
   final EdgeInsets? padding;
   final EdgeInsets? innerPadding;
   final List<Widget> children;
@@ -31,7 +32,7 @@ class CustomInformationSection extends StatelessWidget {
           Container(
               padding: ThemePadding.px1,
               margin: ThemePadding.px3,
-              color: transparent ? Colors.transparent : ThemeColor.lightPinkBackground,
+              color: transparent ? Colors.transparent : (backgroundColor ?? ThemeColor.lightPinkBackground),
               child: Text(header, style: TextStyle(fontSize: 12, color: ThemeColor.primary, fontWeight: FontWeight.w900)))
         ]));
   }
