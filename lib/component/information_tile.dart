@@ -2,9 +2,10 @@ import 'package:biyer_juti/theme/colors.dart';
 import 'package:flutter/material.dart';
 
 class InformationTile extends StatelessWidget {
-  const InformationTile({super.key, this.value, required this.title});
+  const InformationTile({super.key, this.value, required this.title, this.bold = false});
 
   final String title;
+  final bool bold;
   final dynamic value;
 
   @override
@@ -14,7 +15,7 @@ class InformationTile extends StatelessWidget {
         child: Row(children: [
           SizedBox(width: MediaQuery.of(context).size.width / 3, child: Text(title, style: TextStyle(color: ThemeColor.secondary, fontSize: 14, fontWeight: FontWeight.bold))),
           Text(" :  ", style: TextStyle(color: ThemeColor.secondary, fontSize: 14, fontWeight: FontWeight.bold)),
-          Expanded(child: Text(value.toString(), style: TextStyle(color: ThemeColor.secondary, fontSize: 14, fontWeight: FontWeight.normal)))
+          Expanded(child: Text(value.toString(), style: TextStyle(color: ThemeColor.secondary, fontSize: 14, fontWeight: bold ? FontWeight.bold : FontWeight.normal)))
         ]));
   }
 }

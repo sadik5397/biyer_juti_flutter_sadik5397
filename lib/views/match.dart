@@ -23,9 +23,9 @@ class _MatchState extends State<Match> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: ThemeAppBar.primary(premium: true),
-        body: ListView(padding: ThemePadding.p4.copyWith(top: ThemePadding.value * 8), children: [
-          MatchStat(heartGiven: randomNumber(999), match: randomNumber(99)),
-          const SectionHeader(label: "Matched Profiles", topGap: false),
+        body: ListView(padding: ThemePadding.p6.copyWith(top: ThemePadding.value * 8), children: [
+          MatchStat(heartRcvd: randomNumber(999), match: randomNumber(99)),
+          Padding(padding: ThemePadding.pb2, child: const SectionHeader(label: "Matched Profiles", topGap: false, fontSize: 16)),
           ...List.generate(
               9,
               (index) => ProfileCard(

@@ -24,9 +24,9 @@ class _SearchState extends State<Search> {
     return Scaffold(
         bottomNavigationBar: const ThemeNavigation(currentIndex: 1),
         appBar: ThemeAppBar.primary(hideBack: true),
-        body: ListView(padding: ThemePadding.p4.copyWith(top: ThemePadding.value * 8), children: [
+        body: ListView(padding: ThemePadding.p6.copyWith(top: ThemePadding.value * 8), children: [
           const ProfileSearch(needToBePremium: true),
-          Text("Search Results", textAlign: TextAlign.center, style: TextStyle(color: ThemeColor.secondary, fontSize: 16, fontWeight: FontWeight.bold)),
+          Text("Search Results", textAlign: TextAlign.center, style: TextStyle(color: ThemeColor.superRed, fontSize: 16, fontWeight: FontWeight.bold)),
           Gap.gy4,
           const Pagination(),
           ...List.generate(

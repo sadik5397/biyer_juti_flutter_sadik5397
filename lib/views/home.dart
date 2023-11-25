@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 import '../api/dummy_daya.dart';
 import '../component/app_bar.dart';
+import '../component/section_header.dart';
 import '../util/global_function.dart';
 
 class Home extends StatefulWidget {
@@ -24,8 +25,9 @@ class _HomeState extends State<Home> {
     return Scaffold(
         bottomNavigationBar: const ThemeNavigation(currentIndex: 0),
         appBar: ThemeAppBar.primary(hideBack: true, premium: true),
-        body: ListView(padding: ThemePadding.p4.copyWith(top: ThemePadding.value * 8), children: [
+        body: ListView(padding: ThemePadding.p6.copyWith(top: ThemePadding.value * 8), children: [
           HeartStat(heartReceived: randomNumber(999), heartGiven: randomNumber(999)),
+          Padding(padding: ThemePadding.pb2, child: const SectionHeader(label: "Hearts Received", topGap: false, fontSize: 16)),
           ...List.generate(
               40,
               (index) => ProfileCard(

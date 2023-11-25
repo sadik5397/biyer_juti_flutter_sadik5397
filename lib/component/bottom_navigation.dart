@@ -26,6 +26,7 @@ class _ThemeNavigationState extends State<ThemeNavigation> {
   @override
   Widget build(BuildContext context) {
     return NavigationBar(
+        height: 75,
         destinations: [
           ThemeNavigationItem(svgIcon: "match", label: "Home", selected: widget.currentIndex == 0, index: 0),
           ThemeNavigationItem(svgIcon: "search", label: "Search", selected: widget.currentIndex == 1, index: 1),

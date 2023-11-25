@@ -31,51 +31,57 @@ class ProfileCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
         padding: ThemePadding.pb5,
-        child: Container(
-            decoration: BoxDecoration(gradient: online ? ThemeGradient.lite : null, color: online ? null : Colors.white, borderRadius: ThemeBorderRadius.r6 * 1.15, boxShadow: ThemeShadow.primary),
-            child: Container(
-                margin: ThemePadding.p1,
-                padding: ThemePadding.p4,
-                decoration: BoxDecoration(color: Colors.white, borderRadius: ThemeBorderRadius.r6),
-                width: double.maxFinite,
-                child: Column(children: [
-                  Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                    ClipRRect(
-                        borderRadius: ThemeBorderRadius.r3,
-                        child: Hero(
-                          tag: imageUrl,
-                          child: Hyperlink(
-                              onTap: () => route(context, const Profile()),
-                              child: Stack(children: [
-                                CachedNetworkImage(imageUrl: imageUrl, width: 144, height: 160, fit: BoxFit.cover),
-                                Positioned.fill(child: Container(decoration: BoxDecoration(gradient: ThemeGradient.semiTransparentBlack))),
-                                if (premium) SvgPicture.asset("assets/svg/gold_crown.svg", width: 48, height: 48),
-                                Positioned.fill(
-                                    child: Padding(
-                                        padding: ThemePadding.pb4,
-                                        child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-                                          Text("${randomNumber(99)}% Match", style: TextStyle(fontSize: 12, fontWeight: FontWeight.normal, color: HexColor("#FC6161"))),
-                                          Gap.gy1,
-                                          Text("${randomNumber(50)} Years | ${DummyData.randomNameList(1)[0].toString().split(" ")[0]}", style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white))
-                                        ])))
-                              ])),
-                        )),
-                    Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
-                      Text("BJT ${randomNumberBetween(10000000, 99999999)}", style: TextStyle(color: ThemeColor.secondary, fontWeight: FontWeight.bold, fontSize: 18)),
-                      Gap.gy2,
-                      GiveHeartButtonSmall(onTap: () {}, hearted: hearted, matched: match),
-                      Gap.gy3,
-                      Text("Service Holder", style: TextStyle(color: ThemeColor.primary, fontWeight: FontWeight.normal, fontSize: 15)),
-                      Gap.gy2,
-                      Text("Religion: Islam; Sunni", style: TextStyle(color: ThemeColor.primary, fontWeight: FontWeight.normal, fontSize: 15)),
-                      Gap.gy2,
-                      Hyperlink(
-                          borderRadius: ThemeBorderRadius.r1,
-                          onTap: () => route(context, const Profile()),
-                          child: Text("View Full Profile", style: TextStyle(color: ThemeColor.primary, fontWeight: FontWeight.normal, fontSize: 15, decoration: TextDecoration.underline)))
-                    ])
-                  ]),
-                  if (requestState != RequestState.none) Padding(padding: ThemePadding.pt4, child: RequestButton(onTap: () {}, state: requestState, mobileNumber: "01515644470"))
-                ]))));
+        child: Material(
+          borderRadius: ThemeBorderRadius.r6 * 1.15,
+          elevation: 24,
+          shadowColor: Colors.black.withOpacity(.2),
+          child: Container(
+              decoration: BoxDecoration(gradient: online ? ThemeGradient.lite : null, color: online ? null : Colors.white, borderRadius: ThemeBorderRadius.r6 * 1.15, boxShadow: ThemeShadow.primary),
+              child: Container(
+                  margin: ThemePadding.p1,
+                  padding: ThemePadding.p4,
+                  decoration: BoxDecoration(color: Colors.white, borderRadius: ThemeBorderRadius.r6),
+                  width: double.maxFinite,
+                  child: Column(children: [
+                    Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                      ClipRRect(
+                          borderRadius: ThemeBorderRadius.r3,
+                          child: Hero(
+                            tag: imageUrl,
+                            child: Hyperlink(
+                                onTap: () => route(context, const Profile()),
+                                child: Stack(children: [
+                                  CachedNetworkImage(imageUrl: imageUrl, width: 144, height: 160, fit: BoxFit.cover),
+                                  Positioned.fill(child: Container(decoration: BoxDecoration(gradient: ThemeGradient.semiTransparentBlack))),
+                                  if (premium) SvgPicture.asset("assets/svg/gold_crown.svg", width: 48, height: 48),
+                                  Positioned.fill(
+                                      child: Padding(
+                                          padding: ThemePadding.pb4,
+                                          child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
+                                            Text("${randomNumber(99)}% Match", style: TextStyle(fontSize: 12, fontWeight: FontWeight.normal, color: HexColor("#FC6161"))),
+                                            Gap.gy1,
+                                            Text("${randomNumber(50)} Years | ${DummyData.randomNameList(1)[0].toString().split(" ")[0]}",
+                                                style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white))
+                                          ])))
+                                ])),
+                          )),
+                      Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
+                        Text("BJT ${randomNumberBetween(10000000, 99999999)}", style: TextStyle(color: ThemeColor.secondary, fontWeight: FontWeight.bold, fontSize: 18)),
+                        Gap.gy2,
+                        GiveHeartButtonSmall(onTap: () {}, hearted: hearted, matched: match),
+                        Gap.gy3,
+                        Text("Service Holder", style: TextStyle(color: ThemeColor.primary, fontWeight: FontWeight.normal, fontSize: 15)),
+                        Gap.gy2,
+                        Text("Religion: Islam; Sunni", style: TextStyle(color: ThemeColor.primary, fontWeight: FontWeight.normal, fontSize: 15)),
+                        Gap.gy2,
+                        Hyperlink(
+                            borderRadius: ThemeBorderRadius.r1,
+                            onTap: () => route(context, const Profile()),
+                            child: Text("View Full Profile", style: TextStyle(color: ThemeColor.primary, fontWeight: FontWeight.normal, fontSize: 15, decoration: TextDecoration.underline)))
+                      ])
+                    ]),
+                    if (requestState != RequestState.none) Padding(padding: ThemePadding.pt4, child: RequestButton(onTap: () {}, state: requestState, mobileNumber: "01515644470"))
+                  ]))),
+        ));
   }
 }

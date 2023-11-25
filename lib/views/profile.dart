@@ -50,7 +50,7 @@ class _ProfileState extends State<Profile> {
 
   List<Widget> personalInformation = [
     const SectionHeader(label: "Personal Information"),
-    const InformationTile(title: "User ID", value: "BJT 205011203"),
+    const InformationTile(title: "User ID", value: "BJT 205011203", bold: true),
     const InformationTile(title: "Citizenship", value: "Bangladeshi"),
     const InformationTile(title: "Gender", value: "Female"),
     const InformationTile(title: "Age", value: "27"),

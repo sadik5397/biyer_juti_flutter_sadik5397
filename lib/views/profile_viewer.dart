@@ -23,7 +23,7 @@ class _ProfileViewerState extends State<ProfileViewer> {
     return Scaffold(
         appBar: ThemeAppBar.primary(premium: true),
         body: ListView(padding: ThemePadding.p4.copyWith(top: ThemePadding.value * 8), children: [
-          const SectionHeader(label: "Profile Viewers", topGap: false),
+          Padding(padding: ThemePadding.pb2, child: const SectionHeader(label: "Profile Viewers", topGap: false)),
           ...List.generate(
               29,
               (index) => ProfileCard(

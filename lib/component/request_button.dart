@@ -26,7 +26,7 @@ class RequestButton extends StatelessWidget {
             alignment: Alignment.center,
             decoration: BoxDecoration(
                 borderRadius: ThemeBorderRadius.r6,
-                border: state == RequestState.requestPending || state == RequestState.contactInfo ? Border.all(color: ThemeColor.primary, strokeAlign: BorderSide.strokeAlignOutside) : null,
+                border: state == RequestState.requestPending ? Border.all(color: ThemeColor.primary.withOpacity(.25), strokeAlign: BorderSide.strokeAlignOutside) : null,
                 color: state == RequestState.requestContact
                     ? HexColor("#4286F4")
                     : state == RequestState.requestPending
@@ -44,7 +44,7 @@ class RequestButton extends StatelessWidget {
                     child: Container(
                         alignment: Alignment.center,
                         width: double.maxFinite,
-                        padding: ThemePadding.p3,
+                        padding: ThemePadding.p2,
                         child: Text(
                             state == RequestState.requestContact
                                 ? "Request Contact Number"
@@ -59,10 +59,21 @@ class RequestButton extends StatelessWidget {
                                 TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: state == RequestState.requestPending || state == RequestState.contactInfo ? ThemeColor.primary : Colors.white)))))),
       ),
       if (state == RequestState.contactInfo)
-        FloatingActionButton(shape: const CircleBorder(), onPressed: () async => await launchUrl(Uri.parse("tel:$mobileNumber")), mini: true, elevation: 0, backgroundColor: ThemeColor.primary, child: const Icon(FeatherIcons.phone, size: 16, color: Colors.white)),
+        FloatingActionButton(
+            shape: const CircleBorder(),
+            onPressed: () async => await launchUrl(Uri.parse("tel:$mobileNumber")),
+            mini: true,
+            elevation: 5,
+            backgroundColor: ThemeColor.primary,
+            child: const Icon(FeatherIcons.phone, size: 16, color: Colors.white)),
       if (state == RequestState.contactInfo)
-        FloatingActionButton(shape: const CircleBorder(), onPressed: () async =>   await Clipboard.setData(ClipboardData(text: mobileNumber.toString()))
-            , mini: true, elevation: 0, backgroundColor: ThemeColor.primary, child: const Icon(FeatherIcons.copy, size: 18, color: Colors.white)),
+        FloatingActionButton(
+            shape: const CircleBorder(),
+            onPressed: () async => await Clipboard.setData(ClipboardData(text: mobileNumber.toString())),
+            mini: true,
+            elevation: 5,
+            backgroundColor: ThemeColor.primary,
+            child: const Icon(FeatherIcons.copy, size: 18, color: Colors.white)),
     ]);
   }
 }

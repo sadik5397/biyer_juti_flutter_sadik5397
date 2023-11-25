@@ -28,7 +28,7 @@ class _GiveHeartButtonSmallState extends State<GiveHeartButtonSmall> {
             width: 135,
             decoration: BoxDecoration(borderRadius: ThemeBorderRadius.r6, gradient: ThemeGradient.pink),
             child: Padding(
-                padding: ThemePadding.p2,
+                padding: ThemePadding.p1,
                 child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                   Padding(padding: ThemePadding.pr2, child: const Icon(FeatherIcons.userCheck, size: 16, color: Colors.white)),
                   const Text("Matched", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: Colors.white))
@@ -47,7 +47,7 @@ class _GiveHeartButtonSmallState extends State<GiveHeartButtonSmall> {
                       widget.onTap.call();
                     },
                     child: Padding(
-                        padding: ThemePadding.p2,
+                        padding: ThemePadding.p1,
                         child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                           Padding(padding: ThemePadding.pr2, child: Icon(hearted ? FeatherIcons.heart : FeatherIcons.heart, size: 16, color: hearted ? ThemeColor.lightPink : Colors.white)),
                           Text(hearted ? "Heart Given" : "Give Heart", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: hearted ? ThemeColor.lightPink : Colors.white))

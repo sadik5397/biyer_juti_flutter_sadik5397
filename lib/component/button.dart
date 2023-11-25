@@ -18,13 +18,14 @@ class ThemeButton {
       bool smallSize = false,
       bool border = false,
       bool iconRightSide = false,
+      Color? darkColor,
       Color? color}) {
     return Padding(
         padding: padding ?? ThemePadding.pb4,
         child: Container(
             decoration: BoxDecoration(
                 borderRadius: ThemeBorderRadius.r6,
-                color: color ?? (dark ? ThemeColor.secondary : (transparent ? Colors.transparent : Colors.white)),
+                color: color ?? (dark ? (darkColor ?? ThemeColor.secondary) : (transparent ? Colors.transparent : Colors.white)),
                 border: Border.all(color: border ? ThemeColor.primary : Colors.transparent)),
             child: Material(
                 color: Colors.transparent,
@@ -43,8 +44,17 @@ class ThemeButton {
   }
 
   static Expanded expandedPill(
-      {EdgeInsets? innerPadding, EdgeInsets? padding, required String title, IconData? icon, required VoidCallback onTap, bool dark = false, bool border = false, bool transparent = false, Color? color}) {
-    return Expanded(child: pill(transparent: transparent, title: title, padding: padding, onTap: onTap, icon: icon, dark: dark, border: border, innerPadding: innerPadding, color: color));
+      {EdgeInsets? innerPadding,
+      EdgeInsets? padding,
+      required String title,
+      IconData? icon,
+      required VoidCallback onTap,
+      bool dark = false,
+      bool border = false,
+      bool transparent = false,
+      Color? color,
+      Color? darkColor}) {
+    return Expanded(child: pill(transparent: transparent, title: title, padding: padding, onTap: onTap, icon: icon, dark: dark, border: border, innerPadding: innerPadding, darkColor: darkColor, color: color));
   }
 
   static Padding primary(

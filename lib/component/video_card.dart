@@ -5,7 +5,6 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 import '../theme/border_radius.dart';
 import '../theme/padding.dart';
-import '../theme/shadow.dart';
 import '../util/page_navigation.dart';
 import 'hyperlink.dart';
 
@@ -17,18 +16,22 @@ class VideoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: ThemePadding.px2,
-        child: Hyperlink(
-            onTap: () => route(context, VideoPlayerYouTube(videoID: videoID)),
-            child: Container(
-                alignment: Alignment.center,
-                width: 300,
-                height: 300 / (16 / 9),
-                decoration: BoxDecoration(boxShadow: ThemeShadow.primary, borderRadius: ThemeBorderRadius.r4, image: DecorationImage(image: CachedNetworkImageProvider("https://i3.ytimg.com/vi/$videoID/maxresdefault.jpg"), fit: BoxFit.fitWidth)),
-                child: SvgPicture.asset("assets/svg/play.svg", width: 64, height: 64))));
+        padding: ThemePadding.p2.copyWith(bottom: ThemePadding.value*10),
+        child: Material(
+          borderRadius: ThemeBorderRadius.r4,
+          elevation: 10,
+          child: Hyperlink(
+              onTap: () => route(context, VideoPlayerYouTube(videoID: videoID)),
+              child: Container(
+                  alignment: Alignment.center,
+                  width: 300,
+                  height: 300 / (16 / 9),
+                  decoration:
+                      BoxDecoration(borderRadius: ThemeBorderRadius.r4, image: DecorationImage(image: CachedNetworkImageProvider("https://i3.ytimg.com/vi/$videoID/maxresdefault.jpg"), fit: BoxFit.fitWidth)),
+                  child: SvgPicture.asset("assets/svg/play.svg", width: 64, height: 64))),
+        ));
   }
 }
-
 
 class VideoPlayerYouTube extends StatefulWidget {
   const VideoPlayerYouTube({super.key, required this.videoID});
@@ -41,8 +44,6 @@ class VideoPlayerYouTube extends StatefulWidget {
 class _VideoPlayerYouTubeState extends State<VideoPlayerYouTube> {
   late final YoutubePlayerController _controller = YoutubePlayerController(initialVideoId: widget.videoID, flags: const YoutubePlayerFlags(autoPlay: true, forceHD: true));
   @override
-  Widget build(BuildContext context) => SafeArea(
-      child: RotatedBox(quarterTurns: 1,
-      child: YoutubePlayerBuilder(player: YoutubePlayer(controller: _controller, showVideoProgressIndicator: true), builder: (context, player) => player))
-    );
+  Widget build(BuildContext context) =>
+      SafeArea(child: RotatedBox(quarterTurns: 1, child: YoutubePlayerBuilder(player: YoutubePlayer(controller: _controller, showVideoProgressIndicator: true), builder: (context, player) => player)));
 }

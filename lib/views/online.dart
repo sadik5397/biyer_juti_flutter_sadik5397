@@ -23,7 +23,7 @@ class _OnlineState extends State<Online> {
     return Scaffold(
         appBar: ThemeAppBar.primary(premium: true),
         body: ListView(padding: ThemePadding.p4.copyWith(top: ThemePadding.value * 8), children: [
-          const SectionHeader(label: "Online Profiles", topGap: false),
+          Padding(padding: ThemePadding.pb2, child: const SectionHeader(label: "Online Profiles", topGap: false)),
           ...List.generate(
               29,
               (index) => ProfileCard(
