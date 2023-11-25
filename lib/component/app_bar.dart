@@ -1,4 +1,5 @@
 import 'package:biyer_juti/component/hyperlink.dart';
+import 'package:biyer_juti/theme/border_radius.dart';
 import 'package:biyer_juti/theme/colors.dart';
 import 'package:biyer_juti/theme/padding.dart';
 import 'package:biyer_juti/util/page_navigation.dart';
@@ -7,6 +8,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 import '../theme/gap.dart';
 import '../util/menu.dart';
@@ -21,6 +23,10 @@ class ThemeAppBar {
           Padding(
               padding: ThemePadding.p2.copyWith(right: ThemePadding.value * 4, left: ThemePadding.value * 4),
               child: PopupMenuButton(
+                  color: Colors.white.withOpacity(.9),
+                  surfaceTintColor: Colors.white,
+                  shape: RoundedRectangleBorder(borderRadius: ThemeBorderRadius.r6, side: BorderSide(width: 1, color: HexColor("#CCCCCC"))),
+                  elevation: 10,
                   padding: EdgeInsets.zero,
                   child: Column(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.end, children: [
                     Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
