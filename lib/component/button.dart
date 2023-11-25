@@ -48,6 +48,7 @@ class ThemeButton {
                                 Padding(
                                     padding: ThemePadding.pr2,
                                     child: svgIcon != null
+                                        // ignore: deprecated_member_use
                                         ? SvgPicture.asset(svgIcon, color: dark ? Colors.white : (titleColor ?? ThemeColor.primary))
                                         : Icon(icon, size: 14, color: dark ? Colors.white : (titleColor ?? ThemeColor.primary))),
                             Text(title,
@@ -58,6 +59,7 @@ class ThemeButton {
                                 Padding(
                                     padding: ThemePadding.pl2,
                                     child: svgIcon != null
+                                        // ignore: deprecated_member_use
                                         ? SvgPicture.asset(svgIcon, color: dark ? Colors.white : (titleColor ?? ThemeColor.primary))
                                         : Icon(icon, size: 14, color: dark ? Colors.white : (titleColor ?? ThemeColor.primary))),
                           ]))))),
