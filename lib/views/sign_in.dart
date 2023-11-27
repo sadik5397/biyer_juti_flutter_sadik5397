@@ -6,11 +6,9 @@ import 'package:biyer_juti/theme/padding.dart';
 import 'package:biyer_juti/util/page_navigation.dart';
 import 'package:biyer_juti/views/forgot_password.dart';
 import 'package:biyer_juti/views/search.dart';
-import 'package:biyer_juti/views/sign_up_1_basic_information.dart';
 import 'package:biyer_juti/views/sign_up_2_account_information.dart';
 import 'package:flutter/material.dart';
 
-import 'home.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});

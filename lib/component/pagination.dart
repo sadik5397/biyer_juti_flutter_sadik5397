@@ -1,4 +1,3 @@
-import 'package:biyer_juti/util/global_function.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/foundation.dart';

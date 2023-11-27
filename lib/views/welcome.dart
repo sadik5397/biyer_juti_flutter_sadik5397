@@ -3,7 +3,6 @@ import 'package:biyer_juti/theme/colors.dart';
 import 'package:biyer_juti/theme/padding.dart';
 import 'package:biyer_juti/util/page_navigation.dart';
 import 'package:biyer_juti/views/sign_in.dart';
-import 'package:biyer_juti/views/sign_up_1_basic_information.dart';
 import 'package:biyer_juti/views/sign_up_2_account_information.dart';
 import 'package:flutter/material.dart';
 
