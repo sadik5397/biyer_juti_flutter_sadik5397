@@ -38,8 +38,7 @@ class _GiveHeartButtonSmallState extends State<GiveHeartButtonSmall> {
         : Container(
             margin: ThemePadding.py1 / 2,
             width: 135,
-            decoration: BoxDecoration(
-                borderRadius: ThemeBorderRadius.r5, gradient: hearted ? null : ThemeGradient.red, border: hearted ? Border.all(color: ThemeColor.lightPink, strokeAlign: BorderSide.strokeAlignOutside) : null),
+            decoration: BoxDecoration(borderRadius: ThemeBorderRadius.r5, gradient: hearted ? null : ThemeGradient.red, border: hearted ? Border.all(color: ThemeColor.lightPink, strokeAlign: BorderSide.strokeAlignOutside) : null),
             child: Material(
                 color: Colors.transparent,
                 child: InkWell(
