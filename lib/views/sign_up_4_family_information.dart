@@ -27,7 +27,7 @@ class _SignUp4FamilyInformationState extends State<SignUp4FamilyInformation> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: ThemeColor.lightPinkBackground,
-        appBar: ThemeAppBar.blank(),
+        appBar: ThemeAppBar.blank(context: context, useNewAppBar: true),
         body: ListView(padding: ThemePadding.px6, children: [
           Image.asset("assets/logo-wide.png", height: 75),
           SectionHeader(label: "Family Information", topGap: false, color: ThemeColor.primary),
@@ -36,10 +36,10 @@ class _SignUp4FamilyInformationState extends State<SignUp4FamilyInformation> {
             Gap.gy4,
             Row(children: [
               ThemeDropDownButton.expandedSearch(
-                  title: "Profession", options: DummyData.randomNames, value: null, onChanged: (value) {}, padding: ThemePadding.pb1, labelColor: ThemeColor.secondary, useBorder: true),
+                  title: "Profession", options: DummyData.randomNames, value: null, onChanged: (value) {}, padding: ThemePadding.pb1, labelColor: ThemeColor.secondary, useBorder: true,iconRightSide:true),
               Gap.gx3,
               ThemeDropDownButton.expandedSearch(
-                  title: "Hometown", options: DummyData.randomNames, value: null, onChanged: (value) {}, padding: ThemePadding.pb1, labelColor: ThemeColor.secondary, useBorder: true),
+                  title: "Hometown", options: DummyData.randomNames, value: null, onChanged: (value) {}, padding: ThemePadding.pb1, labelColor: ThemeColor.secondary, useBorder: true,iconRightSide:true),
             ])
           ]),
           Gap.gy4,
@@ -48,10 +48,10 @@ class _SignUp4FamilyInformationState extends State<SignUp4FamilyInformation> {
             Gap.gy4,
             Row(children: [
               ThemeDropDownButton.expandedSearch(
-                  title: "Profession", options: DummyData.randomNames, value: null, onChanged: (value) {}, padding: ThemePadding.pb1, labelColor: ThemeColor.secondary, useBorder: true),
+                  title: "Profession", options: DummyData.randomNames, value: null, onChanged: (value) {}, padding: ThemePadding.pb1, labelColor: ThemeColor.secondary, useBorder: true,iconRightSide:true),
               Gap.gx3,
               ThemeDropDownButton.expandedSearch(
-                  title: "Hometown", options: DummyData.randomNames, value: null, onChanged: (value) {}, padding: ThemePadding.pb1, labelColor: ThemeColor.secondary, useBorder: true),
+                  title: "Hometown", options: DummyData.randomNames, value: null, onChanged: (value) {}, padding: ThemePadding.pb1, labelColor: ThemeColor.secondary, useBorder: true,iconRightSide:true),
             ])
           ]),
           Gap.gy4,
@@ -60,10 +60,10 @@ class _SignUp4FamilyInformationState extends State<SignUp4FamilyInformation> {
             Gap.gy4,
             Row(children: [
               ThemeDropDownButton.expandedSearch(
-                  title: "# Brothers", options: DummyData.randomNames, value: null, onChanged: (value) {}, padding: ThemePadding.pb1, labelColor: ThemeColor.secondary, useBorder: true),
+                  title: "No. of Brother", options: DummyData.randomNames, value: null, onChanged: (value) {}, padding: ThemePadding.pb1, labelColor: ThemeColor.secondary, useBorder: true,iconRightSide:true),
               Gap.gx3,
               ThemeDropDownButton.expandedSearch(
-                  title: "# Sisters", options: DummyData.randomNames, value: null, onChanged: (value) {}, padding: ThemePadding.pb1, labelColor: ThemeColor.secondary, useBorder: true),
+                  title: "No. of Sister", options: DummyData.randomNames, value: null, onChanged: (value) {}, padding: ThemePadding.pb1, labelColor: ThemeColor.secondary, useBorder: true,iconRightSide:true),
             ])
           ]),
           Gap.gy4,

@@ -11,6 +11,7 @@ import 'package:biyer_juti/theme/gap.dart';
 import 'package:biyer_juti/theme/padding.dart';
 import 'package:biyer_juti/util/page_navigation.dart';
 import 'package:biyer_juti/views/sign_up_2_account_information.dart';
+import 'package:biyer_juti/views/sign_up_3_user_information.dart';
 import 'package:flutter/material.dart';
 
 class SignUp1BasicInformation extends StatefulWidget {
@@ -29,7 +30,7 @@ class _SignUp1BasicInformationState extends State<SignUp1BasicInformation> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: ThemeColor.lightPinkBackground,
-        appBar: ThemeAppBar.blank(),
+        appBar: ThemeAppBar.blank(context: context, useNewAppBar: true),
         body: SingleChildScrollView(
             child: SizedBox(
                 height: MediaQuery.of(context).size.height - 100,
@@ -71,7 +72,7 @@ class _SignUp1BasicInformationState extends State<SignUp1BasicInformation> {
                       Gap.gy4,
                       if (codeSent) const OTP(),
                       Gap.infinity,
-                      Padding(padding: ThemePadding.px6 * 4, child: ThemeButton.primary(title: "NEXT", bold: true, onTap: () => route(context, const SignUp2UserInformation()), color: ThemeColor.superRed)),
+                      Padding(padding: ThemePadding.px6 * 4, child: ThemeButton.primary(title: "NEXT", bold: true, onTap: () => route(context, const SignUp3UserInformation()), color: ThemeColor.superRed)),
                       Progress(progress: codeSent ? 2 : 1, outOf: 7),
                       Gap.gy6
                     ])))));

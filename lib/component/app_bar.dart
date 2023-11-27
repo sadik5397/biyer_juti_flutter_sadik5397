@@ -17,6 +17,7 @@ class ThemeAppBar {
   static AppBar primary({bool? hideBack, bool premium = false}) {
     String imageUrl = "https://picsum.photos/64/64";
     return AppBar(
+        centerTitle: false,
         title: Image.asset("assets/logo-wide.png", height: 48),
         toolbarHeight: 72,
         actions: [
@@ -32,10 +33,9 @@ class ThemeAppBar {
                     Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
                       Hero(tag: imageUrl, child: CircleAvatar(backgroundImage: CachedNetworkImageProvider(imageUrl), radius: premium ? 16 : 12)),
                       Gap.gx2,
-                      Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
-                        Text("MUSTAKIM", style: TextStyle(color: ThemeColor.secondary, fontWeight: FontWeight.bold, fontSize: 14)),
-                        if (premium) Text("PREMIUM", style: TextStyle(color: ThemeColor.primary, fontWeight: FontWeight.bold, fontSize: 10))
-                      ]),
+                      Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [Text("MUSTAKIM", style: TextStyle(color: ThemeColor.secondary, fontWeight: FontWeight.bold, fontSize: 14)), if (premium) Text("PREMIUM", style: TextStyle(color: ThemeColor.primary, fontWeight: FontWeight.bold, fontSize: 10))]),
                       Gap.gx2,
                       const Icon(FeatherIcons.chevronDown, size: 16)
                     ]),
@@ -51,10 +51,14 @@ class ThemeAppBar {
         automaticallyImplyLeading: hideBack != null ? !hideBack : true);
   }
 
-  static AppBar blank({Widget? action}) => AppBar(
+  static AppBar blank({Widget? action, bool useNewAppBar = false, required BuildContext context}) => AppBar(
       surfaceTintColor: Colors.transparent,
+      centerTitle: false,
       foregroundColor: ThemeColor.primary,
       backgroundColor: Colors.transparent,
+      leadingWidth: ThemePadding.value * 20,
+      automaticallyImplyLeading: useNewAppBar,
+      leading: useNewAppBar ? IconButton(style: IconButton.styleFrom(backgroundColor: Colors.white, shape: RoundedRectangleBorder(borderRadius: ThemeBorderRadius.r3)), onPressed: () => routeBack(context), icon: Icon(FeatherIcons.chevronLeft)) : null,
       bottomOpacity: 0,
       elevation: 0,
       actions: action == null ? null : [action],

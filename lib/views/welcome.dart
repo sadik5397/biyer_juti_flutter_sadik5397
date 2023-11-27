@@ -4,6 +4,7 @@ import 'package:biyer_juti/theme/padding.dart';
 import 'package:biyer_juti/util/page_navigation.dart';
 import 'package:biyer_juti/views/sign_in.dart';
 import 'package:biyer_juti/views/sign_up_1_basic_information.dart';
+import 'package:biyer_juti/views/sign_up_2_account_information.dart';
 import 'package:flutter/material.dart';
 
 class Welcome extends StatefulWidget {
@@ -24,7 +25,7 @@ class _WelcomeState extends State<Welcome> {
                 decoration: BoxDecoration(gradient: ThemeGradient.qtrTransparentWhite),
                 child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
                   Padding(padding: ThemePadding.px6, child: ThemeButton.primary(title: "LOGIN", onTap: () => route(context, const SignIn()), color: Colors.white, darkText: true)),
-                  Padding(padding: ThemePadding.px6, child: ThemeButton.primary(title: "CREATE PROFILE", onTap: () => route(context, const SignUp1BasicInformation()), gradient: ThemeGradient.secondary)),
+                  Padding(padding: ThemePadding.px6, child: ThemeButton.primary(title: "CREATE PROFILE", onTap: () => route(context, const SignUp2UserInformation()), gradient: ThemeGradient.secondary)),
                   Padding(padding: ThemePadding.p4, child: Image.asset("assets/logo-wide.png", height: 75)),
                 ]))));
   }

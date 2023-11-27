@@ -7,6 +7,7 @@ import 'package:biyer_juti/util/page_navigation.dart';
 import 'package:biyer_juti/views/forgot_password.dart';
 import 'package:biyer_juti/views/search.dart';
 import 'package:biyer_juti/views/sign_up_1_basic_information.dart';
+import 'package:biyer_juti/views/sign_up_2_account_information.dart';
 import 'package:flutter/material.dart';
 
 import 'home.dart';
@@ -53,7 +54,7 @@ class _SignInState extends State<SignIn> {
                       ThemeButton.primary(title: "LOGIN", onTap: () => routeNoBack(context, const Search()), color: ThemeColor.superRed),
                       Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                         ThemeButton.text(label: "Forgot Password", color: ThemeColor.red, weight: FontWeight.bold, onTap: () => route(context, const ForgotPassword())),
-                        ThemeButton.text(label: "Create Profile", color: ThemeColor.secondary, weight: FontWeight.bold, onTap: () => route(context, const SignUp1BasicInformation()))
+                        ThemeButton.text(label: "Create Profile", color: ThemeColor.secondary, weight: FontWeight.bold, onTap: () => route(context, const SignUp2UserInformation()))
                       ]),
                       Gap.gy6
                     ])))));

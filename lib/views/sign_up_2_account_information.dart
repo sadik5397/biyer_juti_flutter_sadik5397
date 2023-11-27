@@ -9,6 +9,7 @@ import 'package:biyer_juti/theme/colors.dart';
 import 'package:biyer_juti/theme/gap.dart';
 import 'package:biyer_juti/theme/padding.dart';
 import 'package:biyer_juti/util/page_navigation.dart';
+import 'package:biyer_juti/views/sign_up_1_basic_information.dart';
 import 'package:biyer_juti/views/sign_up_3_user_information.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +28,7 @@ class _SignUp2UserInformationState extends State<SignUp2UserInformation> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: ThemeColor.lightPinkBackground,
-        appBar: ThemeAppBar.blank(),
+        appBar: ThemeAppBar.blank(context: context, useNewAppBar: true),
         body: ListView(padding: ThemePadding.px6, children: [
           Image.asset("assets/logo-wide.png", height: 75),
           SectionHeader(label: "Account Information", topGap: false, color: ThemeColor.primary),
@@ -56,7 +57,7 @@ class _SignUp2UserInformationState extends State<SignUp2UserInformation> {
               autofillHints: AutofillHints.password,
               showPasswordPressed: () => setState(() => shoConfirmPassword = !shoConfirmPassword)),
           Gap.gy6,
-          Padding(padding: ThemePadding.px6 * 4, child: ThemeButton.primary(title: "NEXT", bold: true, onTap: () => route(context, const SignUp3UserInformation()), color: ThemeColor.superRed)),
+          Padding(padding: ThemePadding.px6 * 4, child: ThemeButton.primary(title: "NEXT", bold: true, onTap: () => route(context, const SignUp1BasicInformation()), color: ThemeColor.superRed)),
           const Progress(progress: 3, outOf: 7),
           Gap.gy6
         ]));

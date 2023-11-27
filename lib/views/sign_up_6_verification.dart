@@ -28,7 +28,7 @@ class _SignUp6VerificationState extends State<SignUp6Verification> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: ThemeColor.lightPinkBackground,
-        appBar: ThemeAppBar.blank(),
+        appBar: ThemeAppBar.blank(context: context, useNewAppBar: true),
         body: ListView(padding: ThemePadding.px6, children: [
           Image.asset("assets/logo-wide.png", height: 75),
           SectionHeader(label: "Verification", topGap: false, color: ThemeColor.primary),
@@ -71,7 +71,7 @@ class _SignUp6VerificationState extends State<SignUp6Verification> {
           ]),
           Gap.gy6,
           Gap.gy6,
-          Padding(padding: ThemePadding.px6 * 4, child: ThemeButton.primary(title: "SUBMIT", bold: true, onTap: () => route(context, const UnderReview()), color: ThemeColor.superRed)),
+          Padding(padding: ThemePadding.px6 * 4, child: ThemeButton.primary(title: "SUBMIT", bold: true, onTap: () => routeNoBack(context, const UnderReview()), color: ThemeColor.superRed)),
           const Progress(progress: 7, outOf: 7),
           Gap.gy6
         ]));

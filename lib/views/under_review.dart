@@ -28,15 +28,16 @@ class _UnderReviewState extends State<UnderReview> {
     return Scaffold(
         backgroundColor: ThemeColor.lightPinkBackground,
         appBar: ThemeAppBar.blank(
+            context: context,
             action: Padding(
-          padding: ThemePadding.px3,
-          child: InkWell(
-              onTap: () => route(context, const SignIn()),
-              child: Padding(
-                padding: ThemePadding.px3,
-                child: Text("Logout", style: TextStyle(color: ThemeColor.secondary, decoration: TextDecoration.underline)),
-              )),
-        )),
+              padding: ThemePadding.px3,
+              child: InkWell(
+                  onTap: () => route(context, const SignIn()),
+                  child: Padding(
+                    padding: ThemePadding.px3,
+                    child: Text("Logout", style: TextStyle(color: ThemeColor.secondary, decoration: TextDecoration.underline)),
+                  )),
+            )),
         body: ListView(padding: ThemePadding.px6, children: [
           Image.asset("assets/logo-wide.png", height: 75),
           SectionHeader(label: "Under Review", topGap: false, color: ThemeColor.primary),
@@ -60,12 +61,7 @@ class _UnderReviewState extends State<UnderReview> {
                     alignment: Alignment.center,
                     padding: ThemePadding.p2,
                     child: Text(verificationSent ? "Verification link sent" : "Send verification link",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: verificationSent ? ThemeColor.navyBlue.withOpacity(.25) : ThemeColor.primary,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            decoration: verificationSent ? TextDecoration.none : TextDecoration.underline))),
+                        textAlign: TextAlign.center, style: TextStyle(color: verificationSent ? ThemeColor.navyBlue.withOpacity(.25) : ThemeColor.primary, fontSize: 16, fontWeight: FontWeight.bold, decoration: verificationSent ? TextDecoration.none : TextDecoration.underline))),
                 onTap: () => setState(() => verificationSent = true)),
           if (verificationSent) Gap.gy2,
           if (verificationSent) Text("Please check your email and click on the verification link to verify your email address.", style: TextStyle(color: ThemeColor.primary), textAlign: TextAlign.center),
