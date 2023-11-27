@@ -2,6 +2,7 @@ import 'package:biyer_juti/theme/border_radius.dart';
 import 'package:biyer_juti/theme/padding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 import '../theme/colors.dart';
 import '../util/global_function.dart';
@@ -222,7 +223,7 @@ class ThemeTextField {
         textCapitalization: textCapitalization,
         obscureText: (isPassword) ? !showPassword : false,
         controller: controller,
-        style: TextStyle(color: ThemeColor.jetBlack, fontSize: 14, fontWeight: FontWeight.w500),
+        style: TextStyle(color: HexColor("#091E42"), fontSize: 14, fontWeight: FontWeight.w500),
         autofocus: autoFocus,
         enabled: !isDisable,
         decoration: InputDecoration(

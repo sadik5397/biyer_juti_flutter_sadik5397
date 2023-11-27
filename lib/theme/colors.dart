@@ -21,13 +21,14 @@ class ThemeColor {
 
 class ThemeGradient {
   static LinearGradient primary = LinearGradient(colors: [HexColor("#EF5656"), HexColor("#FC333F")], begin: Alignment.centerLeft, end: Alignment.centerRight);
+  static LinearGradient blueBlack = LinearGradient(colors: [HexColor("#373B44"), HexColor("#4286F4")], begin: Alignment.centerLeft, end: Alignment.centerRight);
   static LinearGradient secondary = LinearGradient(colors: [HexColor("#A62929"), HexColor("#FE1010")], begin: Alignment.centerLeft, end: Alignment.centerRight);
   static LinearGradient red = LinearGradient(colors: [HexColor("#D96565"), HexColor("#B91A1A")], begin: Alignment.centerLeft, end: Alignment.centerRight);
   static LinearGradient chokmoke = LinearGradient(colors: [HexColor("#FA4A4E"), HexColor("#6457F5")], begin: Alignment.centerLeft, end: Alignment.centerRight);
   static LinearGradient pink = LinearGradient(colors: [HexColor("#D4488B"), HexColor("#FF2876")], begin: Alignment.centerLeft, end: Alignment.centerRight);
   static LinearGradient lite = LinearGradient(colors: [HexColor("#D8D3D3"), HexColor("#EE6C6C")], begin: Alignment.centerLeft, end: Alignment.centerRight);
   static LinearGradient orange = LinearGradient(colors: [HexColor("#ED8A6B"), HexColor("#D15353")], begin: Alignment.topLeft, end: Alignment.bottomRight, stops: [0.25, 0.75]);
-  static LinearGradient advancedSearch = LinearGradient(colors: [HexColor("#dd6161"), HexColor("#ea8686")], begin: Alignment.topLeft, end: Alignment.bottomRight, stops: [0.5, 1]);
+  static LinearGradient advancedSearch = LinearGradient(colors: [HexColor("#dd6161"), HexColor("#ea8686")], begin: Alignment.topCenter, end: Alignment.bottomCenter, stops: [0.5, 1]);
   static LinearGradient gold = LinearGradient(colors: [HexColor("#FFFFFF"), HexColor("#e0dbc0"), HexColor("#C7BE8E")], begin: Alignment.topCenter, end: Alignment.bottomCenter);
   static LinearGradient semiTransparentBlack = LinearGradient(colors: [Colors.transparent, HexColor("#181717").withOpacity(.7)], begin: Alignment.topCenter, end: Alignment.bottomCenter);
   static LinearGradient semiTransparentWhite =

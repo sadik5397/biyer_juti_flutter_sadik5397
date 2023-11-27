@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:math';
 import 'dart:ui' as ui;
-
+import 'package:intl/intl.dart';
 import 'package:flutter/services.dart';
 
 initialConfiguration() {
@@ -11,6 +11,8 @@ initialConfiguration() {
       "sadik5397@gmail.com | bikash.workplace@gmail.com ----\n---- "
       "https://github.com/sadik5397 | https://github.com/dmbikash ----");
 }
+
+String currencyDigit(num num) => NumberFormat("##,##,##,###.##", "en").format(num);
 
 randomNumber(int max) {
   Random random = Random();

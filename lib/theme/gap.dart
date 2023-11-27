@@ -5,6 +5,7 @@ class Gap {
 
   //region horizontal
   static SizedBox gx1 = SizedBox(width: value * 1);
+  static SizedBox gx1_7 = SizedBox(width: value * 1.7);
   static SizedBox gx2 = SizedBox(width: value * 2);
   static SizedBox gx3 = SizedBox(width: value * 3);
   static SizedBox gx4 = SizedBox(width: value * 4);

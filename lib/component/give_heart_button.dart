@@ -2,6 +2,7 @@ import 'package:biyer_juti/theme/border_radius.dart';
 import 'package:biyer_juti/theme/padding.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../theme/colors.dart';
 
@@ -28,7 +29,8 @@ class _GiveHeartButtonState extends State<GiveHeartButton> {
             child: Padding(
                 padding: ThemePadding.p3,
                 child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  Padding(padding: ThemePadding.pr2, child: const Icon(FeatherIcons.userCheck, size: 21, color: Colors.white)),
+                  // Padding(padding: ThemePadding.pr2, child: const Icon(FeatherIcons.userCheck, size: 21, color: Colors.white)),
+                  Padding(padding: ThemePadding.pr2, child: SvgPicture.asset("assets/svg/match.svg", width: 21, color: Colors.white)),
                   const Text("Matched", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.white))
                 ])))
         : Container(
@@ -45,7 +47,8 @@ class _GiveHeartButtonState extends State<GiveHeartButton> {
                     child: Padding(
                         padding: ThemePadding.p3,
                         child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                          Padding(padding: ThemePadding.pr2, child: Icon(hearted ? FeatherIcons.heart : FeatherIcons.heart, size: 21, color: hearted ? ThemeColor.lightPink : Colors.white)),
+                          // Padding(padding: ThemePadding.pr2, child: Icon(hearted ? FeatherIcons.heart : FeatherIcons.heart, size: 21, color: hearted ? ThemeColor.lightPink : Colors.white)),
+                          Padding(padding: ThemePadding.pr2, child: SvgPicture.asset("assets/svg/heart_fota.svg", width: 21, color: hearted ? ThemeColor.lightPink : Colors.white)),
                           Text(hearted ? "Heart Given" : "Give Heart", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: hearted ? ThemeColor.lightPink : Colors.white))
                         ])))));
   }

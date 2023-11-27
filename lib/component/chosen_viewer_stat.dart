@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class ChosenViewerStat extends StatelessWidget {
   const ChosenViewerStat({super.key, required this.foundProfileCount});
 
-  final int foundProfileCount;
+  final String foundProfileCount;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class ChosenViewerStat extends StatelessWidget {
           ShaderMask(
               blendMode: BlendMode.srcIn,
               shaderCallback: (bounds) => ThemeGradient.secondary.createShader(Rect.fromLTWH(0, 0, bounds.width, bounds.height)),
-              child: Text(foundProfileCount.toString(), style: const TextStyle(fontSize: 48, fontWeight: FontWeight.w900)))
+              child: Text(foundProfileCount, style: const TextStyle(fontSize: 48, fontWeight: FontWeight.w900)))
         ]));
   }
 }

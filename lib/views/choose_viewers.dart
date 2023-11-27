@@ -16,7 +16,6 @@ import '../theme/colors.dart';
 import '../theme/gap.dart';
 import '../theme/shadow.dart';
 import '../util/global_function.dart';
-
 class ChooseViewers extends StatefulWidget {
   const ChooseViewers({Key? key}) : super(key: key);
 
@@ -51,16 +50,23 @@ class _ChooseViewersState extends State<ChooseViewers> {
                 const Text("Filters", style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
                 Gap.gy6,
                 Text("Viewer’s Age: ${(selectedRange.start).toInt()}-${(selectedRange.end).toInt()} years", style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold)),
-                RangeSlider(
-                  overlayColor: MaterialStateColor.resolveWith((states) => Colors.white.withOpacity(.2)),
-                  onChanged: (newRange) => setState(() => selectedRange = newRange),
-                  activeColor: Colors.white,
-                  min: minimumValue.toDouble(),
-                  max: maximumValue.toDouble(),
-                  divisions: maximumValue - minimumValue,
-                  labels: RangeLabels("${(selectedRange.start).toInt()}", "${(selectedRange.end).toInt()}"),
-                  values: selectedRange,
-                ),
+                Stack(alignment: Alignment.center, children: [
+                  Container(width: double.maxFinite, height: 6, decoration: BoxDecoration(color: Colors.white, borderRadius: ThemeBorderRadius.r6)),
+                  SliderTheme(
+                    data: SliderThemeData(valueIndicatorColor: ThemeColor.secondary),
+                    child: RangeSlider(
+                      overlayColor: MaterialStateColor.resolveWith((states) => Colors.white.withOpacity(.2)),
+                      onChanged: (newRange) => setState(() => selectedRange = newRange),
+                      activeColor: ThemeColor.secondary,
+                      inactiveColor: Colors.white,
+                      min: minimumValue.toDouble(),
+                      max: maximumValue.toDouble(),
+                      divisions: maximumValue - minimumValue,
+                      labels: RangeLabels("${(selectedRange.start).toInt()}", "${(selectedRange.end).toInt()}"),
+                      values: selectedRange,
+                    ),
+                  )
+                ]),
                 Gap.gy4,
                 Row(children: [
                   ThemeDropDownButton.expandedSearch(title: "Region", options: DummyData.randomNames, value: null, onChanged: (value) {}, labelColor: ThemeColor.superRed, iconRightSide: true, fontSize: 12),
@@ -73,8 +79,10 @@ class _ChooseViewersState extends State<ChooseViewers> {
                 Gap.gy3,
                 Row(children: [
                   ThemeDropDownButton.expandedSearch(title: "Country", options: DummyData.randomNames, value: null, onChanged: (value) {}, labelColor: ThemeColor.superRed, iconRightSide: true, fontSize: 12),
-                  Gap.gx2,
+                  Gap.gx1_7,
                   ThemeDropDownButton.expandedSearch(title: "District", options: DummyData.randomNames, value: null, onChanged: (value) {}, labelColor: ThemeColor.superRed, iconRightSide: true, fontSize: 12),
+                  Gap.gx1_7,
+                  ThemeDropDownButton.expandedSearch(title: "Area", options: DummyData.randomNames, value: null, onChanged: (value) {}, labelColor: ThemeColor.superRed, iconRightSide: true, fontSize: 12),
                 ]),
                 Gap.gy3,
                 ChooseViewerSelectionSection(header: "Hometown", children: List.generate(5, (index) => ItemChip(label: DummyData.randomNameList(5)[index], onDelete: () {})), onAdd: () {}, onReset: () {}),
@@ -105,7 +113,7 @@ class _ChooseViewersState extends State<ChooseViewers> {
                   ThemeButton.expandedPill(title: "Confirm Filter", onTap: () {}, dark: true, padding: ThemePadding.none, smallSize: true)
                 ]),
               ])),
-          ChosenViewerStat(foundProfileCount: randomNumber(9999)),
+          ChosenViewerStat(foundProfileCount: currencyDigit(num.parse(randomNumber(999999).toString()))),
         ]));
   }
 }

@@ -1,6 +1,7 @@
 import 'package:biyer_juti/component/button.dart';
 import 'package:biyer_juti/component/profile_carosel_image.dart';
 import 'package:biyer_juti/component/profile_chip.dart';
+import 'package:biyer_juti/theme/border_radius.dart';
 import 'package:biyer_juti/theme/colors.dart';
 import 'package:biyer_juti/theme/padding.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,7 @@ class _EditMyProfileState extends State<EditMyProfile> {
             child: Column(children: [
               ProfileCarouselImage(images: List.generate(6, (index) => "https://picsum.photos/1024/1024?random=${randomNumber(20)}")),
               const ProfileChip(labels: ["27  Years old", "Dhaka, Bangladesh", "Private Service Holder"]),
-              Text("Your are now editing your profile", style: TextStyle(color: ThemeColor.primary, fontWeight: FontWeight.bold)),
+              Container(padding: ThemePadding.p4, decoration:BoxDecoration(borderRadius: ThemeBorderRadius.r6, color: ThemeColor.jetBlack.withOpacity(.5)), child: Text("   Your are now editing your profile   ", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
               Column(children: [
                 ...personalInformation,
                 ...educationInformation,

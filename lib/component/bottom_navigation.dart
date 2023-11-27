@@ -10,7 +10,7 @@ import '../views/notification.dart';
 import '../views/profile.dart';
 import '../views/search.dart';
 
-List<Widget> pages = const [Home(), Search(), Notifications(), Profile(myProfile: true)];
+List<Widget> pages = const [Search(), Home(), Notifications(), Profile(myProfile: true)];
 
 class ThemeNavigation extends StatefulWidget {
   const ThemeNavigation({Key? key, required this.currentIndex}) : super(key: key);
@@ -28,8 +28,8 @@ class _ThemeNavigationState extends State<ThemeNavigation> {
     return NavigationBar(
         height: 75,
         destinations: [
-          ThemeNavigationItem(svgIcon: "match", label: "Home", selected: widget.currentIndex == 0, index: 0),
-          ThemeNavigationItem(svgIcon: "search", label: "Search", selected: widget.currentIndex == 1, index: 1),
+          ThemeNavigationItem(svgIcon: "search", label: "Search", selected: widget.currentIndex == 0, index: 0),
+          ThemeNavigationItem(svgIcon: "match", label: "Home", selected: widget.currentIndex == 1, index: 1),
           ThemeNavigationItem(svgIcon: "notification", label: "Notification", selected: widget.currentIndex == 2, index: 2),
           ThemeNavigationItem(svgIcon: "my_profile", label: "Profile", selected: widget.currentIndex == 3, index: 3),
         ],

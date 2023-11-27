@@ -22,10 +22,10 @@ class _SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        bottomNavigationBar: const ThemeNavigation(currentIndex: 1),
+        bottomNavigationBar: const ThemeNavigation(currentIndex: 0),
         appBar: ThemeAppBar.primary(hideBack: true),
         body: ListView(padding: ThemePadding.p6.copyWith(top: ThemePadding.value * 8), children: [
-          const ProfileSearch(needToBePremium: true),
+          const ProfileSearch(needToBePremium: false),
           Text("Search Results", textAlign: TextAlign.center, style: TextStyle(color: ThemeColor.superRed, fontSize: 16, fontWeight: FontWeight.bold)),
           Gap.gy4,
           const Pagination(),

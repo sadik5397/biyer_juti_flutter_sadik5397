@@ -44,16 +44,23 @@ class _ProfileSearchState extends State<ProfileSearch> {
                         const Text("Find Your Life Partner", style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
                         Gap.gy5,
                         Text("Preferred Age: ${(selectedRange.start).toInt()}-${(selectedRange.end).toInt()} years", style: const TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.normal)),
-                        RangeSlider(
-                          overlayColor: MaterialStateColor.resolveWith((states) => Colors.white.withOpacity(.2)),
-                          onChanged: (newRange) => setState(() => selectedRange = newRange),
-                          activeColor: Colors.white,
-                          min: minimumValue.toDouble(),
-                          max: maximumValue.toDouble(),
-                          divisions: maximumValue - minimumValue,
-                          labels: RangeLabels("${(selectedRange.start).toInt()}", "${(selectedRange.end).toInt()}"),
-                          values: selectedRange,
-                        ),
+                        Stack(alignment: Alignment.center, children: [
+                          Container(width: double.maxFinite, height: 6, decoration: BoxDecoration(color: Colors.white, borderRadius: ThemeBorderRadius.r6)),
+                          SliderTheme(
+                            data: SliderThemeData(valueIndicatorColor: ThemeColor.secondary),
+                            child: RangeSlider(
+                              overlayColor: MaterialStateColor.resolveWith((states) => Colors.white.withOpacity(.2)),
+                              onChanged: (newRange) => setState(() => selectedRange = newRange),
+                              activeColor: ThemeColor.secondary,
+                              inactiveColor: Colors.white,
+                              min: minimumValue.toDouble(),
+                              max: maximumValue.toDouble(),
+                              divisions: maximumValue - minimumValue,
+                              labels: RangeLabels("${(selectedRange.start).toInt()}", "${(selectedRange.end).toInt()}"),
+                              values: selectedRange,
+                            ),
+                          )
+                        ]),
                         Gap.gy4,
                         Row(children: [
                           ThemeDropDownButton.expandedSearch(title: "Religion", options: DummyData.randomNames, value: null, fontSize: 12, onChanged: (value) {}, iconRightSide: true),
@@ -105,47 +112,31 @@ class _ProfileSearchState extends State<ProfileSearch> {
                               AbsorbPointer(
                                   absorbing: widget.needToBePremium,
                                   child: Opacity(
-                                      opacity: widget.needToBePremium ? 0.6 : 1,
+                                    opacity: 1,
+                                      // opacity: widget.needToBePremium ? 0.6 : 1,
                                       child: Column(children: [
                                         if (!widget.needToBePremium) Gap.gy2,
-                                        ThemeTextField.pill(
-                                            labelText: "Search by Profile ID",
-                                            controller: TextEditingController(),
-                                            showLabel: false,
-                                            centerAlign: true,
-                                            smallSize: true,
-                                            hintColor: ThemeColor.red,
-                                            fontSize: 12),
+                                        ThemeTextField.pill(labelText: "Search by Profile ID", controller: TextEditingController(), showLabel: false, centerAlign: true, smallSize: true, hintColor: ThemeColor.red, fontSize: 12),
                                         Row(children: [
-                                          ThemeDropDownButton.expandedSearch(
-                                              title: "Citizenship", options: DummyData.randomNames, value: null, onChanged: (value) {}, iconRightSide: true, fontSize: 12, labelColor: ThemeColor.red),
-                                          Gap.gx2,
-                                          ThemeDropDownButton.expandedSearch(
-                                              title: "Education", options: DummyData.randomNames, value: null, onChanged: (value) {}, iconRightSide: true, fontSize: 12, labelColor: ThemeColor.red),
-                                          Gap.gx2,
-                                          ThemeDropDownButton.expandedSearch(
-                                              title: "Min. Height", options: DummyData.randomNames, value: null, onChanged: (value) {}, iconRightSide: true, fontSize: 12, labelColor: ThemeColor.red),
+                                          ThemeDropDownButton.expandedSearch(title: "Citizenship", options: DummyData.randomNames, value: null, onChanged: (value) {}, iconRightSide: true, fontSize: 12, labelColor: ThemeColor.red),
+                                          Gap.gx1_7,
+                                          ThemeDropDownButton.expandedSearch(title: "Education", options: DummyData.randomNames, value: null, onChanged: (value) {}, iconRightSide: true, fontSize: 12, labelColor: ThemeColor.red),
+                                          Gap.gx1_7,
+                                          ThemeDropDownButton.expandedSearch(title: "Min. Height", options: DummyData.randomNames, value: null, onChanged: (value) {}, iconRightSide: true, fontSize: 12, labelColor: ThemeColor.red),
                                         ]),
                                         Row(children: [
-                                          ThemeDropDownButton.expandedSearch(
-                                              title: "Profession", options: DummyData.randomNames, value: null, onChanged: (value) {}, iconRightSide: true, fontSize: 12, labelColor: ThemeColor.red),
+                                          ThemeDropDownButton.expandedSearch(title: "Profession", options: DummyData.randomNames, value: null, onChanged: (value) {}, iconRightSide: true, fontSize: 12, labelColor: ThemeColor.red),
                                           Gap.gx2,
-                                          Expanded(
-                                              flex: 2,
-                                              child: ThemeDropDownButton.pill(
-                                                  title: "Hometown", options: DummyData.randomNames, value: null, onChanged: (value) {}, iconRightSide: true, fontSize: 12, labelColor: ThemeColor.red)),
+                                          Expanded(flex: 2, child: ThemeDropDownButton.pill(title: "Hometown", options: DummyData.randomNames, value: null, onChanged: (value) {}, iconRightSide: true, fontSize: 12, labelColor: ThemeColor.red)),
                                         ]),
                                         const Text("Present Address", style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold)),
                                         Gap.gy3,
                                         Row(children: [
-                                          ThemeDropDownButton.expandedSearch(
-                                              title: "Country", options: DummyData.randomNames, value: null, onChanged: (value) {}, iconRightSide: true, fontSize: 12, labelColor: ThemeColor.red),
+                                          ThemeDropDownButton.expandedSearch(title: "Country", options: DummyData.randomNames, value: null, onChanged: (value) {}, iconRightSide: true, fontSize: 12, labelColor: ThemeColor.red),
                                           Gap.gx2,
-                                          ThemeDropDownButton.expandedSearch(
-                                              title: "District", options: DummyData.randomNames, value: null, onChanged: (value) {}, iconRightSide: true, fontSize: 12, labelColor: ThemeColor.red),
+                                          ThemeDropDownButton.expandedSearch(title: "District", options: DummyData.randomNames, value: null, onChanged: (value) {}, iconRightSide: true, fontSize: 12, labelColor: ThemeColor.red),
                                           Gap.gx2,
-                                          ThemeDropDownButton.expandedSearch(
-                                              title: "Upazila", options: DummyData.randomNames, value: null, onChanged: (value) {}, iconRightSide: true, fontSize: 12, labelColor: ThemeColor.red),
+                                          ThemeDropDownButton.expandedSearch(title: "Upazila", options: DummyData.randomNames, value: null, onChanged: (value) {}, iconRightSide: true, fontSize: 12, labelColor: ThemeColor.red),
                                         ]),
                                         Row(children: [
                                           ThemeButton.expandedPill(
@@ -160,27 +151,15 @@ class _ProfileSearchState extends State<ProfileSearch> {
                                               border: true,
                                               borderStyle: Border.all(color: HexColor("#B74242"), width: 3)),
                                           Gap.gx2,
-                                          ThemeButton.expandedPill(
-                                              title: "Advanced Search",
-                                              onTap: () {},
-                                              icon: FeatherIcons.search,
-                                              iconRightSide: true,
-                                              smallSize: true,
-                                              fontSize: 12,
-                                              titleColor: ThemeColor.red,
-                                              border: true,
-                                              borderStyle: Border.all(color: HexColor("#661010"), width: 3)),
+                                          ThemeButton.expandedPill(title: "Advanced Search", onTap: () {}, icon: FeatherIcons.search, iconRightSide: true, smallSize: true, fontSize: 12, titleColor: ThemeColor.red, border: true, borderStyle: Border.all(color: HexColor("#661010"), width: 3)),
                                         ]),
                                         Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                                          const Text("Lock Search Filter", style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold)),
+                                          const Text("Lock Search Filter", style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w700)),
                                           Gap.gx2,
                                           InkWell(
                                               onTap: () => setState(() => lock = !lock),
                                               child: AnimatedCrossFade(
-                                                  firstChild: SvgPicture.asset("assets/svg/unlock.svg", height: 26),
-                                                  secondChild: SvgPicture.asset("assets/svg/lock.svg", height: 26),
-                                                  crossFadeState: lock ? CrossFadeState.showFirst : CrossFadeState.showSecond,
-                                                  duration: Duration(milliseconds: 350)))
+                                                  firstChild: SvgPicture.asset("assets/svg/unlock.svg", height: 26), secondChild: SvgPicture.asset("assets/svg/lock.svg", height: 26), crossFadeState: lock ? CrossFadeState.showFirst : CrossFadeState.showSecond, duration: Duration(milliseconds: 350)))
                                           // Switch(value: lockSearchFilter, activeColor: ThemeColor.secondary, onChanged: (value) => setState(() => lockSearchFilter = !lockSearchFilter))
                                         ])
                                       ])))

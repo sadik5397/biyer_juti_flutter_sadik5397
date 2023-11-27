@@ -23,7 +23,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        bottomNavigationBar: const ThemeNavigation(currentIndex: 0),
+        bottomNavigationBar: const ThemeNavigation(currentIndex: 1),
         appBar: ThemeAppBar.primary(hideBack: true, premium: true),
         body: ListView(padding: ThemePadding.p6.copyWith(top: ThemePadding.value * 8), children: [
           HeartStat(heartReceived: randomNumber(999), heartGiven: randomNumber(999)),
