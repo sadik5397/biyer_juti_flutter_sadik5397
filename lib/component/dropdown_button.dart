@@ -159,4 +159,78 @@ class ThemeDropDownButton {
             showLabelWhenSelected: showLabelWhenSelected,
             useSearch: useSearch));
   }
+  static AbsorbPointer inline(
+      {double? width,
+        EdgeInsets? padding,
+        Color? labelColor,
+        bool useSearch = false,
+        bool smallSize = true,
+        bool iconRightSide = false,
+        bool useBorder = false,
+        double? fontSize,
+        bool isDisable = false,
+        bool showLabelWhenSelected = false,
+        required String title,
+        required List<String> options,
+        required dynamic value,
+        required void Function(Object? value) onChanged,
+        bool dark = false}) {
+    TextEditingController search = TextEditingController();
+    return AbsorbPointer(
+      absorbing: isDisable,
+      child: DropdownButton2(
+          searchController: useSearch ? search : null,
+          searchInnerWidget: useSearch
+              ? ThemeTextField.pill(padding: ThemePadding.p4, showLabel: false, controller: search, labelText: "Search")
+              : Padding(padding: ThemePadding.py3, child: Text("Select " "$title", style: TextStyle(fontSize: 12, color: ThemeColor.primary))),
+          searchMatchFn: (item, searchValue) => item.value.toString().toLowerCase().contains(searchValue.toLowerCase()),
+          underline: const SizedBox(),
+          iconEnabledColor: HexColor("#e18e8e"),
+          buttonElevation: 0,
+          dropdownElevation: 1,
+          icon: Gap.none,
+          selectedItemHighlightColor: ThemeColor.lightPink.withOpacity(.1),
+          isExpanded: true,
+          enableFeedback: true,
+          buttonPadding: ThemePadding.px3,
+          buttonDecoration: BoxDecoration(
+              border: useBorder ? Border.all(color: ThemeColor.primary.withOpacity(.25), width: 1) : null,
+              borderRadius: ThemeBorderRadius.r2,
+              color: isDisable
+                  ? Colors.black12
+                  : dark
+                  ? ThemeColor.secondary
+                  : Colors.white),
+          dropdownPadding: ThemePadding.none,
+          dropdownDecoration: BoxDecoration(borderRadius: ThemeBorderRadius.r2, color: ThemeColor.lightRedBackground),
+          hint: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              if (!iconRightSide) Icon(FeatherIcons.chevronDown, color: labelColor ?? (dark ? Colors.white : ThemeColor.primary), size: 12),
+              if (!iconRightSide) Gap.gx1,
+              Text(title, style: TextStyle(color: labelColor ?? (dark ? Colors.white : ThemeColor.primary), fontSize: fontSize)),
+              if (iconRightSide) Gap.gx1,
+              if (iconRightSide) Icon(FeatherIcons.chevronDown, color: labelColor ?? (dark ? Colors.white : ThemeColor.primary), size: 12),
+            ],
+          ),
+          items: options
+              .map((item) => DropdownMenuItem<String>(
+              value: item, child: Center(child: Text(item, textAlign: TextAlign.center, style: TextStyle(color: HexColor("#CD7B7B"), fontSize: 14, fontWeight: FontWeight.bold)))))
+              .toList(),
+          selectedItemBuilder: (context) => List.generate(
+              options.length,
+                  (index) => Align(
+                  alignment: const Alignment(-1, 0),
+                  child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                    Text("${showLabelWhenSelected ? '$title :' : ''} ${options[index]}", style: TextStyle(color: dark ? Colors.white : ThemeColor.primary, fontSize: 14)),
+                    Gap.gx1,
+                    Icon(FeatherIcons.chevronDown, color: labelColor ?? (dark ? Colors.white : ThemeColor.primary), size: 12)
+                  ]))),
+          buttonHeight: ThemePadding.value * 12,
+          value: value,
+          onChanged: onChanged,
+          buttonWidth: width ?? double.maxFinite,
+          dropdownMaxHeight: 500),
+    );
+  }
 }

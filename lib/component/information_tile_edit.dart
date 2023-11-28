@@ -19,5 +19,3 @@ class InformationTileEdit extends StatelessWidget {
         ]));
   }
 }
-
-//TextStyle(color: ThemeColor.secondary, fontSize: 14, fontWeight: FontWeight.normal)

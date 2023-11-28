@@ -1,4 +1,6 @@
+import 'package:biyer_juti/api/dummy_daya.dart';
 import 'package:biyer_juti/component/button.dart';
+import 'package:biyer_juti/component/information_tile_dropdown.dart';
 import 'package:biyer_juti/component/profile_carosel_image.dart';
 import 'package:biyer_juti/component/profile_chip.dart';
 import 'package:biyer_juti/theme/border_radius.dart';
@@ -55,7 +57,7 @@ class _EditMyProfileState extends State<EditMyProfile> {
     const SectionHeader(label: "Personal Information"),
     const InformationTileEdit(title: "User ID", value: "BJT 205011203"),
     const InformationTileEdit(title: "Citizenship", value: "Bangladeshi"),
-    const InformationTileEdit(title: "Gender", value: "Female"),
+    InformationTileDropDown(options: DummyData.randomNames, title: "Gender", value: "Female"),
     const InformationTileEdit(title: "Age", value: "27"),
     const InformationTileEdit(title: "Religion", value: "Islam, Sunni"),
     const InformationTileEdit(title: "Height", value: "5 feet & 10 inches"),
