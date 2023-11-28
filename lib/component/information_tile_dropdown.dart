@@ -1,5 +1,4 @@
 import 'package:biyer_juti/component/dropdown_button.dart';
-import 'package:biyer_juti/component/text_field.dart';
 import 'package:biyer_juti/theme/colors.dart';
 import 'package:flutter/material.dart';
 
